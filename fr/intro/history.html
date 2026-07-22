@@ -1,0 +1,619 @@
+<!DOCTYPE HTML>
+<html lang="fr" class="hb_light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Contexte historique - Heatblur F-4E Phantom II</title>
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Manual of the F-4E Phantom by Heatblur Simulations.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/visual.css">
+        <link rel="stylesheet" href="../theme/hb_light.css">
+        <link rel="stylesheet" href="../theme/hb_dark.css">
+        <link rel="stylesheet" href="../theme/pdf.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "hb_light";
+            const default_dark_theme = "hb_dark";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>&larr;</kbd> or <kbd>&rarr;</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('hb_light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-hb_light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-hb_dark">Dark</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-pdf">(PDF)</button></li>
+                        </ul>
+                        <button id="mdbook-language-toggle" class="icon-button" type="button" title="Change language" aria-label="Change language" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-language-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 128C0 92.7 28.7 64 64 64H256h48 16H576c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H320 304 256 64c-35.3 0-64-28.7-64-64V128zm320 0V384H576V128H320zM178.3 175.9c-3.2-7.2-10.4-11.9-18.3-11.9s-15.1 4.7-18.3 11.9l-64 144c-4.5 10.1 .1 21.9 10.2 26.4s21.9-.1 26.4-10.2l8.9-20.1h73.6l8.9 20.1c4.5 10.1 16.3 14.6 26.4 10.2s14.6-16.3 10.2-26.4l-64-144zM160 233.2L179 276H141l19-42.8zM448 164c11 0 20 9 20 20v4h44 16c11 0 20 9 20 20s-9 20-20 20h-2l-1.6 4.5c-8.9 24.4-22.4 46.6-39.6 65.4c.9 .6 1.8 1.1 2.7 1.6l18.9 11.3c9.5 5.7 12.5 18 6.9 27.4s-18 12.5-27.4 6.9l-18.9-11.3c-4.5-2.7-8.8-5.5-13.1-8.5c-10.6 7.5-21.9 14-34 19.4l-3.6 1.6c-10.1 4.5-21.9-.1-26.4-10.2s.1-21.9 10.2-26.4l3.6-1.6c6.4-2.9 12.6-6.1 18.5-9.8l-12.2-12.2c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l14.6 14.6 .5 .5c12.4-13.1 22.5-28.3 29.8-45H448 376c-11 0-20-9-20-20s9-20 20-20h52v-4c0-11 9-20 20-20z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-language-list" class="theme-popup" aria-label="Languages" role="menu">
+                            <li role="none"><a role="menuitem" class="theme" data-lang="en">English</a></li>
+                            <li role="none"><a role="menuitem" class="theme" data-lang="fr">Français</a></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Heatblur F-4E Phantom II</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this manual" aria-label="Print this manual">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual/releases" title="PDF version" aria-label="PDF version">
+                            <span class=fa-svg id="pdf-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM64 224H88c30.9 0 56 25.1 56 56s-25.1 56-56 56H80v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V320 240c0-8.8 7.2-16 16-16zm24 80c13.3 0 24-10.7 24-24s-10.7-24-24-24H80v48h8zm72-64c0-8.8 7.2-16 16-16h24c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H176c-8.8 0-16-7.2-16-16V240zm32 112h8c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16h-8v96zm96-128h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H304v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H304v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V304 240c0-8.8 7.2-16 16-16z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual/edit/master/src/fr/intro/history.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <span class=fa-svg id="git-edit-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M421.7 220.3l-11.3 11.3-22.6 22.6-205 205c-6.6 6.6-14.8 11.5-23.8 14.1L30.8 511c-8.4 2.5-17.5 .2-23.7-6.1S-1.5 489.7 1 481.2L38.7 353.1c2.6-9 7.5-17.2 14.1-23.8l205-205 22.6-22.6 11.3-11.3 33.9 33.9 62.1 62.1 33.9 33.9zM96 353.9l-9.3 9.3c-.9 .9-1.6 2.1-2 3.4l-25.3 86 86-25.3c1.3-.4 2.5-1.1 3.4-2l9.3-9.3H112c-8.8 0-16-7.2-16-16V353.9zM453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-14.5 14.5-22.6 22.6-11.3 11.3-33.9-33.9-62.1-62.1L314.3 67.7l11.3-11.3 22.6-22.6 14.5-14.5c25-25 65.5-25 90.5 0z"/></svg></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this manual ..." aria-controls="mdbook-searchresults-outer" aria-describedby="mdbook-searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="contexte-historique"><a class="header" href="#contexte-historique">Contexte historique</a></h1>
+<h2 id="1953-1958--phase-de-développement-f3h-à-ah-1-et-f4h"><a class="header" href="#1953-1958--phase-de-développement-f3h-à-ah-1-et-f4h">1953-1958 : Phase de développement (F3H à AH-1 et F4H)</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/real_life_f4_mockup_with_aim_7.jpg" alt="real_life_f4_mockup_with_missiles"><span class="img-wrapper"><img src="../img/real_life_f4_mockup_with_aim_7.jpg" alt="real_life_f4_mockup_with_missiles"></span></label>
+<em>Maquette du F-4 avec des missiles AIM-7</em></p>
+<p>Le début du développement du <strong>F-4 Phantom II</strong> a commencé à la suite de
+la défaite de McDonnell lors du <strong>Day Fighter Competition</strong> de l'US Navy en 1953 - le vainqueur
+en fut le <strong>Vought F8U</strong>. Choisissant de ne pas se reposer sur l'échec, McDonnell
+des représentants ont interrogé le Bureau de l'aéronautique de la Marine, un certain nombre de
+responsables opérationnels
+commandements, le bureau du chef des opérations navales et tout pilote ou
+responsable disposé à discuter de l’état actuel de l’aviation navale.</p>
+<p>Après près d'un an de travail d'analyse et de conception - y compris une maquette grandeur nature,
+la conception de ce qu'ils classeraient comme un <strong>combattant général</strong> a pris forme. Le
+potentiel d'un avion de combat général, plutôt que l'orientation spécialisée
+préféré par la Marine à l'époque, était enraciné dans le succès du <strong>F3H-1
+Démon</strong> dans l’enfilage de cette même aiguille.</p>
+<h3 id="démon-f3h-1"><a class="header" href="#démon-f3h-1">Démon F3H-1</a></h3>
+<p>Le Demon avait été construit comme une conception opposée au <strong>F4D Skyray</strong> dans le
+rôle d'intercepteur. Alors que le Skyray prouvait sa supériorité supersonique lors de la
+cycle de développement, McDonnell a étendu les capacités du F3H Demon pour inclure
+un armement air-sol respectable pour justifier sa place dans le transporteur limité
+compliment par rapport aux <strong>F10F Jaguar</strong> et <strong>F7U Cutlass</strong>, qui étaient
+également en cours de développement à l'époque.</p>
+<p>Finalement équipé de l'AIM-9 Sidewinder et de l'AIM-7 Sparrow - ce dernier
+donnant au F3H une capacité au-delà de la portée visuelle dont le Skyray ne pourrait jamais se
+vanter,
+et en plus avec la capacité de transporter et de livrer 6 000 livres d'air au sol
+munitions, le Démon a surpassé ses concurrents en termes de potentiel de combat, même lorsque
+il est arrivé deuxième sur papier pour les performances brutes.</p>
+<p>En partant de l'intention de développer le Demon comme cellule de base, un
+ensemble d'évaluations techniques a été réalisé, incluant des configurations moteur simples et doubles
+avec différentes ailes. Les deux ensembles de données les plus prometteurs-
+versions bimoteurs du type, désignées <strong>F3H-G</strong> et <strong>F3H-H</strong>, et propulsées
+par les General Electric J65 et J79 respectivement, ont remplacé l'aile Demon d'origine
+avec une aile en flèche à 45 degrés.</p>
+<p>Une attention particulière a été accordée à la fabrication du nouvel avion <strong>multi-mission
+capable</strong>, exécutant une large gamme d'opérations potentielles : de jour ou par tous les temps
+attaque, reconnaissance photo, interception de jour ou tous temps avec un compatible Sparrow
+radar, guerre électronique et configuration de coordination des frappes à deux sièges.
+L'expérimentation de cette intention de conception à grande échelle est allée jusqu'à inclure un
+nouvel agencement interchangeable du nez et du cockpit, permettant aux cellules d'être
+reconfiguré en quelques heures pour une mission donnée définie avec les éléments nécessaires
+des systèmes adaptés à l’équipage.</p>
+<p>Même si la Marine s'est montrée peu intéressée par la capacité de remplacement du nez, la
+Les résultats des enquêtes F3H-G et -H ont retenu leur attention. Sur
+papier, ils étaient capables d'atteindre Mach 1,52 et un Mach 1,97 époustouflant à
+35 000 pieds, respectivement.</p>
+<p>En octobre 1954, le Navy Bureau of Aeronautics (BuAer) avait évalué des
+propositions non sollicitées de Grumman, Douglas et North American, et avait fourni à
+McDonnell un contrat de 38 millions de dollars pour deux exemplaires volants du
+Suite du démon - désigné en interne comme <strong>AH-1</strong>.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/f3hg.jpg" alt="Maquette McDonnell F3H-G"><span class="img-wrapper"><img src="../img/f3hg.jpg" alt="Maquette McDonnell F3H-G"></span></label>
+<em>Maquette McDonnell F3H-G ; Photo de la marine américaine</em></p>
+<h3 id="ah-1"><a class="header" href="#ah-1">AH-1</a></h3>
+<p>Deux mois plus tard, la Marine a lancé une balle courbe à McDonnell, ordonnant au type d'être
+<strong>dépouillé de l'équipement air-sol</strong> et se concentrant sur le rôle d'intercepteur
+tous temps dans une configuration monoplace, avec la finalisation de ce
+le changement de rôle fut officiellement annoncé en avril 1955.</p>
+<p>Le changement a été, dans certains milieux, considéré comme catastrophique - au fil du temps
+forçant le retrait du canon interne prévu et démontant tous les
+points durs, à l'exception des puits de fuselage encastrés Sparrow et d'un réservoir central
+position. À ce stade, la détermination du <strong>J79</strong> comme centrale électrique était
+finalisé avec le désir de la Marine de disposer d'un intercepteur Mach 2. De plus, le
+détermination d'un équipage de deux hommes, mise en place par la Marine comme le montraient les
+propres recherches de McDonnell, a montré, au vu des succès obtenus dans un contexte
+d'interception plus rapide et à plus longue portée, l'utilité d'un second homme pour gérer le radar.</p>
+<p>Cependant, ce n’était pas une affaire accomplie. BuAero avait eu une conversation avec Vought
+au même moment, et au milieu de 1955, détaille un fly-off entre les deux concurrents
+des entreprises pour le nouveau rôle d'intercepteur ; cette fois, opposant le concurrent AH-1 de
+McDonnell
+avec une excroissance du <strong>Crusader</strong> déjà en service : le <strong>F8U-3</strong>.</p>
+<h3 id="f4h-f-4a"><a class="header" href="#f4h-f-4a">F4H (F-4A)</a></h3>
+<p>Redésigné <strong>F4H</strong> (ou également <strong>F-4A</strong>) au cours des deux années et demie qui ont précédé
+le fly-off de fin 1958, le Phantom II de McDonnell échangerait
+coups substantiels avec le Crusader III de Vought pendant les préliminaires de la Marine
+Évaluation. Alors que la conception de McDonnell est entrée dans la phase d'essais en vol un mois
+plus tôt (et est entré nominalement dans l'ingénierie près d'un an avant l'entrée de Vought),
+les avantages du Vought reprenant une grande partie de l'aérodynamique du Crusader précédent
+Le profil est apparu au début de la comparaison. Le Crusader III fut le premier à atteindre
+Mach 2 lors des essais en vol, démontré capable d'atteindre des vitesses de pointe plus élevées
+pendant le
+Évaluation préliminaire de la Marine, et noté pour avoir une manipulation de cellule plus raffinée
+dans la plupart des régimes.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/f-4h_aboard_uss_independence.jpg" alt="f-4h_aboard_the_uss_independence"><span class="img-wrapper"><img src="../img/f-4h_aboard_uss_independence.jpg" alt="f-4h_aboard_the_uss_independence"></span></label>
+<em>F-4H à bord de l'USS Independence en 1960 ; Photo de la marine américaine</em></p>
+<p>Mais au fur et à mesure que l'évaluation se poursuivait, il s'est avéré que le Phantom II de
+McDonnell
+a contré le Crusader III là où cela comptait : en <strong>capacité de combat</strong>. La Marine
+La Marine voulait un intercepteur Mach 2, pas un chasseur de jour surdimensionné.</p>
+<p>L'intégration du Sparrow par le F8U-3 s'est avérée insuffisante par rapport à celle du
+Phantom, ayant cédé face au F4H sur un AIM-7 en raison de problèmes de performances aérodynamiques. Ce qui est encore plus préoccupant en ce qui concerne le rôle
+d'intercepteur, car
+McDonnell l'avait déjà constaté en interne : la charge de travail du pilote nécessaire pour
+gérer l'installation radar AN/APG-74 du Crusader III en plein combat s'est avérée
+trop élevée pour maintenir son efficacité, alors que la banquette arrière du Phantom II
+pourrait acquérir de manière fiable une connaissance de la situation sur le radar et maintenir la
+trajectoire
+se verrouille pour l'engagement lors des manœuvres.</p>
+<p>Le F4H de McDonnell, tout en ayant des qualités de vol plus brutes, pouvait combattre comme la
+Marine en avait besoin. De plus, alors que l'entreprise avait continué à développer ses capacités air-sol
+potentiel à la demande de la Marine, même s'ils ont modifié à plusieurs reprises le
+objectifs du programme - le Phantom II, comme le Démon avant lui, a justifié son
+existence dans le complément de porte-avions dans tous les combats, pas seulement à longue portée
+rôle d'interception. Et ainsi, le 17 décembre 1958, le Navy Preliminary
+Le comité d'évaluation a annoncé ses conclusions et le <strong>gagnant du fly-off :
+Phantom II</strong> de McDonnell.</p>
+<h2 id="1958-1963--un-intercepteur-de-la-marine-avec-un-pedigree-multirôle-f4h-à-f-110-et-f-4"><a class="header" href="#1958-1963--un-intercepteur-de-la-marine-avec-un-pedigree-multirôle-f4h-à-f-110-et-f-4">1958-1963 : un intercepteur de la marine avec un pedigree multirôle (F4H à F-110 et F-4)</a></h2>
+<p>L'US Air Force n'était pas inconsciente du développement du Phantom II, car la Marine
+après avoir demandé que la capacité air-sol soit revue, a donné à McDonnell un
+point d'entrée. Pendant que l'Air Force recevait les représentants de McDonnell à
+discussion sur une nouvelle cellule d'attaque au sol, le service était en fait intéressé
+dans le F4H traitant du Sparrow en remplacement du <strong>F-106</strong>.</p>
+<p>Le Commandement de la défense aérienne a demandé une évaluation en 1961 connue sous le nom de
+<em>Projet High
+Vitesse</em>, qui a encore une fois prouvé que le Phantom II était supérieur à un challenger dans le
+rôle d'intercepteur. À la lumière des conclusions, la Marine a proposé une démonstration de
+bombardement
+pour les représentants de l'Armée de l'Air du Commandement aérien tactique, en faisant
+particulièrement attention
+des essais air-sol réussis avec l'éjecteur multiple du Phantom
+racks - une capacité qui manquait à l'USAF. Avec les décideurs de l'Armée de l'Air, les membres de
+Congrès, et même le général Curtis LeMay présent lors de cette manifestation
+série - avec un VX-5 F4H-1 délivrant avec précision vingt-deux bombes de 500 lb en
+de façon spectaculaire, le décor était planté pour une aviation tactique Navy/McDonnell
+coup.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/real_life_f_4_dropping_bombs.jpg" alt="f_4_dropping_bombs"><span class="img-wrapper"><img src="../img/real_life_f_4_dropping_bombs.jpg" alt="f_4_dropping_bombs"></span></label>
+<em>F-4E Phantom II de la 347e Escadre de chasse tactique largant six Mark 82 de 500 lb</em></p>
+<p>L'investiture de l'administration Kennedy en janvier 1961 n'a pas fait de mal
+importe; Kennedy a fait appel à l'ancien président de Ford Motor Company, Robert McNamara.
+en tant que secrétaire à la Défense. Dans un souci d'optimisation - parfois à tort,
+les performances du F4H de McDonnell ont été considérées comme un atout sur lequel capitaliser en
+à la lumière de la nouvelle doctrine conventionnelle de l'administration <em>"Flexible
+Réponse"</em> ; la dissuasion nucléaire ne serait plus le principal filet de sécurité de la
+La promesse des États-Unis à l'OTAN.</p>
+<p>Alors que McNamara souhaitait que le <strong>A-7</strong> de la Marine et le <strong>F-111</strong> de l'Air Force
+remplir des rôles de bombardement tactique pour les deux services, les deux cellules étaient à
+au moins cinq ans avant la capacité opérationnelle ; le Phantom existait, à condition
+des performances exceptionnelles immédiatement, et pourraient rapidement atteindre les 50 %
+souhaités
+augmentation de la structure des forces conventionnelles que la Maison Blanche attend pour l'Air
+Forcer. Des pressions de tous côtés - la Maison Blanche, le Congrès, McDonnell et
+intérêt étranger, a finalement vaincu la résistance de l'USAF à une cellule <em>"non
+fabriqué ici"</em>, et en janvier 1962, le budget de l'USAF comptait <strong>Phantoms en commande du
+Commandement aérien tactique</strong> ; l'Air Defence Command, qui avait lancé l'Air
+L'enquête de la Force sur le Phantom serait laissée au <strong>F-106</strong>.</p>
+<h3 id="f-110-spectre"><a class="header" href="#f-110-spectre">F-110 Spectre</a></h3>
+<p>Désigné pendant un certain temps sous le nom de <strong>F-110</strong> pour s'adapter au siècle de l'Air Force
+Série par souci de fierté de service, McDonnell's Air Force Phantom est entré en
+mouvement. Une première livraison de F4H configurés pour la Marine a été fournie pour la formation
+et évaluation plus tard cette année-là, avec le premier vol d'un véritable <strong>F-4C</strong> prenant
+lieu le 27 mai 1963 - le système de désignation de service universel transformant
+du F4H-1 au <strong>F-4B</strong> en septembre 1962.</p>
+<h3 id="f-4b-et--c"><a class="header" href="#f-4b-et--c">F-4B et -C</a></h3>
+<p>La reconfiguration du Phantom II pour l'USAF était opportune, l'accent étant mis sur
+être sur des modifications conformes au service. Celles-ci comprenaient la modification de
+l'atterrissage
+système d'engrenage pour les opérations sur le terrain à plus grande vitesse, l'ajout d'un double
+vol
+commandes, une mise en œuvre antidérapante et une conversion au ravitaillement en carburant par
+flèche
+compatibilité.</p>
+<p>D'autres changements comprenaient l'ajout du INS (Inertial Navigation System) LN-12,
+conversion au radar APQ-100 avec une fonctionnalité spécifique air-sol, et un
+système de démarrage à cartouche pour une utilisation sur le terrain sans chariot à air comprimé
+combinaison avec une batterie interne.</p>
+<p>Cette configuration F-4C serait le premier Phantom utilisé lors de la mission de l'USAF.
+implication au <strong>Vietnam</strong>, à partir de décembre 1964.</p>
+<h2 id="1965-1974--retour-en-arrière-en-toute-hâte---vietnam-f-4d-et-f-4e"><a class="header" href="#1965-1974--retour-en-arrière-en-toute-hâte---vietnam-f-4d-et-f-4e">1965-1974 : Retour en arrière en toute hâte - Vietnam (F-4D et F-4E)</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/f-4b_vf-111_dropping_bombs_on_vietnam.jpg" alt="F-4_dropping_over_Vietnam"><span class="img-wrapper"><img src="../img/f-4b_vf-111_dropping_bombs_on_vietnam.jpg" alt="F-4_dropping_over_Vietnam"></span></label>
+<em>F-4B larguant des bombes sur le Vietnam ; Photo de la marine américaine</em></p>
+<p>Les déploiements initiaux du Phantom en Asie du Sud-Est ont apporté un certain nombre de
+premières - la première tuerie officiellement <strong>confirmée d'un MiG-17</strong> avec l'AIM-9
+Sidewinder (le 10 juillet 1965), et le premier tir aérien américain <strong>d'un
+MiG-21</strong> (26 avril 1966). Malheureusement, le Phantom a également été victime de
+la <strong>première perte américaine face à un SAM</strong> au Vietnam (24 juillet 1965) et la première
+air-air <strong>perte d'un MiG-21</strong> (5 octobre 1966).</p>
+<p>Une fois les problèmes de démarrage initiaux de ce type résolus, notamment
+modifications apportées aux piles à combustible de l'aile et au câblage interne, le Phantom s'est
+avéré
+être une cellule performante et fiable pour l’Armée de l’Air. Même l'arme manquante avait été
+contourné dans une certaine mesure, avec l'intégration du SUU-16 et du SUU-23
+<strong>nacelles de canon externes</strong>.</p>
+<h3 id="f-4d"><a class="header" href="#f-4d">F-4D</a></h3>
+<p>La mise à niveau en production du premier Phantom de l'Air Force - le <strong>F-4D</strong>, serait
+comprennent une multitude d'améliorations de la qualité de vie : le radar APQ-109 avec air-sol
+modes, le système de navigation interne ASN-63, la version ASQ-92
+ordinateur et le système IFF APX-80 "Combat Tree". D'autres ajouts seraient
+comprennent un transfert automatique de carburant et un nouveau viseur, l'ASG-22. Combat
+la capacité de survie serait renforcée avec le pod APS-107 RHAW et ECM
+compatibilité, ainsi que de nouveaux sièges éjectables. Pourtant, la volonté du service de mettre
+son propre <em>"made here"</em> s'épanouit sur le type continué, culminant de manière peu propice
+dans l'intégration du <strong>AIM-4 Falcon</strong> avec le modèle F-4D.</p>
+<h4 id="aim-9-contre-aim-4"><a class="header" href="#aim-9-contre-aim-4">AIM-9 contre AIM-4</a></h4>
+<p>Utilisé sur le <strong>F-102 Delta Dagger</strong> et le <strong>F-106 Delta Dart</strong>, et pris en compte par
+certains sont un concurrent raisonnable du <strong>AIM-9 Sidewinder</strong>, Air Force
+les dirigeants pensaient que l'AIM-4 Falcon pouvait être installé à la place du
+L'obus à courte portée de la Marine sans perte de capacité ; cela a été rapidement découvert
+être une prémisse erronée.</p>
+<p>Alors que l'AIM-9B avait des restrictions de manœuvre limitées pour le lancement et l'acquisition
+comme les autres missiles infrarouges à courte portée de sa génération, il était considérablement
+utilisation plus fiable; la mise en œuvre du refroidissement du Falcon ne pouvait que maintenir
+La température du chercheur requise pendant une courte période une fois activée, et n'a pas pu
+être rallumé une fois le délai expiré du refroidisseur, tandis que le 9B non refroidi pourrait
+rester
+disponible indéfiniment.</p>
+<p>Sidewinder s'est acquis beaucoup plus rapidement, dans de nombreux cas, en moins de deux
+secondes, contre les six à sept secondes requises pour le Falcon.</p>
+<p>Pire encore, l'AIM-4 était un hittile - sa fusée déclenchée par contact avec les ailerons
+nécessitait
+impact direct sur la cible pour que l'ogive du missile explose, alors que l'AIM-9
+portait une fusée de proximité; tout Sidewinder qui se rapprochait de sa cible était un
+menace de tuer.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/f-4ds_435th_tfs_over_vietnam.jpg" alt="f4_over_vietnam"><span class="img-wrapper"><img src="../img/f-4ds_435th_tfs_over_vietnam.jpg" alt="f4_over_vietnam"></span></label>
+<em>F-4D du 435th TFS au-dessus du Vietnam</em></p>
+<p>Avec les premières livraisons de F-4D au 8e TFW en mai 1967, les performances du
+la nouvelle configuration a rapidement suscité la dérision. L'enveloppe d'emploi a été
+trop petit par rapport au Sidewinder, le délai trop long, et l'arme loin
+trop peu fiable pour être mis en pratique dans l'environnement de manœuvre dynamique de
+combat aérien tel qu’il était mené en Asie du Sud-Est.</p>
+<p>L'échec du Falcon n'a pas seulement servi à réaffirmer la qualité de
+le Sidewinder en comparaison - et soulignant également la nécessité pour le service de
+améliorer le cycle comme le faisait la Marine, mais a renforcé l'inquiétude exprimée par
+les équipages navigants sur l'absence de canon interne. Les installations SUU à ce stade avaient
+a remporté plusieurs victoires sur les MiG nord-vietnamiens (mettant finalement fin à la guerre
+avec <strong>9 victoires confirmées</strong>), et il a été décidé de rectifier ce que beaucoup avaient
+considéré comme le péché originel du Phantom, avec une nouvelle révision du F-4.</p>
+<h3 id="f-4e"><a class="header" href="#f-4e">F-4E</a></h3>
+<p>À ce moment-là, McDonnell était en train d'établir le plan de mise à jour du programme pour le F-4E,
+et
+le jet était destiné à transporter le canon M61A1 en interne, et avec lui, le Hughes
+Radar CORDS (système Doppler cohérent à la réception). Hughes n'a pas pu
+livrer avec succès leur système CORDS et le radar Westinghouse APQ-120
+serait choisi en janvier 1968 pour le remplacer. L'APQ-120 était un
+conversion à semi-conducteurs de l'APQ-109/117, repensée pour répondre aux
+exigences de l’installation interne du canon. Le radar recevrait
+modifications apportées à son support, amortissement supplémentaire et réduction de la hauteur de
+l'antenne pour
+s'insère dans la plus petite cavité directement au-dessus de l'ensemble canon du canon.</p>
+<p>D'autres ajustements ont été apportés au F-4E pour améliorer la létalité du Phantom.
+Le matériel supprimé pour la compatibilité Sidewinder dans le F-4D a été mis à jour et
+est revenu. Le système de visée optique informatique principal ASG-26A a été installé le long de
+avec des signaux d'avertissement mis à jour pour l'équipage navigant à portée et au tir, offrant aux
+pilotes un
+image plus claire des enveloppes d'armes du Sparrow et du Sidewinder. Le
+les mises à jour de l'Echo Phantom ne s'arrêteraient pas là ; compatibilité avec
+racks multi-éjection et mises à jour de l'ordinateur de lancement d'armes pour correspondre
+fourni des capacités de bombardement supplémentaires, le <strong>AGM-65 Maverick</strong> a été fabriqué
+disponible en variantes IR et électro-optiques, le bord d'attaque des ailes
+ont été équipés de lattes pour un potentiel de manœuvre accru, et du Digital Scan
+L'interface Converter Group pour l'APQ-120 a été installée.</p>
+<p>Malheureusement, les livraisons initiales du F-4E à partir d'octobre 1967 correspondraient
+son entrée opérationnelle avec le retrait du bombardement américain Rolling Thunder
+campagne sur le Nord-Vietnam. Il faudra attendre 1972 pour que le type soit mis au point.
+l'étendue réelle des améliorations apportées à l'avion à réaction. Avec la reprise de l'air
+campagne en février de la même année, le modèle E Phantom II volerait des milliers de
+missions, et en l'espace de dix-sept mois, marqua <strong>21 victoires air-air</strong>.</p>
+<h3 id="programme-de-formation-rivet-haste"><a class="header" href="#programme-de-formation-rivet-haste">Programme de formation Rivet Haste</a></h3>
+<p>Il convient également de noter Rivet Haste - une initiative de formation tardive du Vietnam en 1972.
+fortement influencé par deux mises à jour de la quarantaine - modification "556" et TISEO.</p>
+<p>Avant "556", les changements de mode d'armement obligeaient le pilote à lâcher prise.
+accélérez et regardez vers le panneau de déclenchement, en activant un certain nombre de
+commutateurs pour
+désarmer divers pylônes et en armer d’autres ; dans le cas d'un Nord-Vietnamien chanceux
+rebond, ou la nécessité de changer d'arme à la volée, en détournant le regard du
+la menace prenait du temps et était dangereuse.</p>
+<p>Avec la modification, une paire de commutateurs de priorité a été ajoutée au moteur hors-bord
+poignée des gaz. Le premier, le bouton <em>"pinky"</em>, plaçait le contrôle du canon,
+Sidewinder et Sparrow dans l'une des trois positions, tandis que la seconde, sur le
+face avant de la poignée, changement de mode d'arme immédiatement entre air-air
+et air-sol ; le pilote aurait désormais un accès immédiat à son air-air
+armes, et pouvait les échanger à la volée - sans jamais regarder en bas
+poste de pilotage. Cette modification a donné naissance au concept appelé HOTAS - pratique
+accélérateur et bâton.</p>
+<p>556 comprenait également des modifications au panneau d'armement pour l'air-sol
+munitions, ajoutant une capacité de largage par ondulation tout en réduisant le nombre de
+commandes requises pour accéder à la programmation complète ARBCS.</p>
+<h3 id="mise-à-niveau-tiseo"><a class="header" href="#mise-à-niveau-tiseo">Mise à niveau TISEO</a></h3>
+<p>Le renforcement de l'initiative de l'équipage passait aussi par l'installation de TISEO - le
+Système d'identification de cible électro-optique -, en 1974.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/real_life_f_4_tiseo.jpg" alt="real_life_f_4_with_tiseo"><span class="img-wrapper"><img src="../img/real_life_f_4_tiseo.jpg" alt="real_life_f_4_with_tiseo"></span></label>
+<em>Un F-4E Phantom II avec un TISEO monté sur l'aile gauche au-dessus des bombes d'entraînement
+bleues</em></p>
+<p>Constitué d'une caméra 4x/10x installée dans l'aile gauche, TISEO a assuré le visuel
+identification de cibles distantes et verrouillées par radar, permettant à l'AIM-7 Sparrow de
+être utilisé dans toute sa mesure lorsqu'il est combiné avec le système APX-80 IFF. Les équipages
+pourraient
+confirme désormais indépendamment deux facteurs d'identification avant la fusion, entrant dans le
+combat
+avec plus d'avantages, même s'ils ne seraient pas autorisés à tirer au-delà
+portée visuelle.</p>
+<p>Couplé à la formation Rivet Haste, qui a soumis des équipages expérimentés à un
+programme pour les codifier en tant qu'instructeurs de systèmes et de tactiques (un peu comme le
+NFWS
+l'éducation étant dispensée aux équipages de l'USN en même temps), les étudiants ont défendu
+le programme de modification du Phantom, et poussé pour Double Attack (un
+développement parallèle du Loose Deuce tel qu'il avait été utilisé par la Marine au Vietnam
+depuis la reprise de la campagne de bombardements) pour devenir la norme en matière de
+méthodologie air-air dans l’ensemble de l’Armée de l’Air.</p>
+<p>Même si cette formation est finalement arrivée trop tard pour avoir un réel effet - l'arrêt
+définitif des bombardements américains étant intervenu quelques semaines seulement après le
+retour au Vietnam des premiers équipages étudiants de Rivet Haste - ils donnèrent le ton aux
+équipages Phantom de l'USAF pour les années suivantes.</p>
+<h2 id="1975-1991--un-guerrier-froid"><a class="header" href="#1975-1991--un-guerrier-froid">1975-1991 : un guerrier froid</a></h2>
+<p>Alors que la guerre du Vietnam touchait à sa fin, le F-4E est passé du statut de combattant actif
+à un guerrier froid. Alors que les F-15 et F-16 se dressaient tous deux à l'horizon pour prendre le
+positions de premier plan dans des rôles tactiques air-air et air-sol, le simple
+la profondeur des effectifs du Phantom à travers l'USAF et ses alliés signifiait que le F-4E
+resterait à la pointe de la lance pendant encore deux décennies.</p>
+<p>Maintenir l'efficacité du F-4 en tant que plate-forme de frappe et combattant air-air était
+vital, et les capacités du E ont continué à s'étendre dans les années 1980.
+Des dispositions pour les AIM-9L et M Sidewinders tous aspects seraient installées, comme
+ainsi que l'AIM-7F amélioré, et plus tard, l'AIM-7M Sparrow. Le
+Le GBU-15 téléguidé, avec son <strong>système de liaison de données</strong> requis, serait
+intégré dans le Phantom à partir de 1975. Pour fournir des services guidés supplémentaires
+munitions, le F-4E recevrait non pas une, mais deux options de pod de ciblage - <strong>Pave
+Spike</strong> et <strong>Pave Tack</strong>.</p>
+<p>Il convient de noter en particulier l'installation du système avionique modulaire numérique,
+ou <strong>DMAS</strong>. DMAS remplaçait complètement la navigation du Phantom
+ordinateur, INS (Inertial Navigation System) et le WRCS, qui utilisait LORAN (<strong>Lo</strong>ng
+<strong>Ra</strong>nge <strong>N</strong>avigation) signaux radio pour définir avec précision la position de l'avion
+partout dans le monde. L’inclusion du DMAS a apporté une amélioration substantielle
+dans les options de navigation et la précision du largage des armes du F-4E, ainsi qu'une extension
+des capacités du mode de livraison du Phantom.</p>
+<p>Le F-4E verrait son service de première ligne prendre fin dans l'US Air Force
+immédiatement après l'Opération Tempête du Désert, avec les derniers utilisateurs restants de
+le type retiré du service actif. Les unités de la Garde nationale aérienne américaine
+conserver le type jusqu'au milieu des années 90, diverses unités les voyant remplacées par
+d'autres types en fonction de leurs missions et emplacements respectifs.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cjQl3OLgwwM?si=W8r-54On71t13gEP" title="F-4 Phantom II Documentaire (1987)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<h2 id="le-f-4e-phantom-ii-aujourdhui"><a class="header" href="#le-f-4e-phantom-ii-aujourdhui">Le F-4E Phantom II aujourd'hui</a></h2>
+<p>De tous les modèles Phantom, le F-4E était la version la plus construite, totalisant
+<strong>1370 unités</strong>.</p>
+<p>Le F-4E Phantom II est toujours en service chez certains opérateurs de l'OTAN, notamment
+l'armée de l'air hellénique, l'armée de l'air sud-coréenne et l'armée de l'air turque.</p>
+<p>Ils devraient voler au moins <strong>jusqu'en 2030</strong>.</p>
+<h2 id="aperçu-des-variantes"><a class="header" href="#aperçu-des-variantes">Aperçu des variantes</a></h2>
+<p>Au-delà du F-4E, plusieurs variantes Phantom ont été construites à des fins diverses.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th style="text-align: center">Variante</th><th>Descriptif</th><th style="text-align: center">Variante de base</th><th>Premier vol</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: center">A</td><td>Prototype et modèle de pré-production</td><td style="text-align: center"></td><td>1958</td></tr>
+<tr><td style="text-align: center">B</td><td>Premier modèle prêt à être produit pour l'US Navy</td><td style="text-align: center">A</td><td>1961</td></tr>
+<tr><td style="text-align: center">C</td><td>Plusieurs améliorations pour une utilisation plus efficace par l'USAF</td><td style="text-align: center">B</td><td>1963</td></tr>
+<tr><td style="text-align: center">D</td><td>Modernisation et amélioration des capacités air-sol</td><td style="text-align: center">C</td><td>1965</td></tr>
+<tr><td style="text-align: center">E</td><td>D'autres améliorations, un meilleur radar et un meilleur canon nasal</td><td style="text-align: center">D</td><td>1965</td></tr>
+<tr><td style="text-align: center">F</td><td>Variation réduite des exportations utilisée par l'Allemagne</td><td style="text-align: center">E</td><td>1973</td></tr>
+<tr><td style="text-align: center">G</td><td>Mise à niveau <em>Wild Weasel</em> pour localiser et combattre les systèmes SAM</td><td style="text-align: center">E</td><td>1976</td></tr>
+<tr><td style="text-align: center">J</td><td>Variation de l'US Navy pour l'exploitation des porte-avions</td><td style="text-align: center">B</td><td>1966</td></tr>
+<tr><td style="text-align: center">K</td><td>Variation de la Royal Navy avec un moteur différent</td><td style="text-align: center">J</td><td>1966</td></tr>
+<tr><td style="text-align: center">M</td><td>Variation de la Royal Air Force avec un moteur différent</td><td style="text-align: center">J</td><td>1966</td></tr>
+<tr><td style="text-align: center">N</td><td>Systèmes modernisés et améliorations structurelles</td><td style="text-align: center">B</td><td>1970</td></tr>
+<tr><td style="text-align: center">S</td><td>Systèmes modernisés et moteurs sans fumée</td><td style="text-align: center">J</td><td>1977</td></tr>
+<tr><td style="text-align: center">RF</td><td>Plusieurs variantes Phantom modifiées pour la reconnaissance</td><td style="text-align: center">B, C, E</td><td></td></tr>
+<tr><td style="text-align: center">QF-4</td><td>Transformés en drones cibles télécommandés pour la recherche</td><td style="text-align: center">beaucoup</td><td></td></tr>
+</tbody>
+</table>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                            <a rel="prev" href="../intro/definitions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                                <span class="nav-chapters-text">Prev</span>
+                            </a>
+
+                            <a rel="next prefetch" href="../intro/foreign.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class="nav-chapters-text">Next</span>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../intro/definitions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                        <span class="nav-chapters-text">Prev</span>
+                    </a>
+                    <a rel="prev" href="../intro/definitions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../intro/foreign.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class="nav-chapters-text">Next</span>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+                    <a rel="next prefetch" href="../intro/foreign.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../js/jquery-3.7.1.min.js"></script>
+        <script src="../js/extra.js"></script>
+        <script src="../js/i18n/switcher.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

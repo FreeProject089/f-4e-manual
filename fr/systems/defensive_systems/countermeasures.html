@@ -1,0 +1,543 @@
+<!DOCTYPE HTML>
+<html lang="fr" class="hb_light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Contre-mesures - Heatblur F-4E Phantom II</title>
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Manual of the F-4E Phantom by Heatblur Simulations.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../theme/visual.css">
+        <link rel="stylesheet" href="../../theme/hb_light.css">
+        <link rel="stylesheet" href="../../theme/hb_dark.css">
+        <link rel="stylesheet" href="../../theme/pdf.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "hb_light";
+            const default_dark_theme = "hb_dark";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>&larr;</kbd> or <kbd>&rarr;</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('hb_light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-hb_light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-hb_dark">Dark</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-pdf">(PDF)</button></li>
+                        </ul>
+                        <button id="mdbook-language-toggle" class="icon-button" type="button" title="Change language" aria-label="Change language" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-language-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 128C0 92.7 28.7 64 64 64H256h48 16H576c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H320 304 256 64c-35.3 0-64-28.7-64-64V128zm320 0V384H576V128H320zM178.3 175.9c-3.2-7.2-10.4-11.9-18.3-11.9s-15.1 4.7-18.3 11.9l-64 144c-4.5 10.1 .1 21.9 10.2 26.4s21.9-.1 26.4-10.2l8.9-20.1h73.6l8.9 20.1c4.5 10.1 16.3 14.6 26.4 10.2s14.6-16.3 10.2-26.4l-64-144zM160 233.2L179 276H141l19-42.8zM448 164c11 0 20 9 20 20v4h44 16c11 0 20 9 20 20s-9 20-20 20h-2l-1.6 4.5c-8.9 24.4-22.4 46.6-39.6 65.4c.9 .6 1.8 1.1 2.7 1.6l18.9 11.3c9.5 5.7 12.5 18 6.9 27.4s-18 12.5-27.4 6.9l-18.9-11.3c-4.5-2.7-8.8-5.5-13.1-8.5c-10.6 7.5-21.9 14-34 19.4l-3.6 1.6c-10.1 4.5-21.9-.1-26.4-10.2s.1-21.9 10.2-26.4l3.6-1.6c6.4-2.9 12.6-6.1 18.5-9.8l-12.2-12.2c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l14.6 14.6 .5 .5c12.4-13.1 22.5-28.3 29.8-45H448 376c-11 0-20-9-20-20s9-20 20-20h52v-4c0-11 9-20 20-20z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-language-list" class="theme-popup" aria-label="Languages" role="menu">
+                            <li role="none"><a role="menuitem" class="theme" data-lang="en">English</a></li>
+                            <li role="none"><a role="menuitem" class="theme" data-lang="fr">Français</a></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Heatblur F-4E Phantom II</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this manual" aria-label="Print this manual">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual/releases" title="PDF version" aria-label="PDF version">
+                            <span class=fa-svg id="pdf-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM64 224H88c30.9 0 56 25.1 56 56s-25.1 56-56 56H80v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V320 240c0-8.8 7.2-16 16-16zm24 80c13.3 0 24-10.7 24-24s-10.7-24-24-24H80v48h8zm72-64c0-8.8 7.2-16 16-16h24c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H176c-8.8 0-16-7.2-16-16V240zm32 112h8c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16h-8v96zm96-128h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H304v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H304v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V304 240c0-8.8 7.2-16 16-16z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual/edit/master/src/fr/systems/defensive_systems/countermeasures.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <span class=fa-svg id="git-edit-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M421.7 220.3l-11.3 11.3-22.6 22.6-205 205c-6.6 6.6-14.8 11.5-23.8 14.1L30.8 511c-8.4 2.5-17.5 .2-23.7-6.1S-1.5 489.7 1 481.2L38.7 353.1c2.6-9 7.5-17.2 14.1-23.8l205-205 22.6-22.6 11.3-11.3 33.9 33.9 62.1 62.1 33.9 33.9zM96 353.9l-9.3 9.3c-.9 .9-1.6 2.1-2 3.4l-25.3 86 86-25.3c1.3-.4 2.5-1.1 3.4-2l9.3-9.3H112c-8.8 0-16-7.2-16-16V353.9zM453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-14.5 14.5-22.6 22.6-11.3 11.3-33.9-33.9-62.1-62.1L314.3 67.7l11.3-11.3 22.6-22.6 14.5-14.5c25-25 65.5-25 90.5 0z"/></svg></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this manual ..." aria-controls="mdbook-searchresults-outer" aria-describedby="mdbook-searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="contre-mesures"><a class="header" href="#contre-mesures">Contre-mesures</a></h1>
+<h2 id="système-de-contre-mesures-anale-40"><a class="header" href="#système-de-contre-mesures-anale-40">Système de contre-mesures AN/ALE-40</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/ext_flares.jpg" alt="ext_cm_dispense"><span class="img-wrapper"><img src="../../img/ext_flares.jpg" alt="ext_cm_dispense"></span></label></p>
+<p>L'ensemble distributeur de contre-mesures AN/ALE-40 offre la capacité de
+distribution de cartouches de paillettes RR-170 A/AL et de cartouches de fusées éclairantes
+infrarouges MJU-7/B.
+Le système se compose de quatre emplacements de distribution situés sur le
+pylônes d'armement intérieurs (2 sur chacun) ainsi que les commandes du cockpit.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CK-gaIUW0Co?si=Mb6up8RG2Us7U1ZD" title="DCS : Contre-mesures F-4E et didacticiel ECM (Pilote, Jester, WSO)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<p>Le cockpit pilote contient un programmateur,
+un sélecteur de fusées éclairantes avec deux lampes
+et un bouton de distribution situé sur l'accélérateur.
+La fosse WSO dispose d'une unité de contrôle du cockpit (CCU).</p>
+<p>Le disjoncteur principal de l'AN/ALE-40 est situé sur
+le panneau de disjoncteurs n° 4 au-dessus de la console arrière gauche dans le cockpit WSO.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/cm_dispenser.jpg" alt="cm_distributeur"><span class="img-wrapper"><img src="../../img/cm_dispenser.jpg" alt="cm_distributeur"></span></label></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Configuration du distributeur</th><th>Descriptif</th></tr>
+</thead>
+<tbody>
+<tr><td>Aucune charge utile</td><td>Distributeurs installés sans charge utile</td></tr>
+<tr><td>120 paillettes</td><td>Seules les paillettes chargées</td></tr>
+<tr><td>60 paillettes + 30 fusées éclairantes</td><td>60 paillettes et 30 fusées éclairantes chargées</td></tr>
+<tr><td>90 paillettes + 15 fusées éclairantes</td><td>90 paillettes et 15 fusées éclairantes chargées</td></tr>
+<tr><td>30 fusées éclairantes</td><td>Seules les fusées éclairantes chargées</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="fonctionnement-général"><a class="header" href="#fonctionnement-général">Fonctionnement général</a></h2>
+<p>Le fonctionnement de l'AN/ALE-40 est contrôlé à la fois depuis le
+cockpit avant et arrière. Le CCU initie les différents
+modes de fonctionnement. Le programmeur générera les commandes de tir dans
+différentes combinaisons.</p>
+<p>Les distributeurs montés sur pylône convertiront les commandes de tir
+en signaux de tir séquencés individuellement. Si le mode de fonctionnement est défini
+aux paillettes, la distribution commencera dans le distributeur à pylône gauche, puis
+transférera les signaux de distribution au distributeur à pylône droit lors de l'épuisement
+des munitions dans le distributeur de gauche. Si le mode de fonctionnement est réglé sur fusée
+éclairante, la distribution
+commencera dans le distributeur principal du pylône droit et une fois les munitions épuisées,
+le commutateur séquenceur transférera le signal de distribution au distributeur maître
+gauche. Les fusées éclairantes peuvent également être larguées de leurs distributeurs à raison
+de 10
+éclats par seconde en activant l'interrupteur d'ondulation situé sur le CCU.</p>
+<p>La distribution de contre-mesures peut être initiée
+soit par le pilote (bouton sur l'accélérateur)
+ou le WSO (bouton de distribution ou interrupteur d'ondulation sur le CCU).</p>
+<p>Les contre-mesures seront appliquées en fonction des paramètres du commutateur de sélection des
+fusées éclairantes, du CCU et du programmeur.</p>
+<p>Ce sont deux définitions importantes à connaître lors de la mise en place des contre-mesures :</p>
+<ul>
+<li>BURST - signal de distribution unique</li>
+<li>SALVO - groupe d'éclats</li>
+</ul>
+<blockquote>
+<p>💡 Pour appliquer des contre-mesures, les volets et les aérofreins doivent être rétractés.</p>
+</blockquote>
+<h2 id="unité-de-commande-du-cockpit-ccu---wso-cockpit"><a class="header" href="#unité-de-commande-du-cockpit-ccu---wso-cockpit">Unité de commande du cockpit (CCU) - WSO Cockpit</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_an_ale_40.jpg" alt="wso_an_ale_40_panel.jpg"><span class="img-wrapper"><img src="../../img/wso_an_ale_40.jpg" alt="wso_an_ale_40_panel.jpg"></span></label></p>
+<p>L'unité de commande du cockpit (CCU) est installée sur la console gauche de l'arrière
+poste de pilotage. Il se compose de deux boutons de mode, deux
+compteurs et deux voyants lumineux (un pour les paillettes et un pour les fusées éclairantes),
+ainsi qu'un interrupteur d'ondulation protégé et un bouton de distribution.</p>
+<p>Le CCU émet des signaux qui sont envoyés au programmateur ou directement aux distributeurs,
+en fonction des modes sélectionnés.</p>
+<h3 id="bouton-de-mode-paillette"><a class="header" href="#bouton-de-mode-paillette">Bouton de mode paillette</a></h3>
+<p>Avec le sélecteur de paillettes (<num>4</num>) en position NORMAL et les volets et les aérofreins
+rétracté, le
+les positions des commutateurs fonctionnent comme suit. Pour chaque pression sur le bouton de
+distribution :</p>
+<ul>
+<li>OFF - Aucune distribution, car le système de paillettes est <strong>inactif</strong>.</li>
+<li>SGL - Une <strong>seule</strong> paillette est distribuée.</li>
+<li>MULT - Paillettes distribuées selon les paramètres <strong>CHAFF BURST</strong> du programmateur.</li>
+<li>PROG - Paillettes distribuées selon les réglages <strong>CHAFF BURST</strong> et <strong>CHAFF SALVO</strong> du
+Programmeur.</li>
+</ul>
+<blockquote>
+<p>💡 Lorsque le mode Chaff Double est sélectionné dans le
+<a href="../../dcs/mission_editor.html#chaff-double-dispense">Éditeur de mission</a>
+ou via le <a href="../../crew_chief/overview.html">Crew Chief</a>,
+deux fois plus de paillettes seront libérées dans chaque mode
+(2 paillettes pour chaque signal de distribution de paillettes).
+Le compteur est ensuite réglé à la moitié du nombre total de cartouches de paillettes chargées pour indiquer
+le nombre de distributions restantes, c'est-à-dire pas les cartouches.</p>
+</blockquote>
+<h3 id="bouton-du-mode-flare"><a class="header" href="#bouton-du-mode-flare">Bouton du mode Flare</a></h3>
+<p>Avec le sélecteur de fusées éclairantes (<num>7</num>) en position NORMAL et les volets et les aérofreins
+rétracté,
+les positions du commutateur fonctionnent comme suit. Pour chaque pression sur le bouton de
+distribution :</p>
+<ul>
+<li>OFF - Aucune distribution, car le système de fusées éclairantes est <strong>inactif</strong>.</li>
+<li>SGL - Une <strong>seule</strong> fusée éclairante est distribuée.</li>
+<li>PROG - Fusées distribuées selon les paramètres <strong>FLARE BURST</strong> du programmateur.</li>
+</ul>
+<h3 id="compteurs-de-paillettes-et-de-fusées-éclairantes"><a class="header" href="#compteurs-de-paillettes-et-de-fusées-éclairantes">Compteurs de paillettes et de fusées éclairantes</a></h3>
+<p>Il y a deux compteurs de soustraction (3 et 6), un pour le système de paillettes et un pour le
+système de paillettes.
+système de fusée éclairante. Ils indiquent la quantité de cartouches de paillettes et de fusées
+éclairantes restantes.</p>
+<h3 id="témoins-lumineux-de-paillettes-et-de-fusées-éclairantes"><a class="header" href="#témoins-lumineux-de-paillettes-et-de-fusées-éclairantes">Témoins lumineux de paillettes et de fusées éclairantes</a></h3>
+<p>La fusée éclairante et le système de paillettes ont chacun un voyant vert (5 et 8).
+Chaque fois qu'un mode (autre que OFF) est sélectionné sur le bouton de mode correspondant,
+le voyant correspondant s’allumera.</p>
+<blockquote>
+<p>💡 Les paillettes et les fusées éclairantes peuvent être utilisées simultanément à condition d'avoir un mélange
+le chargement de paillettes et de fusées éclairantes est utilisé.</p>
+</blockquote>
+<h3 id="commutateur-dondulation"><a class="header" href="#commutateur-dondulation">Commutateur d'ondulation</a></h3>
+<p>L'interrupteur d'ondulation (<num>2</num>) est protégé. Lorsque la protection est levée et que
+l'interrupteur est activé,
+il lancera la distribution de fusées éclairantes quelle que soit la position de tout autre
+commutateurs ou boutons de mode dans le système de contre-mesures (si les volets et la vitesse
+les freins sont rentrés). Les fusées seront distribuées à raison de 10 fusées par
+seconde jusqu'à ce que les distributeurs de pylônes gauche et droit soient vides.</p>
+<h3 id="bouton-de-distribution"><a class="header" href="#bouton-de-distribution">Bouton de distribution</a></h3>
+<p>Le bouton de distribution (<num>1</num>), lorsqu'il est enfoncé, déclenche les paillettes/fusées.
+distribution sélectionnée par le CCU et
+Programmateur à condition que les volets et les aérofreins soient
+rétracté et les boutons du mode paillettes/fusée sont en position
+toute position autre que OFF.</p>
+<h2 id="programmeur---cockpit-pilote"><a class="header" href="#programmeur---cockpit-pilote">Programmeur - Cockpit Pilote</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/pilot_an_ale_40_programmer.jpg" alt="pilote_an_ale_40_programmeur"><span class="img-wrapper"><img src="../../img/pilot_an_ale_40_programmer.jpg" alt="pilote_an_ale_40_programmeur"></span></label></p>
+<p>Le programmateur AN/ALE-40 contient les commandes et les circuits utilisés pour envoyer
+des commandes de tir spécifiques aux distributeurs de paillettes et de fusées éclairantes. Les
+paramètres suivants
+sont réglables :</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Catégorie</th><th>Bouton</th><th>Valeurs</th><th>Descriptif</th></tr>
+</thead>
+<tbody>
+<tr><td>CHAFF BURST</td><td>COMPTE (<num>4</num>)</td><td>1, 2, 3, 4, 6, 8</td><td>quantité de rafales (par salve)</td></tr>
+<tr><td></td><td>INTERVALLE (<num>1</num>)</td><td>0,1, 0,2, 0,3, 0,4</td><td>intervalle de temps entre chaque rafale</td></tr>
+<tr><td>CHAFF SALVO</td><td>COMPTE (<num>5</num>)</td><td>1, 2, 4, 8, C (continu)</td><td>nombre de salves</td></tr>
+<tr><td></td><td>INTERVALLE (<num>2</num>)</td><td>1, 2, 3, 4, 5, 8, R (aléatoire)</td><td>intervalle de temps entre chaque salve</td></tr>
+<tr><td>FLARE BURST</td><td>COMPTE (<num>6</num>)</td><td>1, 2, 4, 8, C (continu)</td><td>quantité de salves</td></tr>
+<tr><td></td><td>INTERVALLE (<num>3</num>)</td><td>3, 4, 6, 8, 10</td><td>intervalle de temps entre chaque rafale</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>💡 Tous les intervalles sont exprimés en secondes.</p>
+</blockquote>
+<h2 id="panneau-de-commande-du-système-de-carburant---cockpit-du-pilote"><a class="header" href="#panneau-de-commande-du-système-de-carburant---cockpit-du-pilote">Panneau de commande du système de carburant - Cockpit du pilote</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/pilot_an_ale_40_lights.jpg" alt="pilot_an_ale_40_switch"><span class="img-wrapper"><img src="../../img/pilot_an_ale_40_lights.jpg" alt="pilot_an_ale_40_switch"></span></label></p>
+<h3 id="commutateur-de-sélection-des-fusées-éclairantes"><a class="header" href="#commutateur-de-sélection-des-fusées-éclairantes">Commutateur de sélection des fusées éclairantes</a></h3>
+<p>Si le commutateur de sélection des fusées éclairantes (<num>3</num>) est en position <strong>NORMAL</strong>, il
+arme le
+système de distribution de contre-mesures et permet aux paillettes et aux fusées éclairantes d'être
+distribué comme défini par le CCU et le programmateur en appuyant sur l'un ou l'autre
+bouton.</p>
+<p>Si le commutateur de sélection des fusées éclairantes est en position <strong>FLARES</strong>, cela n'affecte que
+l'avant.
+bouton de distribution du cockpit en ignorant tous les interrupteurs et boutons du
+système de contre-mesures, à condition que les volets et les aérofreins soient rentrés.
+Cela permet au pilote de distribuer une seule fusée à chaque fois qu'il appuie sur le bouton
+bouton de distribution. Les fonctions de distribution du cockpit arrière ne sont pas affectées par
+le commutateur
+position.</p>
+<h3 id="voyant-de-mise-sous-tension-anale-40-vert"><a class="header" href="#voyant-de-mise-sous-tension-anale-40-vert">Voyant de mise sous tension AN/ALE-40 (vert)</a></h3>
+<p>Ce voyant vert s'allume (<num>1</num>) lorsqu'au moins un des modes paillettes et fusée éclairante
+Les boutons du CCU sont dans n'importe quelle position autre que OFF.</p>
+<h3 id="voyant-lumineux-des-fusées-éclairantes-ambre"><a class="header" href="#voyant-lumineux-des-fusées-éclairantes-ambre">Voyant lumineux des fusées éclairantes (ambre)</a></h3>
+<p>Cet indicateur orange (<num>2</num>) s'allume lorsque le Flares Select
+Le commutateur est réglé sur FLARES.</p>
+<p>Lorsqu'elles sont allumées, les fusées éclairantes peuvent être distribuées en appuyant sur
+le bouton de distribution du cockpit avant quels que soient les paramètres du programmateur et du
+CCU.</p>
+<h2 id="bouton-de-distribution-cockpit-de-pilotage"><a class="header" href="#bouton-de-distribution-cockpit-de-pilotage">Bouton de distribution (cockpit de pilotage)</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/pilot_dispense_button.jpg" alt="pilot_throttle_cm_dispense"><span class="img-wrapper"><img src="../../img/pilot_dispense_button.jpg" alt="pilot_throttle_cm_dispense"></span></label></p>
+<p>Lorsque vous appuyez sur le bouton de distribution, la distribution de paillettes/fusées est lancée
+comme défini sur
+le CCU et le programmateur AN/ALE-40 si les volets et les aérofreins sont rentrés et
+le commutateur de sélection des fusées éclairantes est réglé sur NORMAL. En outre, une fusée à unité
+unique
+la distribution peut être initiée par une simple pression sur un bouton si le commutateur de
+sélection des fusées éclairantes
+est réglé sur FLARES.</p>
+<h2 id="distributeurs-anale-40"><a class="header" href="#distributeurs-anale-40">Distributeurs AN/ALE-40</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/cm_dispenser.jpg" alt="cm_distributeur"><span class="img-wrapper"><img src="../../img/cm_dispenser.jpg" alt="cm_distributeur"></span></label></p>
+<p>Les distributeurs de contre-mesures AN/ALE-40 sont divisés en deux distributeurs distincts
+configurations. Le distributeur principal (hors-bord) contient l'électronique et
+commutateur séquenceur pour les deux distributeurs sur chaque pylône et est installé sur le
+côté extérieur des pylônes d'armement intérieurs. Le distributeur esclave (intérieur) est
+installé du côté intérieur des pylônes d'armement intérieurs et est connecté à
+le distributeur maître par un câble d'interconnexion. L'avion peut être configuré
+soit avec quatre modules de charge utile de paillettes sur les quatre distributeurs, soit deux
+modules de charge utile de paillettes
+modules de charge utile sur les distributeurs esclaves et deux modules de charge utile torchère sur
+le
+maîtres distributeurs. Seuls les modules de charge utile Chaff peuvent être installés sur l'esclave
+distributeurs; les modules de charge utile Flare ne peuvent être installés que sur le maître
+distributeurs.</p>
+<h3 id="assemblage-du-distributeur-principal"><a class="header" href="#assemblage-du-distributeur-principal">Assemblage du distributeur principal</a></h3>
+<blockquote>
+<p>💡 Le fonctionnement de l'ensemble distributeur maître se fait automatiquement par
+l'équipe au sol en DCS, selon le chargement AN/ALE-40 sélectionné dans le menu de
+chargement.</p>
+</blockquote>
+<p>Un ensemble distributeur principal est installé sur le côté extérieur de chaque
+pylône d'armement intérieur. Il se compose d'un interrupteur séquenceur, d'un ensemble culasse, d'un
+interrupteur de disjoncteur RESET/OPERATE, un interrupteur de commande de charge utile, un
+interrupteur à goupille de sécurité avec goupille de sécurité et banderole d'avertissement, et les
+circuits électriques pertinents.
+Le commutateur séquenceur convertit les commandes de tir en signaux de tir individuels
+pour chaque pétard pyrotechnique dans les distributeurs maître et esclave. L'ensemble de culasse
+fournit l'interface pour monter les modules de charge utile de paillettes ou de fusées
+éclairantes.
+L'insertion de la goupille de sécurité coupe l'alimentation électrique des deux distributeurs
+montés sur le pylône. Une fois qu'un module de paillettes ou de fusées éclairantes complet a été
+chargé, le
+commutateur RESET/OPERATE est placé sur OPERATE. Les sections de paillettes ou de fusées
+éclairantes tireront
+en séquence. Après le vol, s'il reste une charge partielle de paillettes ou de fusées éclairantes,
+l'interrupteur doit être laissé sur OPERATE. Si le commutateur est déplacé sur RESET, les
+stations de paillettes ou de fusées éclairantes vides doivent être franchies avant que les stations
+chargées ne
+tirent. Les positions C (paillettes) et F (fusée) du sélecteur de charge utile définissent uniquement
+le mode de déploiement du distributeur maître et sont réglés automatiquement en DCS
+selon le chargement sélectionné.</p>
+<h3 id="assemblage-du-distributeur-esclave"><a class="header" href="#assemblage-du-distributeur-esclave">Assemblage du distributeur esclave</a></h3>
+<blockquote>
+<p>💡 La position du sélecteur de charge utile est par défaut réglée sur CS (chaff single dispense).
+Cependant, il peut également être réglé sur CD (double distribution de paillettes
+via l'<a href="../../dcs/mission_editor.html#chaff-double-dispense">éditeur de mission</a>
+soit en posant la question au <a href="../../crew_chief/overview.html">Crew Chief</a> au sol).</p>
+</blockquote>
+<p>Un ensemble de distributeur esclave est installé sur le côté intérieur de chaque
+pylône d'armement intérieur. Il contient un sélecteur de charge utile pour définir soit la
+distribution simple
+de paillettes, soit la distribution double de paillettes, un ensemble culasse et les circuits
+électriques appropriés.
+Si le sélecteur de charge utile est laissé dans la position CS par défaut, une cartouche de
+paillettes sera distribuée pour chaque éclat de paillettes commandé. Si le sélecteur de charge
+utile est réglé sur la position CD, deux cartouches de paillettes seront
+distribuées simultanément, une de chaque distributeur, pour chaque éclat de paillette
+commandé. L'ensemble de culasse fournit l'interface pour monter le
+module de charge utile de paillettes.</p>
+<h3 id="adaptateur-de-boîtier-de-fusée-éclairante"><a class="header" href="#adaptateur-de-boîtier-de-fusée-éclairante">Adaptateur de boîtier de fusée éclairante</a></h3>
+<p>L'adaptateur du boîtier de fusée est installé entre l'ensemble distributeur principal et
+le module de charge utile de la fusée éclairante. L'adaptateur en forme de coin garantit que les
+fusées éclairantes
+soient éjectées vers l'arrière et vers le bas de l'avion. Il ne peut pas être monté sur le distributeur
+esclave.</p>
+<h3 id="module-de-charge-utile-de-paillettes-et-cartouches"><a class="header" href="#module-de-charge-utile-de-paillettes-et-cartouches">Module de charge utile de paillettes et cartouches</a></h3>
+<p>Le module de charge utile de paillettes est fixé à la culasse du distributeur maître ou esclave
+assemblage avec quatre attaches rapides. La cartouche de paillettes se compose d'un
+manchon en plastique de base, dipôles de paille et embout en plastique. Une fois distribué,
+les dipôles de paillettes sont éjectés des manchons et quittent le manchon jetable et
+l'étui vide derrière. La base de la cartouche fournit un évidement pour le pétard
+pyrotechnique des paillettes.</p>
+<blockquote>
+<p>🔴 AVERTISSEMENT : une décharge accidentelle de cartouches de paillettes peut causer des blessures à
+personnel ou des dommages à l'avion.</p>
+</blockquote>
+<!-- La goupille de sécurité du distributeur principal doit être
+installé à tout moment lors du chargement, du déchargement ou de l’entretien du système. -->
+<h3 id="module-de-charge-utile-de-fusée-éclairante-et-cartouches"><a class="header" href="#module-de-charge-utile-de-fusée-éclairante-et-cartouches">Module de charge utile de fusée éclairante et cartouches</a></h3>
+<p>Le module de charge utile de la fusée éclairante ne peut être installé que sur l’ensemble
+distributeur principal.
+L'adaptateur du boîtier de fusée sert d'interface. La cartouche de fusée éclairante se compose
+d'un manchon extérieur métallique, d'un élément fusant, d'un dispositif de sécurité et d'initiation
+et d'un
+embout en plastique. Une indentation dans la base de la cartouche permet une installation
+correcte de la fusée éclairante.</p>
+<blockquote>
+<p>🔴 AVERTISSEMENT : une décharge accidentelle de cartouches de fusée éclairante peut causer des blessures à
+personnel ou des dommages à l'avion.</p>
+</blockquote>
+<!-- La goupille de sécurité du distributeur principal doit être
+installé à tout moment lors du chargement, du déchargement ou de l’entretien du système. -->
+<h3 id="pétards-pyrotechniques-à-paillettesfusées-éclairantes"><a class="header" href="#pétards-pyrotechniques-à-paillettesfusées-éclairantes">Pétards pyrotechniques à paillettes/fusées éclairantes</a></h3>
+<p>Les pétards pyrotechniques à paillettes sont installés immédiatement avant utilisation et sont
+stockés séparément des cartouches de paillettes. Ils sont encastrés dans du métal et
+déclenchés électriquement.</p>
+<p>Les pétards pyrotechniques de fusées éclairantes ont un diamètre plus grand et sont dotés d'une
+rainure pour joint torique.
+Ils sont installés immédiatement avant utilisation et sont stockés séparément des
+cartouches de fusées éclairantes.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                            <a rel="prev" href="../../systems/defensive_systems/overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                                <span class="nav-chapters-text">Prev</span>
+                            </a>
+
+                            <a rel="next prefetch" href="../../systems/defensive_systems/radar_warning_receiver.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class="nav-chapters-text">Next</span>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../systems/defensive_systems/overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                        <span class="nav-chapters-text">Prev</span>
+                    </a>
+                    <a rel="prev" href="../../systems/defensive_systems/overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../../systems/defensive_systems/radar_warning_receiver.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class="nav-chapters-text">Next</span>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+                    <a rel="next prefetch" href="../../systems/defensive_systems/radar_warning_receiver.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../js/jquery-3.7.1.min.js"></script>
+        <script src="../../js/extra.js"></script>
+        <script src="../../js/i18n/switcher.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

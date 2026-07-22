@@ -1,0 +1,593 @@
+<!DOCTYPE HTML>
+<html lang="fr" class="hb_light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Air-Air - Heatblur F-4E Phantom II</title>
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Manual of the F-4E Phantom by Heatblur Simulations.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../theme/visual.css">
+        <link rel="stylesheet" href="../../theme/hb_light.css">
+        <link rel="stylesheet" href="../../theme/hb_dark.css">
+        <link rel="stylesheet" href="../../theme/pdf.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "hb_light";
+            const default_dark_theme = "hb_dark";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>&larr;</kbd> or <kbd>&rarr;</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('hb_light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-hb_light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-hb_dark">Dark</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-pdf">(PDF)</button></li>
+                        </ul>
+                        <button id="mdbook-language-toggle" class="icon-button" type="button" title="Change language" aria-label="Change language" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-language-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 128C0 92.7 28.7 64 64 64H256h48 16H576c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H320 304 256 64c-35.3 0-64-28.7-64-64V128zm320 0V384H576V128H320zM178.3 175.9c-3.2-7.2-10.4-11.9-18.3-11.9s-15.1 4.7-18.3 11.9l-64 144c-4.5 10.1 .1 21.9 10.2 26.4s21.9-.1 26.4-10.2l8.9-20.1h73.6l8.9 20.1c4.5 10.1 16.3 14.6 26.4 10.2s14.6-16.3 10.2-26.4l-64-144zM160 233.2L179 276H141l19-42.8zM448 164c11 0 20 9 20 20v4h44 16c11 0 20 9 20 20s-9 20-20 20h-2l-1.6 4.5c-8.9 24.4-22.4 46.6-39.6 65.4c.9 .6 1.8 1.1 2.7 1.6l18.9 11.3c9.5 5.7 12.5 18 6.9 27.4s-18 12.5-27.4 6.9l-18.9-11.3c-4.5-2.7-8.8-5.5-13.1-8.5c-10.6 7.5-21.9 14-34 19.4l-3.6 1.6c-10.1 4.5-21.9-.1-26.4-10.2s.1-21.9 10.2-26.4l3.6-1.6c6.4-2.9 12.6-6.1 18.5-9.8l-12.2-12.2c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l14.6 14.6 .5 .5c12.4-13.1 22.5-28.3 29.8-45H448 376c-11 0-20-9-20-20s9-20 20-20h52v-4c0-11 9-20 20-20z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-language-list" class="theme-popup" aria-label="Languages" role="menu">
+                            <li role="none"><a role="menuitem" class="theme" data-lang="en">English</a></li>
+                            <li role="none"><a role="menuitem" class="theme" data-lang="fr">Français</a></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Heatblur F-4E Phantom II</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this manual" aria-label="Print this manual">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual/releases" title="PDF version" aria-label="PDF version">
+                            <span class=fa-svg id="pdf-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM64 224H88c30.9 0 56 25.1 56 56s-25.1 56-56 56H80v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V320 240c0-8.8 7.2-16 16-16zm24 80c13.3 0 24-10.7 24-24s-10.7-24-24-24H80v48h8zm72-64c0-8.8 7.2-16 16-16h24c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H176c-8.8 0-16-7.2-16-16V240zm32 112h8c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16h-8v96zm96-128h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H304v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H304v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V304 240c0-8.8 7.2-16 16-16z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual/edit/master/src/fr/systems/radar/air_to_air.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <span class=fa-svg id="git-edit-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M421.7 220.3l-11.3 11.3-22.6 22.6-205 205c-6.6 6.6-14.8 11.5-23.8 14.1L30.8 511c-8.4 2.5-17.5 .2-23.7-6.1S-1.5 489.7 1 481.2L38.7 353.1c2.6-9 7.5-17.2 14.1-23.8l205-205 22.6-22.6 11.3-11.3 33.9 33.9 62.1 62.1 33.9 33.9zM96 353.9l-9.3 9.3c-.9 .9-1.6 2.1-2 3.4l-25.3 86 86-25.3c1.3-.4 2.5-1.1 3.4-2l9.3-9.3H112c-8.8 0-16-7.2-16-16V353.9zM453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-14.5 14.5-22.6 22.6-11.3 11.3-33.9-33.9-62.1-62.1L314.3 67.7l11.3-11.3 22.6-22.6 14.5-14.5c25-25 65.5-25 90.5 0z"/></svg></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this manual ..." aria-controls="mdbook-searchresults-outer" aria-describedby="mdbook-searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="fonctionnement-du-radar-air-air"><a class="header" href="#fonctionnement-du-radar-air-air">Fonctionnement du radar air-air</a></h1>
+<p>Le fonctionnement du radar air-air comprend les modes RDR-B et MAP-B, ainsi que
+le mode BST. RDR-B et MAP-B peuvent être utilisés avec la recherche automatique et le mode BST peut
+être utilisé comme mode à courte portée pour repérer une cible sur le point de visée.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fQVMWn5AfIE?si=oPSyCqubACwH4GYb" title="F-4E : Arrêtez de vous battre en air-air" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<h2 id="recherche-automatique"><a class="header" href="#recherche-automatique">Recherche automatique</a></h2>
+<p>Lors de la recherche automatique, l'antenne effectue un mouvement de va-et-vient dans le plan radar.
+Les limites de cette recherche sont déterminées par
+<a href="interface.html#display-knob">Bouton d'affichage</a>. La recherche a normalement une largeur de
+120 degrés
+avec le bouton d'affichage en positions WIDE et limité à 45 degrés dans le NAR
+position. Seules les positions du bouton d'affichage comportant un B sont utilisables pour les
+opérations air-air.</p>
+<p>Le <a href="interface.html#radar-modes-mode">bouton de mode radar</a> est utilisé pour sélectionner
+recherche automatique en choisissant RDR ou MAP. En RDR, le nombre de barres peut être
+sélectionné par le <a href="interface.html#scan-switch">commutateur de balayage</a>. Dans MAP, une seule barre
+est
+utilisé quel que soit le commutateur. La nutation Feedhorn est utilisée avec RDR mais pas MAP ;
+conduisant à une largeur de faisceau estimée d'environ 6,7 degrés en RDR et 3,7
+degrés en MAP.</p>
+<p>En sélectionnant BST ou AIR-GND sur le bouton de mode radar, le balayage de l'antenne est orienté
+le long de la ligne de visée radar.</p>
+<p>L'image ci-dessous montre la symbologie habituelle présente dans les modes de recherche
+automatique et de visée.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/radar_search.jpg" alt="écran_radar"><span class="img-wrapper"><img src="../../img/radar_search.jpg" alt="écran_radar"></span></label></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Article</th><th>Nom</th><th>Descriptif</th></tr>
+</thead>
+<tbody>
+<tr><td>a</td><td>Affichage de la portée</td><td>Affiche la plage actuellement sélectionnée ou forcée</td></tr>
+<tr><td>b</td><td>Curseur radar</td><td>Le curseur radar est utilisé pour sélectionner des cibles et affiche la plage et l'azimut actuellement sélectionnés. Il est déplacé par la commande manuelle de l'antenne.</td></tr>
+<tr><td>c</td><td>Élévation de l'antenne</td><td>Affiche l'élévation de l'antenne (en degrés) par rapport à l'avion radar ou à l'avion si le commutateur <a href="interface.html#stab-switch">Stab</a> est en position OUT. Celui-ci peut être déplacé avec la molette d’élévation de la commande manuelle de l’antenne.</td></tr>
+<tr><td>d</td><td>Grille radar</td><td>Les lignes verticales gauche et droite indiquent 30 degrés à gauche et 30 degrés à droite. Cette mesure est relative à l'avion radar avec le <a href="interface.html#stab-switch">Stab Switch</a> en NOR ou DRIFT OUT et par rapport à l'avion avec le <a href="interface.html#stab-switch">Stab Switch</a> en OUT. Chaque ligne horizontale marque une échelle où les écarts sont <code>1/5</code> du réglage de plage actuel de l'écran.</td></tr>
+<tr><td>e</td><td>Ligne d'horizon</td><td>Affiche la ligne d'horizon, présente uniquement avec <a href="interface.html#stab-switch">Stab Switch</a> en NOR ou DRIFT OUT</td></tr>
+</tbody>
+</table>
+</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-_oGXnEfyOs?si=5_YbDn9i-zt-aaIX" title="DCS F-4E APQ-120 - Section efficace du radar et plage de détection" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<h2 id="acquisition"><a class="header" href="#acquisition">Acquisition</a></h2>
+<p>L'acquisition peut être utilisée avec n'importe quel mode radar utilisant B-Scope et est utilisée
+pour
+atteindre une condition de suivi.</p>
+<p>Avec le <a href="interface.html#radar-modes-mode">bouton de mode radar</a> en RDR ou MAP, la moitié
+L'action peut être maintenue sur la gâchette de la commande manuelle de l'antenne pour commencer
+l'acquisition. Dans
+RDR ou MAP l'azimut de l'antenne suivra le symbole d'acquisition. Dans tous les modes
+là où l'acquisition peut être utilisée, la plage du symbole d'acquisition définira le
+plage souhaitée pour le verrouillage.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/radar_acq.jpg" alt="Écran radar dans ACQ"><span class="img-wrapper"><img src="../../img/radar_acq.jpg" alt="Écran radar dans ACQ"></span></label></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Article</th><th>Nom</th><th>Descriptif</th></tr>
+</thead>
+<tbody>
+<tr><td>a</td><td>Balayage B</td><td>Le B-Sweep affiche les échos radar actuels le long de l'azimut de l'antenne, ceux-ci sont affichés à la fois en acquisition et en suivi.</td></tr>
+<tr><td>b</td><td>Symbole d'acquisition</td><td>Comme le curseur radar, le symbole d'acquisition indique l'azimut et la portée actuellement sélectionnés. Il est déplacé avec la commande manuelle de l'antenne. Il est également affiché dans la trajectoire pour indiquer la portée et l'azimut de la cible.</td></tr>
+<tr><td>c</td><td>Écho cible</td><td>Retour de cible affiché le long de l'azimut</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="piste"><a class="header" href="#piste">Piste</a></h2>
+<p>Le suivi automatique peut être commandé en entrant d'abord l'acquisition puis, une fois
+la cible a été encadrée par le symbole d'acquisition, Full Action peut être
+enfoncé pour accéder à la piste automatique.</p>
+<p>Le type de piste saisi dépend du mode sélectionné. Il existe deux types de
+circuits de suivi disponibles, suivi d'angle et suivi de distance. Ceux-ci seront tous les deux
+être décrit ci-dessous.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/radar_track.jpg" alt="Écran radar dans la PISTE"><span class="img-wrapper"><img src="../../img/radar_track.jpg" alt="Écran radar dans la PISTE"></span></label></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Article</th><th>Nom</th><th>Descriptif</th></tr>
+</thead>
+<tbody>
+<tr><td>a</td><td>Afficher la lecture</td><td>L'affichage dépend de la position du <a href="interface.html#aspect">commutateur d'aspect</a></td></tr>
+<tr><td>b</td><td>Erreur de direction autorisée</td><td>Décrit l'enveloppe de lancement hors angle maximale, voir <a href="#allowable-steering-error-ase-circle">Erreur de direction autorisée</a></td></tr>
+<tr><td>c et e</td><td>Gamme Stroboscopes</td><td>Indique l'enveloppe de lancement, voir <a href="air_to_air.html#range-strobes">Range Strobes</a> Description</td></tr>
+<tr><td>d</td><td>Viser le point</td><td>Fournit une direction pilote, voir <a href="#aim-dot">Aim Dot</a></td></tr>
+</tbody>
+</table>
+</div>
+<p>Dans le coin supérieur droit de l'écran radar se trouve un symbole
+<a href="interface.html#track-light-t">T gravé</a> qui s'allume si une condition de suivi de portée
+est présente. Ceci ne se trouve que sur l’écran WSO.</p>
+<h3 id="piste-dangle"><a class="header" href="#piste-dangle">Piste d'angle</a></h3>
+<p>Le circuit de suivi d'angle dirige l'antenne pour maintenir la cible centrée. Il
+le fait en utilisant la nutation feedhorn (balayage conique). L'antenne dirige
+vers la direction de l’amplitude la plus élevée dans le modèle de balayage de nutation. En tant que
+résultat, le suivi d'angle ne peut pas être obtenu sans nutation (MAP-B commence
+nutation lors de l’utilisation de l’acquisition).</p>
+<p>Le suivi d'angle a deux paramètres définis par le
+<a href="interface.html#maneuver-switch">Commutateur de manœuvre</a>, HI G et LOW G. Ces ensembles
+limites de l'accélération dans les circuits de suivi d'angle.</p>
+<p>Le pilotage d’antenne a plusieurs fonctions importantes :</p>
+<ul>
+<li>Suivi de l'emplacement de la cible en élévation et en azimut</li>
+<li>Fournir des angles de visée de tête au Sparrow pour un verrouillage du chercheur.</li>
+<li>Illuminer la cible avec une énergie radiofréquence à ondes continues pour
+le guidage du Sparrow.</li>
+</ul>
+<h3 id="piste-de-portée"><a class="header" href="#piste-de-portée">Piste de portée</a></h3>
+<p>Le radar utilise une porte de portée pour sélectionner une cible à portée. Cela n'utilise que les
+échos radar présents dans la porte de portée pour ses circuits. Cela aide à éliminer l'encombrement et
+d'autres cibles, et permet aux circuits de suivi d'angle de suivre avec précision la cible
+d'intérêt sans signaux erronés.</p>
+<p>En suivi de portée, la porte de portée utilise les échos radar pour corriger automatiquement
+toute erreur entre la porte de portée et l'écho cible. Cela entraîne le déplacement de la porte
+de portée ; la vitesse à laquelle la porte se déplace est la vitesse de fermeture, affichée
+sur l'écran. Ceci est également utilisé pour fournir au Sparrow une vitesse de fermeture
+pour régler son speed-gate pour le suivi de la cible.</p>
+<p>Le suivi de portée peut fonctionner en mode mémoire. En mode mémoire, la porte de portée
+continuera de descendre à la dernière vitesse de fermeture calculée. Quand cela se produit,
+les voyants SKIN TRK et T du DSCG s'éteindront et les chiffres du taux de portée
+commenceront à clignoter à 4 Hz. Si le mode mémoire a été entré parce que la cible a été perdue,
+le système abandonnera le verrou si la cible ne réapparaît pas dans les 5 secondes.</p>
+<p>Le mode mémoire sera activé sous plusieurs conditions :</p>
+<ul>
+<li>La recherche manuelle est sélectionnée (<a href="interface.html#track-switch">Track Switch</a>)</li>
+<li>La cible est perdue</li>
+<li>Une condition de brouillage est détectée</li>
+</ul>
+<h3 id="home-on-jam"><a class="header" href="#home-on-jam">Home On Jam</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/radar_jamming_target.jpg" alt="Cible de brouillage"><span class="img-wrapper"><img src="../../img/radar_jamming_target.jpg" alt="Cible de brouillage"></span></label></p>
+<p>L'amplificateur de polarisation arrière du radar produit un signal de bruit basé sur la
+force globale des échos. Une fois que ce signal de bruit dépasse un certain seuil,
+le système le considérera comme une condition de brouillage et entrera en Home On Jam. Le
+circuit de suivi de portée passe en mode mémoire, le circuit de suivi d'angle continue de
+fonctionner et de suivre la cible de brouillage en élévation et en azimut.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/radar_home_on_jam.jpg" alt="Home On Jam"><span class="img-wrapper"><img src="../../img/radar_home_on_jam.jpg" alt="Home On Jam"></span></label></p>
+<p>La condition Home On Jam est également indiquée par le H gravé sur le WSO DSCG et
+le dernier chiffre zéro de la vitesse de fermeture est remplacé par un H accompagné du
+taux de fermeture clignotant.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vWZdx80szrI?si=2NpjXEZeiwxmf-Hr" title="DCS F-4E APQ-120 - Effets de brouillage" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<h2 id="mettre-en-lumière"><a class="header" href="#mettre-en-lumière">Mettre en lumière</a></h2>
+<p>Dans les gammes de 100 et 200 milles, une procédure connue sous le nom de Spotlight peut être
+utilisée pour
+maintenir manuellement la surveillance radar d’une cible.</p>
+<p>La mise en lumière consiste à placer le curseur d'acquisition sur le retour souhaité,
+puis à sélectionner et maintenir la position de déclenchement en action complète du contrôleur
+manuel d'antenne. Ce faisant, l'antenne nute et revient à la sélection choisie du commutateur
+Polar afin d'augmenter la définition de la cible, mais sans tenter le verrouillage automatique.</p>
+<p>La cible peut être maintenue dans un état bien observable en effectuant une action complète
+et en suivant le retour de la cible avec le contrôleur manuel d'antenne jusqu'à ce qu'il
+atteint une plage à laquelle le verrouillage peut être obtenu (avec le changement applicable de
+réglage de la plage ; le radar ne peut pas tenter de verrouiller à une distance incompatible
+paramètre).</p>
+<h2 id="calculs-dinterception"><a class="header" href="#calculs-dinterception">Calculs d’interception</a></h2>
+<p>L'ordinateur d'interception LRU-1 peut calculer les enveloppes de tir pour le
+<a href="../../stores/air_to_air/aim_7.html">AIM-7 Sparrow</a> et
+<a href="../../stores/air_to_air/aim_9.html">AIM-9 Sidewinder</a> Missiles.</p>
+<h3 id="stroboscopes-de-portée"><a class="header" href="#stroboscopes-de-portée">Stroboscopes de portée</a></h3>
+<p>Le DSCG peut afficher deux stroboscopes de portée à tout moment représentant
+l'enveloppe du missile. Il existe trois types de stroboscope possibles.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Indication de la portée</th><th>Descriptif</th></tr>
+</thead>
+<tbody>
+<tr><td>Rmax</td><td>Portée maximale du missile à condition que la cible continue de voler selon le cap et la trajectoire actuels.</td></tr>
+<tr><td>Rmax2</td><td>Portée maximale du missile si la cible effectue le virage à g élevé le plus court vers l'aspect de la queue.</td></tr>
+<tr><td>Rmin</td><td>Capacité de portée minimale du missile.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Missile sélectionné</th><th>Stroboscopes affichés</th></tr>
+</thead>
+<tbody>
+<tr><td>Sparrow</td><td>Rmax et Rmax2</td></tr>
+<tr><td>Sidewinder</td><td>Rmax et Rmin</td></tr>
+</tbody>
+</table>
+</div>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/radar_target_in_rmax.jpg" alt="Cible en Rmax"><span class="img-wrapper"><img src="../../img/radar_target_in_rmax.jpg" alt="Cible en Rmax"></span></label></p>
+<p>Toutes les plages sont calculées pour le point où la gâchette est enfoncée et maintenue enfoncée
+pour la libération, pas le point où le signal de libération réel est envoyé quelques secondes
+plus tard. Cela signifie que si l'enveloppe du missile est atteinte sur l'écran, alors le
+déclencheur peut être
+pressé et
+l'enveloppe sera valable pour le lancement de missiles.</p>
+<h3 id="cercle-derreur-de-direction-admissible-ase"><a class="header" href="#cercle-derreur-de-direction-admissible-ase">Cercle d'erreur de direction admissible (ASE)</a></h3>
+<p>L'erreur de direction admissible indique l'avance ou le retard maximum auquel
+le missile peut être lancé et conservera toujours une forte probabilité d’être touché. Le
+le diamètre du cercle augmente progressivement en taille une fois que Rmax est atteint et
+progressivement
+commence à diminuer en taille à mesure que la plage cible se rapproche de Rmin.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/radar_ase_circle.jpg" alt="Cercle ASE"><span class="img-wrapper"><img src="../../img/radar_ase_circle.jpg" alt="Cercle ASE"></span></label></p>
+<p>Avec le Sparrow sélectionné, la taille maximale du cercle ASE est de 25 degrés pour un AIM-7E,
+et 35 degrés pour un AIM-7F.</p>
+<p>Avec le Sidewinder sélectionné, s'il est mis en cage, la taille du cercle ASE est fixée à 1,2
+degrés. Lorsqu'il n'est pas en cage, l'ASE Circle change dynamiquement de taille comme décrit
+ci-dessus, le diamètre maximum représentant 25 degrés.</p>
+<h3 id="point-de-visée"><a class="header" href="#point-de-visée">Point de visée</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/radar_aim_dot.jpg" alt="Point de visée"><span class="img-wrapper"><img src="../../img/radar_aim_dot.jpg" alt="Point de visée"></span></label></p>
+<p>Le point de visée fournit des commandes de direction au pilote. Il y en a trois différents
+types :</p>
+<ol>
+<li>Pilotage par collision, cela minimise le temps d'interception en plaçant le chasseur
+sur une trajectoire d'interception.</li>
+<li>Pilotage de transition, cela commence à 2 nmi en dehors de Rmax et dirige l'avion
+vers le prochain type de direction.</li>
+<li>Poursuite en tête, à l'intérieur de Rmax la poursuite en tête minimise les manœuvres
+post-lancement du missile.</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/aim_dot_steering.jpg" alt="manuel_radar_air_to_ground_mode"><span class="img-wrapper"><img src="../../img/aim_dot_steering.jpg" alt="manuel_radar_air_to_ground_mode"></span></label></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZZJ8sprm-Ws?si=jSteM5NIHwmnIay8" title="DCS F-4E Air-Air II : Interception de points de visée" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<h3 id="voyants-shoot-et-in-range"><a class="header" href="#voyants-shoot-et-in-range">Voyants SHOOT et IN RANGE</a></h3>
+<p>Les voyants SHOOT s'allument à condition que les conditions suivantes soient remplies :</p>
+<ul>
+<li>Aim Dot fait partie du cercle ASE</li>
+<li>La cible est comprise entre Rmax et Rmin</li>
+</ul>
+<p>Si des Sparrow sont sélectionnés, les voyants SHOOT sont également inhibés lorsque l'aspect
+de la cible est de 90 ±9 degrés (gauche ou droite) et que la cible est à moins de 5 degrés
+au-dessus de l'horizon. Cela évite de tirer un Sparrow dans le fouillis du lobe principal.</p>
+<blockquote>
+<p>💡 Avec le bouton de luminosité des instruments de vol hors de sa position complètement CCW -
+comme pendant les vols de nuit, tous les voyants SHOOT resteront éteints.</p>
+</blockquote>
+<h3 id="voyant-de-maintien-daltitude"><a class="header" href="#voyant-de-maintien-daltitude">Voyant de maintien d'altitude</a></h3>
+<p>Le témoin de maintien d’altitude s’allume si les conditions suivantes sont remplies :</p>
+<ul>
+<li>La plage est supérieure à la plage de capture calculée.</li>
+<li>L'altitude est supérieure à 32 000 pieds.</li>
+<li>La cible se trouve à plus de 8 000 pieds au-dessus du chasseur.</li>
+</ul>
+<p>Lorsque la lumière est allumée, l'erreur d'azimut dans le point de visée doit être
+corrigée uniquement lorsque la lumière s'éteint. Le chasseur doit effectuer une ressource pour
+centrer le point de visée.</p>
+<h3 id="break-x"><a class="header" href="#break-x">Break X</a></h3>
+<p>Dans tous les modes (sauf VI) lorsque la cible est inférieure à la portée calculée
+Rmin, le symbole Break X s'affichera pour indiquer la condition de portée minimale.</p>
+<p>Dans Visual Intercept (VI), le break X s'affiche lorsque la portée est inférieure à 1 000 pieds.</p>
+<p>Lorsque le break X est affiché, le cercle ASE est également supprimé.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/manual_radar_break_x.jpg" alt="écran_radar"><span class="img-wrapper"><img src="../../img/manual_radar_break_x.jpg" alt="écran_radar"></span></label></p>
+<h2 id="déclenchement-des-verrouillages"><a class="header" href="#déclenchement-des-verrouillages">Déclenchement des verrouillages</a></h2>
+<p>Il existe plusieurs verrouillages pour empêcher le tir de missiles dans des conditions
+défavorables.</p>
+<p>Pour le Sidewinder, le seul verrouillage empêchant le tir du missile concerne les volets en
+position basse.</p>
+<p>Pour le Sparrow il y a plusieurs conditions :</p>
+<ul>
+<li>Le point de visée doit être dans le cercle ASE</li>
+<li>Les voyants IN RANGE et SHOOT doivent être allumés</li>
+<li>Il ne doit y avoir aucune condition de rupture X</li>
+<li>Le mode sélectionné ne doit pas être Visual Intercept</li>
+</ul>
+<blockquote>
+<p>💡 Notez que les lumières SHOOT restent éteintes avec la luminosité des instruments de vol
+Bouton hors de sa position complètement CCW. Les verrouillages de tir ne sont pas influencés
+par ceci.</p>
+</blockquote>
+<p>Les verrouillages sont automatiquement annulés en cas de condition HOJ ou lorsque le
+Sparrow doit être tiré en mode Visée. Les verrouillages peuvent être annulés
+manuellement avec le commutateur de verrouillage.</p>
+<h2 id="visée-et-état-de-la-cage"><a class="header" href="#visée-et-état-de-la-cage">Visée et état de la cage</a></h2>
+<h3 id="visée"><a class="header" href="#visée">Visée</a></h3>
+<p>Le mode Visée peut être activé soit en déplaçant le
+<a href="interface.html#radar-modes-mode">bouton de mode</a> sur BST, soit en appuyant sur le bouton CAGE
+de la manette des gaz. Ce dernier active une condition de cage très similaire
+à la Visée activée via BST, à l'exception que l'état de cage
+limite la portée à 5 nmi et force le réglage de manœuvre en position HI.</p>
+<p>En mode Visée, l'antenne est fixée le long de la ligne de visée du radar et
+les retours radar sont affichés sur l'oscilloscope comme dans un mode d'acquisition. Acquisition
+peut être commandé avec une demi-action comme dans la recherche automatique pour acquérir, puis
+l'action complète peut être utilisée pour lancer la piste. Le suivi de la portée et de l'angle
+commencera
+comme d'habitude.</p>
+<p><a href="../../stores/air_to_air/aim_7.html">Sparrow</a> peuvent être tirés sans suivre la
+cible. Si tel est le cas, le pilote doit positionner la cible sur le viseur et
+le WSO peut sélectionner un <a href="interface.html#aspect">réglage d'aspect</a> approprié. Le
+Sparrow peut maintenant être tiré.</p>
+<blockquote>
+<p>💡 Les cibles doivent se trouver dans une zone de 5 degrés, sinon une tentative de verrouillage
+entraînera probablement un mauvais verrouillage.</p>
+</blockquote>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/krnmdPE_xUc?si=vbXN8f1dDDsRO8K6" title="DCS F-4E - Mode Boresight, AIM-7 et Speedgates" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<h3 id="état-de-la-cage"><a class="header" href="#état-de-la-cage">État de la cage</a></h3>
+<p>La condition en cage est un mode de combat rapproché auquel on peut accéder à tout moment
+en appuyant sur le bouton CAGE de la manette des gaz du pilote. Ceci, par défaut, place le radar
+dans la ligne de visée comme décrit ci-dessus.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/radar_cage_mode.jpg" alt="Mode cage"><span class="img-wrapper"><img src="../../img/radar_cage_mode.jpg" alt="Mode cage"></span></label></p>
+<p>Lorsque la condition de cage est présente, les changements suivants se produisent :</p>
+<ul>
+<li>Le voyant air-air dans la fosse arrière s’allume.</li>
+<li>Le contrôle de la gâchette est transféré aux armes air-air (y compris lorsque ARM
+et TV sont sélectionnés)</li>
+<li>Le viseur optique passe en mode A/A.</li>
+<li>L'acquisition automatique par ordinateur devient disponible.</li>
+</ul>
+<p>Si une condition de piste existe avant que le bouton CAGE soit enfoncé et que l'interrupteur
+petit doigt de la manette des gaz est sur RADAR ou HEAT, le radar interrompt la poursuite et
+revient au mode Visée. Si l'interrupteur petit doigt est sur GUNS, le verrouillage n'est pas rompu.</p>
+<p>Le mode Cage peut être quitté depuis l’un ou l’autre cockpit. Le pilote peut placer le bouton
+de sélection d'arme en position B ou hors de cette position. Si le pilote laisse le bouton de
+sélection d'arme en B, cela n'empêche pas une entrée ultérieure en mode Cage. Le WSO peut quitter
+le mode cage en appuyant sur le <a href="interface.html#air-to-air-button">bouton Air-To-Air</a>.</p>
+<h3 id="mode-dacquisition-automatique-par-ordinateur-caa"><a class="header" href="#mode-dacquisition-automatique-par-ordinateur-caa">Mode d'acquisition automatique par ordinateur (CAA)</a></h3>
+<p>Une fois en mode Cage, le radar peut être basculé en mode Acquisition Automatique par
+Ordinateur à l'aide du bouton Nose Gear Steering présent sur le manche.</p>
+<p>En CAA, le radar entre dans une configuration de balayage orientée verticalement à 78 degrés de
+hauteur
+de 15 degrés de largeur, le balayage a une largeur de 3 barres verticales. La capacité réelle de
+verrouillage radar dans ce modèle de balayage va de +45 degrés au-dessus de la ligne d'horizon
+à -9 degrés en dessous de la ligne d'horizon, en raison des limitations du logiciel APQ. Dans le
+cas où le radar trouve une cible appropriée dans le volume de balayage, la cible
+sera verrouillée. Si l'équipage de conduite découvre que la cible verrouillée n'est pas celle
+prévue, le bouton de direction du train avant peut être enfoncé sur l'une ou l'autre des poignées
+du manche pour ramener le radar au modèle de recherche.</p>
+<p>En mode CAA, le modèle de recherche du radar peut être déplacé vers la gauche et la droite en
+utilisant
+le petit interrupteur sur l'accélérateur.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Sélection Pinky</th><th>Centre de numérisation</th></tr>
+</thead>
+<tbody>
+<tr><td>Guns</td><td>Gauche (-15 degrés)</td></tr>
+<tr><td>Heat</td><td>Centre (0 degrés)</td></tr>
+<tr><td>Radar</td><td>Droite (+15 degrés)</td></tr>
+</tbody>
+</table>
+</div>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/caa.jpg" alt="manuel_caa"><span class="img-wrapper"><img src="../../img/caa.jpg" alt="manuel_caa"></span></label></p>
+<p>Pour quitter CAA, le pilote peut sélectionner la position B sur le bouton de sélection d'arme, ou le
+WSO peut appuyer sur le bouton Air-To-Air. Si un verrouillage radar est en place au moment de la
+sortie du mode, il sera conservé.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                            <a rel="prev" href="../../systems/radar/general_operation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                                <span class="nav-chapters-text">Prev</span>
+                            </a>
+
+                            <a rel="next prefetch" href="../../systems/radar/air_to_ground.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class="nav-chapters-text">Next</span>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../systems/radar/general_operation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                        <span class="nav-chapters-text">Prev</span>
+                    </a>
+                    <a rel="prev" href="../../systems/radar/general_operation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../../systems/radar/air_to_ground.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class="nav-chapters-text">Next</span>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+                    <a rel="next prefetch" href="../../systems/radar/air_to_ground.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../js/jquery-3.7.1.min.js"></script>
+        <script src="../../js/extra.js"></script>
+        <script src="../../js/i18n/switcher.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

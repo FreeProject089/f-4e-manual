@@ -1,0 +1,959 @@
+<!DOCTYPE HTML>
+<html lang="fr" class="hb_light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Missions de formation - Heatblur F-4E Phantom II</title>
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Manual of the F-4E Phantom by Heatblur Simulations.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/visual.css">
+        <link rel="stylesheet" href="../theme/hb_light.css">
+        <link rel="stylesheet" href="../theme/hb_dark.css">
+        <link rel="stylesheet" href="../theme/pdf.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "hb_light";
+            const default_dark_theme = "hb_dark";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>&larr;</kbd> or <kbd>&rarr;</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('hb_light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-hb_light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-hb_dark">Dark</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-pdf">(PDF)</button></li>
+                        </ul>
+                        <button id="mdbook-language-toggle" class="icon-button" type="button" title="Change language" aria-label="Change language" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-language-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 128C0 92.7 28.7 64 64 64H256h48 16H576c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H320 304 256 64c-35.3 0-64-28.7-64-64V128zm320 0V384H576V128H320zM178.3 175.9c-3.2-7.2-10.4-11.9-18.3-11.9s-15.1 4.7-18.3 11.9l-64 144c-4.5 10.1 .1 21.9 10.2 26.4s21.9-.1 26.4-10.2l8.9-20.1h73.6l8.9 20.1c4.5 10.1 16.3 14.6 26.4 10.2s14.6-16.3 10.2-26.4l-64-144zM160 233.2L179 276H141l19-42.8zM448 164c11 0 20 9 20 20v4h44 16c11 0 20 9 20 20s-9 20-20 20h-2l-1.6 4.5c-8.9 24.4-22.4 46.6-39.6 65.4c.9 .6 1.8 1.1 2.7 1.6l18.9 11.3c9.5 5.7 12.5 18 6.9 27.4s-18 12.5-27.4 6.9l-18.9-11.3c-4.5-2.7-8.8-5.5-13.1-8.5c-10.6 7.5-21.9 14-34 19.4l-3.6 1.6c-10.1 4.5-21.9-.1-26.4-10.2s.1-21.9 10.2-26.4l3.6-1.6c6.4-2.9 12.6-6.1 18.5-9.8l-12.2-12.2c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l14.6 14.6 .5 .5c12.4-13.1 22.5-28.3 29.8-45H448 376c-11 0-20-9-20-20s9-20 20-20h52v-4c0-11 9-20 20-20z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-language-list" class="theme-popup" aria-label="Languages" role="menu">
+                            <li role="none"><a role="menuitem" class="theme" data-lang="en">English</a></li>
+                            <li role="none"><a role="menuitem" class="theme" data-lang="fr">Français</a></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Heatblur F-4E Phantom II</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this manual" aria-label="Print this manual">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual/releases" title="PDF version" aria-label="PDF version">
+                            <span class=fa-svg id="pdf-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM64 224H88c30.9 0 56 25.1 56 56s-25.1 56-56 56H80v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V320 240c0-8.8 7.2-16 16-16zm24 80c13.3 0 24-10.7 24-24s-10.7-24-24-24H80v48h8zm72-64c0-8.8 7.2-16 16-16h24c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H176c-8.8 0-16-7.2-16-16V240zm32 112h8c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16h-8v96zm96-128h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H304v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H304v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V304 240c0-8.8 7.2-16 16-16z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual/edit/master/src/fr/dcs/training_missions.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <span class=fa-svg id="git-edit-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M421.7 220.3l-11.3 11.3-22.6 22.6-205 205c-6.6 6.6-14.8 11.5-23.8 14.1L30.8 511c-8.4 2.5-17.5 .2-23.7-6.1S-1.5 489.7 1 481.2L38.7 353.1c2.6-9 7.5-17.2 14.1-23.8l205-205 22.6-22.6 11.3-11.3 33.9 33.9 62.1 62.1 33.9 33.9zM96 353.9l-9.3 9.3c-.9 .9-1.6 2.1-2 3.4l-25.3 86 86-25.3c1.3-.4 2.5-1.1 3.4-2l9.3-9.3H112c-8.8 0-16-7.2-16-16V353.9zM453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-14.5 14.5-22.6 22.6-11.3 11.3-33.9-33.9-62.1-62.1L314.3 67.7l11.3-11.3 22.6-22.6 14.5-14.5c25-25 65.5-25 90.5 0z"/></svg></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this manual ..." aria-controls="mdbook-searchresults-outer" aria-describedby="mdbook-searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="missions-de-formation"><a class="header" href="#missions-de-formation">Missions de formation</a></h1>
+<h2 id="leçons"><a class="header" href="#leçons">Leçons</a></h2>
+<p>Ces missions, que nous aimons appeler « leçons », ont été conçues de telle manière que tout ce
+dont vous avez besoin, en tant que débutant, pour réussir vos débuts avec votre nouveau F-4E
+Phantom II, vous soit expliqué.</p>
+<h2 id="objectifs-de-la-leçon"><a class="header" href="#objectifs-de-la-leçon">Objectifs de la leçon</a></h2>
+<p>Le but affiché de ces leçons est qu'après les avoir complétées une ou plusieurs fois,
+vous puissiez dire : "Hé, je pense que je sais maintenant comment ça marche (encore)". Vous
+pouvez utiliser les leçons comme "formation initiale" ou comme "formation récurrente".
+Chaque fois que vous n'avez pas volé depuis longtemps et que vous avez besoin d'un rafraîchissement.
+Au fait : nous
+recommandez un rafraîchissement tous les 90 jours au moins.</p>
+<p>Veuillez noter que les cours nécessitent un certain niveau de connaissances sur DCS et
+aussi quelques compétences de base en vol. Dans les leçons, nous n'expliquons pas le vol en tant que
+tel,
+mais plutôt l'avion, ses systèmes et leur utilisation, et leur comportement. Le
+les leçons peuvent donc être comprises comme une sorte de « formation de type interactif en
+le cockpit" et non comme une "formation de base en vol".</p>
+<h2 id="votre-chemin-à-travers"><a class="header" href="#votre-chemin-à-travers">Votre chemin à travers</a></h2>
+<p>De par la conception, les systèmes et l’âge du jet, celui-ci présente de nombreuses particularités.
+Application précise des connaissances du système au quotidien sur ce merveilleux avion
+est la clé du succès. Avec le F-4E Phantom II, vous serez mis au défi
+de nombreuses façons. Alors soyez prêt ! Nous vous laissons décider si vous souhaitez prendre l'air
+immédiatement sans étudier le manuel, ou si vous souhaitez le lire
+avant votre premier vol.</p>
+<p>Décidez vous-même !</p>
+<p>Si vous souhaitez voler immédiatement, les cours de formation vous apporteront
+suffisamment de connaissances pour réussir ces vols. Vous pouvez même étudier ceci
+section ou d'autres parties du manuel pendant vos vols ; c'en est un autre
+innovation dans le DCS F-4E Phantom II. Les cours peuvent être interrompus à tout moment si
+nécessaire. Bien sûr, vous êtes invités à pratiquer le multitâche et à voler au
+en même temps que l'étude du manuel ; ce n'est pas explicitement interdit ! Apprendre par
+faire est la stratégie de base pour les leçons de formation, mais il vous sera demandé
+lire le manuel et étudier attentivement les systèmes si vous souhaitez devenir
+un vrai pro.</p>
+<h2 id="procédures"><a class="header" href="#procédures">Procédures</a></h2>
+<p>Nous avons décrit les "procédures normales" les plus importantes de l'avion et avons
+basé les leçons sur la réalité. Ces procédures devraient également être basées sur
+le plus près possible des procédures réelles, même si nous savions que cela
+ne serait pas possible de tout implémenter dans la simulation. Pensez, pour
+exemple, du harnais du siège éjectable, du masque à oxygène et de son test, le
+transpondeur, le système IFF ou des systèmes similaires. Certaines étapes sont laissées de côté car
+ils sont déjà réglés correctement après l'apparition de l'avion et pour vraiment accélérer
+suivez la leçon pour vous mettre dans les airs ; bien sûr, vous pouvez également les vérifier.</p>
+<p>Par conséquent, toutes les procédures ne sont pas décrites comme on peut le trouver dans un avion
+réel.
+manuels; certains d'entre eux ont dû être modifiés, raccourcis ou entièrement omis.
+Néanmoins, par exemple, nous avons simulé le port du casque (y compris le soleil
+visière de protection et lunettes de soleil), une innovation immersive en DCS.</p>
+<h2 id="notre-chemin-à-travers"><a class="header" href="#notre-chemin-à-travers">Notre chemin à travers</a></h2>
+<p>Nous avons beaucoup réfléchi à la meilleure façon d'expliquer le fonctionnement d'un avion aussi
+complexe avec des missions de formation. Où commences-tu, où finis-tu ? Comment
+détaillé doit-il être pour qu'un "nerd" ne manque de rien, combien superficiel
+est-ce possible pour qu'un "joueur loisir" ne se désintéresse pas ? À quel point les
+vérifie si le joueur respecte les procédures et le vol prévu
+itinéraire? Une idée de base chez Heatblur a toujours été de mettre les joueurs "dans les airs"
+le plus rapidement possible, sans qu'ils aient à passer des heures à regarder les introductions
+des vidéos ou étudier des livres épais. Tout cela nous a causé bien des maux de tête.</p>
+<p>Quoi qu'il en soit, nous n'avons épargné aucune dépense, effort et discussion pour servir les deux
+types de
+joueurs plus ou moins « à parts égales ». Comme vous pouvez l'imaginer, un tel projet n'est pas
+tout à fait trivial, et vous devez faire beaucoup de compromis lors de la conception du
+leçons. Parfois, il faut dire aux extrémistes : "Hé, ça pourrait être trop
+difficile pour les joueurs et pas vraiment pertinent pour la simulation, même si
+ce serait extra cool !" Il faut convaincre les autres membres de l'équipe de faire des choses
+personnellement, ils n'aiment pas : Hé, c'est exactement ce dont les joueurs ont besoin, mais un
+un peu différent s'il vous plaît!</p>
+<p>Heureusement, nous avons bénéficié de l'aide professionnelle de SME (véritables anciens pilotes
+Phantom et
+WSO et même instructeurs). Ces gars nous ont aidé avec tant de choses
+décisions et ont pimenté le produit avec leurs connaissances et leur expérience.
+À l’inverse, ils nous frappaient sur les doigts si nous oubliions quelque chose qu’ils pensaient
+était important.</p>
+<p>Dans un processus de développement complexe qu'exige un module DCS d'une telle qualité,
+il existe de nombreux obstacles et limites, mais aussi de nombreuses opportunités et
+possibilités. C'est pourquoi nous nous sommes fait un devoir dès le départ de présenter le
+gestion des systèmes de l'avion de la manière la plus complète possible.</p>
+<p>Nous espérons que vous aimerez ce que vous avez entre les mains maintenant !</p>
+<h2 id="aperçu-des-leçons"><a class="header" href="#aperçu-des-leçons">Aperçu des leçons</a></h2>
+<p>Cette section se limite à la description des 5 premières leçons :</p>
+<ul>
+<li><a href="./training_missions.html#lesson-01a---pilot-startup">Leçon 01a - (PILOTE) Démarrage</a></li>
+<li><a href="./training_missions.html#lesson-01b---wso-startup">Leçon 01b - (WSO) Démarrage</a></li>
+<li><a href="./training_missions.html#lesson-02---pilot-taxi">Leçon 02 - (PILOTE) Taxi</a></li>
+<li><a href="./training_missions.html#lesson-03---pilot-normal-takeoff">Leçon 03 - (PILOTE) Décollage Normal</a></li>
+<li><a href="./training_missions.html#lesson-04---pilot-visual-approach">Leçon 04 - (PILOTE) Approche visuelle</a></li>
+</ul>
+<h2 id="trucs-et-astuces-généraux"><a class="header" href="#trucs-et-astuces-généraux">Trucs et astuces généraux</a></h2>
+<p>Il arrive rarement que vous soyez bloqué dans une procédure ou que vous ne sachiez pas quoi faire.
+faire ensuite.</p>
+<p>Voici quelques trucs et astuces généraux créés par les testeurs lors des tests.
+phase :</p>
+<ul>
+<li>Pour les cours commençant au sol, le bruit peut être très fort. Tu as
+trois options :
+<ul>
+<li>Attendez que les autres jets aient décollé avant de commencer le cours.</li>
+<li>Vous êtes autorisé à fermer la verrière chaque fois que vous en avez besoin (la liaison par
+défaut est
+LCTRL+C), bien que le F-4 le ferme habituellement très tard</li>
+<li>Ajustez le volume audio de DCS en fonction du matériel audio que vous utilisez.</li>
+</ul>
+</li>
+<li>Si vous rencontrez des problèmes avec un cockpit très sombre, plusieurs mesures peuvent être
+prises :
+<ul>
+<li>Utilisez l'éclairage interne du cockpit sur le panneau COCKPIT LIGHTS (à droite).
+côté):
+<ul>
+<li>Le bouton CONSOLE OFF/BRT</li>
+<li>Le bouton INSTR PANEL</li>
+<li>L'interrupteur de l'éclairage CONSOLE FLOOD</li>
+<li>L'interrupteur d'éclairage INST FLOOD</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/training_mission_cockpit_lights.jpg" alt="training_tips_illumination_pic"><span class="img-wrapper"><img src="../img/training_mission_cockpit_lights.jpg" alt="training_tips_illumination_pic"></span></label></p>
+<ul>
+<li>Réglez l'option SYSTÈME "Cockpit Global Illumination" sur ON</li>
+<li>Réglez l'option SYSTÈME "Gamma" sur 2,2 ou des valeurs supérieures.</li>
+<li>Désactivez l'option SYSTÈME "Ombres" en tout dernier recours.</li>
+</ul>
+<h2 id="accélération-du-temps"><a class="header" href="#accélération-du-temps">Accélération du temps</a></h2>
+<p>L'influence de la fonction d'accélération du temps sur la stabilité des cours
+n'est pas correctement documenté, mais par mesure de sécurité, nous vous déconseillons d'utiliser
+la fonction d'accélération du temps car de toute façon les cours ne contiennent pas de phases
+dans lequel rien ne se passe pendant longtemps.</p>
+<h2 id="la-leçon-est-restée-bloquée"><a class="header" href="#la-leçon-est-restée-bloquée">La leçon est restée bloquée</a></h2>
+<p>Il y a des situations dans lesquelles tu as l'impression que la leçon ne continue pas, non non
+ne fonctionne plus correctement pour une raison quelconque. Heureusement, cela arrive très rarement
+!</p>
+<p>Néanmoins, si vous êtes coincé dans une leçon, vous devriez suivre les étapes suivantes
+mesures :</p>
+<ul>
+<li>
+<p>Rester calme!</p>
+</li>
+<li>
+<p>Vérifiez si tout dans l'avion est réellement configuré comme requis
+selon la liste de contrôle/procédure. Si nécessaire, vérifiez chacun des points précédents
+étapes individuellement et soigneusement, en commençant par le haut en vous posant la question
+questions suivantes : "Qu'est-ce qui est écrit dans la procédure/la liste de contrôle/le livre ?"
+et
+"Comment l'ai-je configuré ?" Un bon exemple est le commutateur de commande des lattes/volets, qui
+cause souvent des problèmes; il dispose de trois positions distinctes ("OFF", "SLATS OUT",
+"SLATS OUT &amp; FLAPS DOWN"), pas seulement deux !</p>
+</li>
+<li>
+<p>Si cela ne résout pas le problème : revenez en arrière d'une étape - ou si nécessaire - de
+quelques étapes (si cela
+la leçon prend en charge le retour en arrière via le menu COMMS &gt; F-10 Autre...). Pas tous
+les procédures/étapes permettent de revenir en arrière.</p>
+</li>
+<li>
+<p>Si cela ne résout pas le problème : revenez au début de la procédure (si
+cette leçon prend en charge le retour en arrière via le menu COMMS &gt; F-10 Autre...). Pas
+toutes les procédures/étapes permettent de revenir en arrière.</p>
+</li>
+<li>
+<p>Si tout cela n'aide pas :</p>
+<ul>
+<li>Quittez la mission et sauvegardez le DEBRIEFING (log-file) et le TRACK (trk-file)
+dans l'écran de débriefing</li>
+<li>Si vous suspectez un bug, veuillez ouvrir un nouveau ticker dans le forum DCS &gt; Heatblur
+Simulations &gt; Phantom &gt; Zone Problèmes en utilisant ce lien :
+<a href="https://forum.dcs.world/forum/1237-bugs-problems/">https://forum.dcs.world/forum/1237-bugs-problems/</a>. Veuillez en ajouter autant
+informations possibles afin de nous aider à trouver un éventuel problème. Remercier
+vous d'avance pour vos efforts !</li>
+<li>Dans tous les cas, nous vous recommandons de refaire la mission. Désolé pour ça !</li>
+</ul>
+</li>
+</ul>
+<h2 id="zone-dentraînement--aérodrome-de-kobuleti-ug5x"><a class="header" href="#zone-dentraînement--aérodrome-de-kobuleti-ug5x">Zone d'entraînement : aérodrome de Kobuleti (UG5X)</a></h2>
+<p>L'intégralité de la formation F-4E Phantom II se déroulera à Kobuleti en Géorgie. Le
+le choix s'est porté sur un aérodrome de la région du Caucase pour des raisons compréhensibles, car
+cette carte est livrée avec DCS en standard. Les zones de formation au sud de
+La Géorgie (désignée comme « Zone de formation W » et « Zone de formation E ») offre un
+terrain de jeu suffisamment grand pour l'entraînement, y compris les vols supersoniques.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/georgia_training_area.jpg" alt="zone_de_formation"><span class="img-wrapper"><img src="../img/georgia_training_area.jpg" alt="zone_de_formation"></span></label></p>
+<p>L'aérodrome bénéficie d'un emplacement pittoresque entre les montagnes au sud et
+la mer Noire à l'ouest. Voici une photo de l'aérodrome, prise il y a un mois
+depuis un hélicoptère, en regardant en direction S-W.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/kobuleti_airfield.jpg" alt="aérodrome de kobuleti"><span class="img-wrapper"><img src="../img/kobuleti_airfield.jpg" alt="aérodrome de kobuleti"></span></label></p>
+<h2 id="leçon-01a---pilote-démarrage"><a class="header" href="#leçon-01a---pilote-démarrage">Leçon 01a - (PILOTE) Démarrage</a></h2>
+<h3 id="leçon-01a---météo"><a class="header" href="#leçon-01a---météo">Leçon 01a - Météo</a></h3>
+<p>Le temps a été mauvais ces derniers jours. Une dépression persistante en mer Noire
+avait apporté beaucoup de pluie. Cependant, la stabilisation s'est produite hier soir parce que
+une masse d'air sec arrive de l'est. La couche nuageuse de niveau intermédiaire devrait
+rompre. La météo prévoit que les nuages ne seront plus un problème d'ici environ une heure,
+et la température augmentera rapidement en raison d'un fort ensoleillement. Cependant, une brume
+au niveau du sol est toujours à prévoir car le sol a emmagasiné beaucoup d'humidité, et une forte
+évaporation due au soleil est à prévoir.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson01_kobuleti_wx.jpg" alt="leçon01b_weather_kobuleti"><span class="img-wrapper"><img src="../img/lesson01_kobuleti_wx.jpg" alt="leçon01b_weather_kobuleti"></span></label></p>
+<h3 id="leçon-01a---créneaux"><a class="header" href="#leçon-01a---créneaux">Leçon 01a - Créneaux</a></h3>
+<p>Vos collègues pilotes commenceront immédiatement leurs vols, votre vol un peu
+plus tard. L'aérodrome est un environnement très bruyant, alors attendez que les jets
+positionnés sur la piste ont décollé avant de commencer votre cours. Alors
+le niveau de bruit devrait être quelque peu tolérable... espérons-le.</p>
+<p>Sorties actuellement inscrites pour cet après-midi :</p>
+<ul>
+<li>#1 Dodge 41 (IA, déjà dans les airs)</li>
+<li>#2 Dodge 31 (IA, déjà dans les airs)</li>
+<li>#3 Dodge 21 &amp; 22 (IA, au départ)</li>
+<li>#4 Dodge 11 (vous, à la position de stationnement #25)</li>
+</ul>
+<p>Tous les vols Dodge effectuent des vols de familiarisation et de formation sur l'aérodrome.</p>
+<h3 id="leçon-01a---avion"><a class="header" href="#leçon-01a---avion">Leçon 01a - Avion</a></h3>
+<p>Votre avion est "froid &amp; sombre" sur la rampe n°25, le nez est pointé vers le
+piste, et est préparé et entièrement ravitaillé. L'unité de puissance au sol Dash-60 est
+déjà en place à gauche de votre jet.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson01_slot_ramp_no25.jpg" alt="lesson01a_hangar_view"><span class="img-wrapper"><img src="../img/lesson01_slot_ramp_no25.jpg" alt="lesson01a_hangar_view"></span></label></p>
+<p>Le technicien responsable de l'avion, également appelé le « crew chief », est
+déjà devant votre avion et attendant de vous soutenir. Tu peux
+communiquer avec lui en utilisant le menu Jester &gt; CREW CHIEF. Ne confondez pas le « crew
+chief » avec Jester. Parfois, ils sonnent de manière très similaire lorsqu'ils sont entendus à
+travers l'interphone, mais en fait vous avez affaire à deux personnes différentes !</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson01_crew_chief_ramp_no25.jpg" alt="leçon01a_crew_chief"><span class="img-wrapper"><img src="../img/lesson01_crew_chief_ramp_no25.jpg" alt="leçon01a_crew_chief"></span></label></p>
+<p>D'ailleurs, l'assistant du crew chief se tient à votre gauche, à côté de
+l'unité de puissance au sol Dash-60. Il fait fonctionner l'unité et tout ce que vous demandez est en fait fait par lui, tandis
+que le crew chief dirige, surveille et est responsable.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson01_crew_chief_assistant_ramp_no25.jpg" alt="leçon01a_crew_chief_assistant"><span class="img-wrapper"><img src="../img/lesson01_crew_chief_assistant_ramp_no25.jpg" alt="leçon01a_crew_chief_assistant"></span></label></p>
+<p>Vous venez de vous asseoir sur le siège éjectable et commencez à vérifier le cockpit.
+Vous pensez peut-être : "Merde, je suis totalement époustouflé par ce que je vois, mais je suppose
+que je
+je ne sais pas ce que je fais...".</p>
+<p>Ne vous inquiétez pas, votre instructeur, qui est également votre WSO pour le vol d'aujourd'hui,
+vous guide tout au long de la leçon !</p>
+<h3 id="leçon-01a---audio-et-texte"><a class="header" href="#leçon-01a---audio-et-texte">Leçon 01a - Audio et texte</a></h3>
+<p>Votre instructeur parle depuis la banquette arrière, écoutez toujours attentivement. Supposons que
+tout ce qu'il dit est important. Pour vous aider, tout le texte qu'il prononce est
+affiché en haut à droite de l’écran. Si vous ne remarquez pas ou ne comprenez pas
+quelque chose, vous pouvez toujours le lire ci-dessus. Le texte reste visible à l'écran
+pendant un maximum de 1 000 secondes jusqu'à ce qu'il disparaisse ou soit remplacé par un nouveau
+texte.</p>
+<p>Notez que chaque fois que vous avez manqué l'un des messages texte, vous pouvez accéder au
+journal des messages en appuyant sur la touche "Échap", puis en sélectionnant HISTORIQUE DES
+MESSAGES, puis les relire.</p>
+<h3 id="leçon-01a---tâches-et-étapes"><a class="header" href="#leçon-01a---tâches-et-étapes">Leçon 01a - Tâches et étapes</a></h3>
+<p>Les leçons sont divisées en tâches basées sur les noms des
+procédures. Ces tâches sont divisées en étapes individuelles, les étapes allant
+main dans la main avec les différents éléments de la procédure. Les tâches pour cela
+leçon sont :</p>
+<ul>
+<li>Tâche 1 : Vérifiez l'avion et les commutateurs essentiels avant d'appliquer un
+pouvoir.</li>
+<li>Tâche 2 : Effectuer l'« Inspection interne » de l'avion.</li>
+<li>Tâche 3 : Préparer l'avion pour le démarrage du moteur.</li>
+<li>Tâche 4 : Démarrez les moteurs.</li>
+</ul>
+<h3 id="leçon-01a---trucs-et-astuces"><a class="header" href="#leçon-01a---trucs-et-astuces">Leçon 01a - Trucs et astuces</a></h3>
+<p>Voici quelques conseils spéciaux pour la leçon 01a :</p>
+<ul>
+<li>Tâche 4 : Laissez l'instructeur parler jusqu'à la fin de chaque instruction, il y a
+suffisamment de temps pour que les actions soient réalisées.</li>
+<li>Tâche 4 &gt; Étape 4b : Soyez prudent lors de l'ouverture du carburant, cela ne doit pas être fait
+avant 10% RPM ! Si vous voyez l'EGT monter au-dessus de 700°C, coupez immédiatement le
+carburant en déplaçant le levier d'accélérateur sur la position "OFF". Remarque : moteur
+les paramètres peuvent varier légèrement en fonction des conditions environnementales, mais
+seule la valeur EGT doit être surveillée de près !</li>
+<li>Tâche 4 &gt; Étape 4c : Assurez-vous de tirer le levier d'accélérateur vers l'arrière dans la simulation, en position
+« IDLE » pour que la logique de la leçon continue. Le contexte
+est le suivant : Les utilisateurs ont signalé des problèmes lors de l'exécution de cette étape.
+Dans
+tous les cas signalés jusqu'à présent, le véritable levier d'accélérateur a été ramené à sa
+position IDLE, mais la manette des gaz dans la simulation n'a pas atteint la position "IDLE",
+et est restée coincée un peu trop en avant. Par conséquent, s'il vous plaît
+assurez-vous que vos véritables leviers d'accélérateur sont capables de déplacer les leviers
+d'accélérateur
+dans le sim sur toute la gamme :
+<ul>
+<li>"MAX" (qui correspond à 100 % RPM avec postcombustion complète)</li>
+<li>"MIL" (qui est à 100 % RPM sans postcombustion)</li>
+<li>"IDLE" (qui correspond à 65 % du régime)</li>
+<li>"OFF" (qui est la coupure du carburant)</li>
+</ul>
+</li>
+<li>Tâche 4 &gt; Liste de contrôle de l'étape « PROCÉDURE DE DÉMARRAGE DES MOTEURS » : Assurez-vous que
+toutes les commandes
+sont toujours réglés sur leurs positions commandées, qui ont été définies dans tous les
+d'autres procédures auparavant. Les utilisateurs ont signalé des problèmes lors de la progression,
+car ils
+placez accidentellement certaines commandes sur des positions inattendues/fausses.</li>
+</ul>
+<h2 id="leçon-01b---wso-démarrage"><a class="header" href="#leçon-01b---wso-démarrage">Leçon 01b - (WSO) Démarrage</a></h2>
+<h3 id="leçon-01b---météo"><a class="header" href="#leçon-01b---météo">Leçon 01b - Météo</a></h3>
+<p>Le temps a été mauvais ces derniers jours. Une dépression persistante en mer Noire
+avait apporté beaucoup de pluie. Cependant, la stabilisation s'est produite hier soir parce que
+une masse d'air sec arrive de l'est. La couche nuageuse de niveau intermédiaire devrait
+rompre. La météo prévoit que les nuages ne seront plus un problème d'ici environ une heure,
+et la température augmentera rapidement en raison d'un fort ensoleillement. Cependant, une brume
+au niveau du sol est toujours à prévoir car le sol a emmagasiné beaucoup d'humidité, et une forte
+évaporation due au soleil est à prévoir.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson01b_kobuleti_wx.jpg" alt="leçon_01b_weather_kobuleti"><span class="img-wrapper"><img src="../img/lesson01b_kobuleti_wx.jpg" alt="leçon_01b_weather_kobuleti"></span></label></p>
+<h3 id="leçon-01b---créneaux"><a class="header" href="#leçon-01b---créneaux">Leçon 01b - Créneaux</a></h3>
+<p>Causé par un accident sur la voie de circulation "S" juste avant votre vol, il a été décidé
+pour fermer la voie de circulation. Par conséquent, un nouveau poste de rampe temporaire, situé
+directement sur le seuil de la piste 07, a été implanté. Vous décollerez de
+cet endroit, puis déviez vers Vaziani.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson01b_temporary_ramp_position.jpg" alt="leçon_01b_temporary_ramp_rwy07"><span class="img-wrapper"><img src="../img/lesson01b_temporary_ramp_position.jpg" alt="leçon_01b_temporary_ramp_rwy07"></span></label></p>
+<p>Toutes les sorties restantes de cet après-midi décolleront de là.</p>
+<h3 id="leçon-01b---avion"><a class="header" href="#leçon-01b---avion">Leçon 01b - Avion</a></h3>
+<p>Votre avion a été poussé vers la nouvelle position temporaire sur la rampe. Il fait "froid et
+sombre", le nez est pointé vers la piste, et il est préparé et à moitié
+alimenté. Le groupe motopropulseur au sol Dash-60 est déjà en place à gauche de votre avion.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson01b_jet_at_temporary_ramp_position.jpg" alt="leçon_01b_ramp"><span class="img-wrapper"><img src="../img/lesson01b_jet_at_temporary_ramp_position.jpg" alt="leçon_01b_ramp"></span></label></p>
+<p>Le technicien responsable de l'avion, également appelé le « crew chief », est
+attendant déjà devant l'avion et attendant de soutenir le pilote. Toi
+je l'entendrai à l'interphone.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson01b_crew_chief_at_temporary_ramp_position.jpg" alt="leçon_01b_crew_chief"><span class="img-wrapper"><img src="../img/lesson01b_crew_chief_at_temporary_ramp_position.jpg" alt="leçon_01b_crew_chief"></span></label></p>
+<p>D'ailleurs, l'assistant du crew chief se tient à votre gauche, à côté de
+l'unité de puissance au sol Dash-60. Il fait fonctionner l'unité, et tout le
+la demande du pilote est en fait faite par lui, alors que le crew chief dirige, surveille
+et est responsable.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson01b_crew_chief_assistant_at_temporary_ramp_position.jpg" alt="leçon_01b_crew_chief_assistant"><span class="img-wrapper"><img src="../img/lesson01b_crew_chief_assistant_at_temporary_ramp_position.jpg" alt="leçon_01b_crew_chief_assistant"></span></label></p>
+<p>Vous venez de vous asseoir sur le siège éjectable arrière et vous commencez à vérifier
+poste de pilotage. Vous pensez peut-être : « Merde, je suis totalement époustouflé par ce que je
+vois, mais je
+je suppose que je ne sais pas ce que je fais...".</p>
+<p>Ne vous inquiétez pas, votre instructeur, qui est également votre pilote pour le vol d'aujourd'hui,
+vous accompagnera
+vous guide tout au long de la leçon !</p>
+<h3 id="leçon-01b---audio-et-texte"><a class="header" href="#leçon-01b---audio-et-texte">Leçon 01b - Audio et texte</a></h3>
+<p>Votre instructeur parle depuis le siège avant, écoutez toujours attentivement. Supposons que
+tout ce qu'il dit est important. Pour vous aider, tout le texte qu'il prononce est
+affiché en haut à droite de l’écran. Si vous ne remarquez pas ou ne comprenez pas
+quelque chose, vous pouvez toujours le lire ci-dessus. Le texte reste visible à l'écran
+pendant un maximum de 1 000 secondes jusqu'à ce qu'il disparaisse ou soit remplacé par un nouveau
+texte.</p>
+<p>Notez que chaque fois que vous avez manqué l'un des messages texte, vous pouvez accéder au
+journal des messages en appuyant sur la touche "Échap", puis en sélectionnant HISTORIQUE DES
+MESSAGES, puis les relire.</p>
+<h3 id="leçon-01b---tâches-et-étapes"><a class="header" href="#leçon-01b---tâches-et-étapes">Leçon 01b - Tâches et étapes</a></h3>
+<p>Les leçons sont divisées en tâches basées sur les noms des
+procédures. Ces tâches sont divisées en étapes individuelles, les étapes allant
+main dans la main avec les différents éléments de la procédure. Les tâches pour cela
+leçon sont :</p>
+<ul>
+<li>Tâche 01 : Réaliser la procédure « AVANT L'ALIMENTATION ÉLECTRIQUE »</li>
+<li>Tâche 02 : Réaliser la procédure « APRÈS PUISSANCE ÉLECTRIQUE »</li>
+<li>Tâche 03 : Réaliser la procédure « VÉRIFICATION INTÉRIEURE »</li>
+<li>Tâche 04 : Réaliser la procédure « AVANT DE DÉMARRER LES MOTEURS »</li>
+<li>Tâche 05 : Surveiller la procédure « DÉMARRAGE DES MOTEURS »</li>
+<li>Tâche 06 : Réaliser la procédure « INS ALIGNEMENT COMPLET DU GYROCOMPASS »</li>
+<li>Tâche 07 : Réaliser la procédure « AVANT TAXI »</li>
+<li>Tâche 08 : Réaliser la procédure « TAXI »</li>
+<li>Tâche 09 : Réaliser la procédure "AVANT LE DÉCOLLAGE"</li>
+<li>Tâche 10 : Réaliser la procédure « APRÈS L'ALIGNEMENT DE PISTE »</li>
+<li>Tâche 11 : Réaliser la procédure « TAKEOFF »</li>
+<li>Tâche 12 : Réaliser la procédure « APRÈS DÉCOLLAGE – MONTÉE »</li>
+</ul>
+<h3 id="leçon-01b---trucs-et-astuces"><a class="header" href="#leçon-01b---trucs-et-astuces">Leçon 01b - Trucs et astuces</a></h3>
+<p>Voici quelques conseils spéciaux pour la leçon 01b :</p>
+<ul>
+<li>Tâche 1 : Cette tâche doit être accomplie par vous seul, sans grande guidance
+du pilote. Seulement pendant quelques pas, il dira quelque chose, la plupart du temps ce sont
+étapes qu’il vous suffit de confirmer. Sinon, il est occupé tout seul
+listes de contrôle...</li>
+<li>Tâche 5 (démarrage du moteur) : Assurez-vous de ramener le levier d'accélérateur dans la simulation à la position "IDLE"
+pour que la logique de la leçon continue. Voici le contexte : Les utilisateurs ont signalé des
+problèmes lors de l'exécution de cette étape. Dans tous les cas signalés jusqu'à présent, le
+véritable levier d'accélérateur a été ramené à sa position IDLE, mais le levier d'accélérateur
+dans la simulation n'a pas atteint la position "IDLE", et est resté coincé un peu trop en avant.
+Donc, veuillez vous assurer que vos vrais leviers d'accélérateur sont capables de déplacer
+les leviers d'accélérateur dans le sim sur toute la gamme :
+<ul>
+<li>"MAX" (qui correspond à 100 % RPM avec postcombustion complète)</li>
+<li>"MIL" (qui est à 100 % RPM sans postcombustion)</li>
+<li>"IDLE" (qui correspond à 65 % du régime)</li>
+<li>"OFF" (qui est la coupure du carburant)</li>
+</ul>
+</li>
+</ul>
+<h2 id="leçon-02---pilote-taxi"><a class="header" href="#leçon-02---pilote-taxi">Leçon 02 - (PILOTE) Taxi</a></h2>
+<h3 id="leçon-02---météo"><a class="header" href="#leçon-02---météo">Leçon 02 - Météo</a></h3>
+<p>Le temps change lentement mais sensiblement. Les nuages ​​commencent à se dissiper et le
+les prévisions concernant la brume au niveau du sol étaient correctes. Vitesse et direction du vent
+n'a pas changé jusqu'à présent.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson02_kobuleti_wx.jpg" alt="météo_lesson2"><span class="img-wrapper"><img src="../img/lesson02_kobuleti_wx.jpg" alt="météo_lesson2"></span></label></p>
+<h3 id="leçon-02---créneaux"><a class="header" href="#leçon-02---créneaux">Leçon 02 - Créneaux</a></h3>
+<p>Les créneaux horaires n'ont pas changé.</p>
+<ul>
+<li>#1 Dodge 41 (IA, déjà au sol, ravitaillement)</li>
+<li>#2 Dodge 31 (IA, déjà au sol, ravitaillement)</li>
+<li>#3 Dodge 21 &amp; 22 (IA, au départ)</li>
+<li>#4 Dodge 11 (vous, à la position de stationnement #25)</li>
+</ul>
+<p>Tous les vols Dodge effectuent des vols de familiarisation et de formation sur l'aérodrome.</p>
+<h3 id="leçon-02---avion"><a class="header" href="#leçon-02---avion">Leçon 02 - Avion</a></h3>
+<p>Votre avion est déjà "chaud sur la rampe n°25" avec les deux moteurs en marche, le
+le nez est pointé vers la piste. Tous les systèmes de l'avion sont réglés sur le
+postes dans lesquels vous avez quitté la leçon précédente. La puissance au sol du Dash-60
+l'unité est déjà retirée.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson02_slot_ramp_no25.jpg" alt="leçon_02_rampe"><span class="img-wrapper"><img src="../img/lesson02_slot_ramp_no25.jpg" alt="leçon_02_rampe"></span></label></p>
+<p>Le "crew chief" a changé de position pour passer à l'avant droit de votre avion et
+attend de vous soutenir.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson02_crew_chief_ramp_no25.jpg" alt="leçon2_crew_chief"><span class="img-wrapper"><img src="../img/lesson02_crew_chief_ramp_no25.jpg" alt="leçon2_crew_chief"></span></label></p>
+<p>Son assistant se tient à votre côté avant gauche.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson02_crew_chief_assistant_ramp_no25.jpg" alt="leçon2_crew_chief_assistant"><span class="img-wrapper"><img src="../img/lesson02_crew_chief_assistant_ramp_no25.jpg" alt="leçon2_crew_chief_assistant"></span></label></p>
+<h3 id="leçon-02---audio-et-texte"><a class="header" href="#leçon-02---audio-et-texte">Leçon 02 - Audio et texte</a></h3>
+<p>Votre instructeur parle depuis la banquette arrière, écoutez toujours attentivement. Supposons que
+tout ce qu'il dit est important. Pour vous aider, tout le texte qu'il prononce est
+affiché en haut à droite de l’écran. Si vous ne remarquez pas ou ne comprenez pas
+quelque chose, vous pouvez toujours le lire ci-dessus. Le texte reste visible à l'écran
+pendant un maximum de 1 000 secondes jusqu'à ce qu'il disparaisse ou soit remplacé par un nouveau
+texte.</p>
+<p>Notez que chaque fois que vous avez manqué l'un des messages texte, vous pouvez accéder au
+journal des messages en appuyant sur la touche "Échap", puis en sélectionnant HISTORIQUE DES
+MESSAGES, puis les relire.</p>
+<h3 id="leçon-02---tâches-et-étapes"><a class="header" href="#leçon-02---tâches-et-étapes">Leçon 02 - Tâches et étapes</a></h3>
+<p>Les leçons sont divisées en tâches basées sur les noms des
+procédures. Ces tâches sont divisées en étapes individuelles, les étapes allant
+main dans la main avec les différents éléments de la procédure. Les tâches pour cela
+leçon sont :</p>
+<ul>
+<li>
+<p>Tâche 1 : Vérifiez l'avion avant de vous déplacer par vos propres moyens.</p>
+</li>
+<li>
+<p>Tâche 2 : Taxi jusqu'au point d'arrêt RWY 07.</p>
+</li>
+</ul>
+<h3 id="leçon-02---trucs-et-astuces"><a class="header" href="#leçon-02---trucs-et-astuces">Leçon 02 - Trucs et astuces</a></h3>
+<p>Voici quelques conseils spéciaux pour la leçon 02 :</p>
+<ul>
+<li>
+<p>Tâche 1 &gt; Étape 7 : La vérification des commandes de vol peut être omise au cas où elle
+deviendrait
+trop difficile. Utiliser le BOUTON TEST FEU sur le tableau de bord avant ou
+lors de l'exécution de cette vérification pour l'ignorer. La raison en est que pour ce contrôle,
+plusieurs choses doivent être faites en parallèle :</p>
+<ul>
+<li>Écouter notre instructeur</li>
+<li>Effectuer les saisies sur le système de commandes de vol (mouvements et
+pressions sur les boutons/interrupteurs/paramètres)</li>
+<li>Ecouter la confirmation donnée par le crew chief</li>
+<li>En appuyant sur "Barre d'espace" après avoir reçu la confirmation du crew chief</li>
+</ul>
+</li>
+<li>
+<p>Tâche 1 &gt; Étapes 7f et 7h : Le crew chief ne répondra pas lorsque vous réglerez le gouvernail
+à la position neutre.</p>
+</li>
+<li>
+<p>Tâche 2 &gt; Introduction : Observez que l'audio contenant l'autorisation de circuler par l'ATC est diffusé via votre
+radio UHF. Par conséquent, si vous éteignez ou baissez le volume de la radio, ou acheminez le
+signal audio vers un autre appareil dont le volume est baissé, vous risquez de ne pas entendre
+l'appel correctement. Dans tous les cas, le texte prononcé peut être lu dans le coin supérieur
+droit de l'écran, et le cours continue normalement.</p>
+</li>
+<li>
+<p>Tâche 2 &gt; Étape 1a) Utilisez les leviers de puissance très doucement ! Une fois l'avion démarré
+rouler, tirez les leviers de puissance au ralenti et contrôlez soigneusement le taxi
+vitesse en utilisant une puissance minimale avec les freins des roues.</p>
+</li>
+</ul>
+<h2 id="leçon-03---pilote-décollage-normal"><a class="header" href="#leçon-03---pilote-décollage-normal">Leçon 03 - (PILOTE) Décollage Normal</a></h2>
+<h3 id="leçon-03---météo"><a class="header" href="#leçon-03---météo">Leçon 03 - Météo</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson03_kobuleti_wx.jpg" alt="leçon03_météo"><span class="img-wrapper"><img src="../img/lesson03_kobuleti_wx.jpg" alt="leçon03_météo"></span></label></p>
+<p>Le temps change sensiblement à chaque minute. Les nuages ​​continuent
+se disloque et la brume au niveau du sol est toujours là. Vitesse et direction du vent
+n'a pas changé jusqu'à présent.</p>
+<h3 id="leçon-03---créneaux"><a class="header" href="#leçon-03---créneaux">Leçon 03 - Créneaux</a></h3>
+<p>Les créneaux horaires n'ont pas changé.</p>
+<ul>
+<li>#1 Dodge 41 (IA, déjà au sol)</li>
+<li>#2 Dodge 31 (IA, déjà au sol)</li>
+<li>#3 Dodge 21 &amp; 22 (IA, déjà au sol)</li>
+<li>#4 Dodge 11 (vous, au point d'arrêt de la piste 07)</li>
+</ul>
+<p>Tous les vols Dodge effectuent des vols de familiarisation et de formation sur l'aérodrome.</p>
+<h3 id="leçon-03---avion"><a class="header" href="#leçon-03---avion">Leçon 03 - Avion</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson03_slot_holdingpoint_rwy07.jpg" alt="leçon03_aircraft_slot"><span class="img-wrapper"><img src="../img/lesson03_slot_holdingpoint_rwy07.jpg" alt="leçon03_aircraft_slot"></span></label></p>
+<p>Votre avion est déjà "à chaud sur le point d'attente pour la piste 07" avec les deux
+moteurs en marche, le nez est pointé vers la piste. Tous les systèmes aéronautiques
+sont réglés sur les positions dans lesquelles vous êtes parti dans la leçon précédente.</p>
+<h3 id="leçon-03---audio-et-texte"><a class="header" href="#leçon-03---audio-et-texte">Leçon 03 - Audio et texte</a></h3>
+<p>Votre instructeur parle depuis la banquette arrière, écoutez toujours attentivement. Supposons que
+tout ce qu'il dit est important. Pour vous aider, tout le texte qu'il prononce est
+affiché en haut à droite de l’écran. Si vous ne remarquez pas ou ne comprenez pas
+quelque chose, vous pouvez toujours le lire ci-dessus. Le texte reste visible à l'écran
+pendant un maximum de 1 000 secondes jusqu'à ce qu'il disparaisse ou soit remplacé par un nouveau
+texte.</p>
+<p>Notez que chaque fois que vous avez manqué l'un des messages texte, vous pouvez accéder au
+journal des messages en appuyant sur la touche "Échap", puis en sélectionnant HISTORIQUE DES
+MESSAGES, puis les relire.</p>
+<h3 id="leçon-03---tâches-et-étapes"><a class="header" href="#leçon-03---tâches-et-étapes">Leçon 03 - Tâches et étapes</a></h3>
+<p>Les leçons sont divisées en tâches basées sur les noms des
+procédures. Ces tâches sont divisées en étapes individuelles, les étapes allant
+main dans la main avec les différents éléments de la procédure. Les tâches pour cela
+leçon sont :</p>
+<ul>
+<li>Tâche 1 : Vérifier l'avion en étant positionné au point d'attente pour la piste 07.</li>
+<li>Tâche 2 : Aligner les avions sur la piste 07</li>
+<li>Tâche 3 : Vérifier les systèmes essentiels de l'avion pendant l'alignement sur la piste 07</li>
+<li>Tâche 4 : Effectuer un décollage normal (becs &amp; volets "sortis" &amp; "vers le bas") sur RWY 07</li>
+<li>Tâche 5 : Effectuer une montée normale à 350 nœuds ou M0,9 (selon la première éventualité),
+en suivant les balises 1, 2 et 3.</li>
+<li>Tâche 6 : Effectuer des contrôles de croisière.</li>
+</ul>
+<h3 id="leçon-03---trucs-et-astuces"><a class="header" href="#leçon-03---trucs-et-astuces">Leçon 03 - Trucs et astuces</a></h3>
+<p>Voici quelques conseils spéciaux pour la leçon 03 :</p>
+<ul>
+<li>
+<p>Tâche 1 &gt; Étapes 4a - 4e : La vérification des commandes de vol consiste uniquement à vérifier si
+le manche bouge librement (au moins 50 % de la déviation du manche doit être
+fait). Vous pouvez également vérifier le gouvernail, mais cela n’est pas requis pour cette étape.</p>
+</li>
+<li>
+<p>Tâche 1 &gt; Étape 10 : L'activation de l'alerte MASTER CAUTION indique quelque chose
+est ou du moins avait tort. Alors réinitialisez-le, puis vérifiez s'il reste éteint.</p>
+</li>
+<li>
+<p>Tâche 2 &gt; Étape 1 : Observez que l'audio contenant l'autorisation d'alignement par l'ATC est diffusé via votre
+radio UHF. Par conséquent, si vous éteignez ou baissez le volume de la radio, ou acheminez les
+signaux audio vers un autre appareil dont le volume est baissé, vous risquez de ne pas entendre
+l'appel correctement. Dans tous les cas, le texte prononcé peut être lu dans le coin supérieur
+droit de l'écran, et la leçon continue.</p>
+</li>
+<li>
+<p>Tâche 4 &gt; Introduction Observez que l'audio contenant l'autorisation de décollage par l'ATC est diffusé via
+votre radio UHF. Par conséquent, si vous éteignez ou baissez le volume de la radio, ou
+acheminez les signaux audio vers un autre appareil dont le volume est baissé, vous risquez de
+ne pas entendre l'appel correctement. Dans tous les cas, le texte prononcé peut être lu dans
+le coin supérieur droit de l'écran, et la leçon continue.</p>
+</li>
+<li>
+<p>Tâche 4 &gt; Étape 5 : Pour les débutants, nous recommandons d'effectuer le premier décollage
+sans post-combustion (juste la puissance MIL, ce qui signifie 100 % tr/min sans
+postcombustion), même si nous savons que décoller avec postcombustion est très amusant. La
+raison en est que vous pourrez alors entendre tous les appels de votre instructeur, car le
+temps nécessaire au décollage est suffisamment long. Chaque fois que vous pensez maîtriser par
+cœur toutes les étapes nécessaires à un décollage sûr sans aucune instruction, optez pour un
+décollage avec postcombustion. S'il vous plaît, ne dites surtout pas à nos SME que ce texte
+existe, et ne dites jamais à personne que vous avez suivi la recommandation...</p>
+</li>
+<li>
+<p>Décollage : Avant de décoller, suivez la procédure de décollage. Vous devez
+mémoriser les éléments par cœur :</p>
+<ul>
+<li>Pas de NGS après 70 nœuds</li>
+<li>STICK arrière complet par 80 nœuds</li>
+<li>Maintenir 10 à 12° NOSE UP</li>
+<li>Soulevez le GEAR &amp; FLAPS dès que vous êtes en vol.</li>
+<li>TRIM au besoin</li>
+</ul>
+</li>
+<li>
+<p>Tâche 4 &gt; Étape 8 : En DCS, avec la situation de vent actuelle (pas de composante de vent
+traversier), il n'est vraiment pas nécessaire d'utiliser la direction du train avant. Vous ne
+serez rappelé à l'ordre par l'instructeur que si vous utilisez la direction du train avant
+au-dessus de 70 nœuds.</p>
+</li>
+<li>
+<p>Tâche 4 &gt; Étape 11 : Il est préférable d'effectuer le trim en plusieurs impulsions rapides plutôt qu'en une
+pression longue, pour éviter un trim excessif.</p>
+</li>
+<li>
+<p>Tâche 4 &gt; Étapes 13 : Assurez-vous d'avoir les volets rentrés avant d'atteindre 250
+nœuds, mais il existe un certain tampon de sécurité et ils ne doivent pas être endommagés à
+exactement 250 nœuds.</p>
+</li>
+<li>
+<p>Tâche 5 &gt; Étape 1 : Assurez-vous de suivre un cap d'environ 064° et de monter après
+décollage. Assurez-vous de voler à une vitesse ne dépassant pas 350 nœuds. Voler un
+montée peu profonde sans postcombustion (angle d'inclinaison d'environ 10°). Voler à pic
+monter lors de l'utilisation de la postcombustion (angle d'inclinaison d'environ 30°).</p>
+</li>
+<li>
+<p>Après avoir atteint une certaine altitude et vitesse avec le train et les volets sortis,
+la leçon est accomplie. Vous pouvez continuer la montée en suivant l'itinéraire qui
+est commandé par votre instructeur. Si vous êtes "perdu dans l'espace", ouvrez le F-10
+carte, cliquez sur votre avion et observez l'itinéraire prévu ; vous pourrez alors
+suivez-le plus facilement.</p>
+</li>
+<li>
+<p>Tâche 6 &gt; Étape 1d : Il n'existe actuellement aucun moyen de comparer les valeurs des deux
+altimètres. Cette étape a été conservée dans la procédure au cas où vous en auriez besoin lorsque
+fonctionnant avec un vrai WSO sur le siège arrière.</p>
+</li>
+</ul>
+<h2 id="leçon-04---pilote-approche-visuelle"><a class="header" href="#leçon-04---pilote-approche-visuelle">Leçon 04 - (PILOTE) Approche visuelle</a></h2>
+<h3 id="leçon-04---météo"><a class="header" href="#leçon-04---météo">Leçon 04 - Météo</a></h3>
+<p>Le temps est devenu plutôt clément. Les nuages ​​ont plus ou moins disparu,
+et la brume au niveau du sol est moins visible en raison de la hausse rapide de la température.
+La vitesse et la direction du vent n'ont toujours pas changé jusqu'à présent.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson04_kobuleti_wx.jpg" alt="leçon04_kobuleti_wx"><span class="img-wrapper"><img src="../img/lesson04_kobuleti_wx.jpg" alt="leçon04_kobuleti_wx"></span></label></p>
+<h3 id="leçon-04---créneaux"><a class="header" href="#leçon-04---créneaux">Leçon 04 - Créneaux</a></h3>
+<p>Les créneaux horaires n'ont pas changé.</p>
+<ul>
+<li>#1 Dodge 41 (IA, déjà au sol)</li>
+<li>#2 Dodge 31 (IA, déjà au sol)</li>
+<li>#3 Dodge 21 &amp; 22 (IA, déjà au sol)</li>
+<li>#4 Dodge 11 (vous, point de virage entrant en vol 7)</li>
+</ul>
+<p>Tous les vols Dodge effectuent des vols de familiarisation et de formation sur l'aérodrome.</p>
+<h3 id="leçon-04---avion"><a class="header" href="#leçon-04---avion">Leçon 04 - Avion</a></h3>
+<p>Votre avion est déjà "en vol" au point de virage 7 à 22 000 pieds d'altitude à
+Mach 0,7. Tous les systèmes sont configurés comme ils le seraient après un entraînement air-air typique,
+il sera donc nécessaire de préparer l'avion pour l'approche et l'atterrissage à venir.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson04_slot_in-flight.jpg" alt="leçon_04_slot"><span class="img-wrapper"><img src="../img/lesson04_slot_in-flight.jpg" alt="leçon_04_slot"></span></label></p>
+<h3 id="leçon-04---audio-et-texte"><a class="header" href="#leçon-04---audio-et-texte">Leçon 04 - Audio et texte</a></h3>
+<p>Votre instructeur parle depuis la banquette arrière, écoutez toujours attentivement. Supposons que
+tout ce qu'il dit est important. Pour vous aider, tout le texte qu'il prononce est
+affiché en haut à droite de l’écran. Si vous ne remarquez pas ou ne comprenez pas
+quelque chose, vous pouvez toujours le lire ci-dessus. Le texte reste visible à l'écran
+pendant un maximum de 1 000 secondes jusqu'à ce qu'il disparaisse ou soit remplacé par un nouveau
+texte.</p>
+<p>Notez que chaque fois que vous avez manqué l'un des messages texte, vous pouvez accéder au
+journal des messages en appuyant sur la touche "Échap", puis en sélectionnant HISTORIQUE DES
+MESSAGES, puis les relire.</p>
+<h3 id="leçon-04---tâches-et-étapes"><a class="header" href="#leçon-04---tâches-et-étapes">Leçon 04 - Tâches et étapes</a></h3>
+<p>Les leçons sont divisées en tâches basées sur les noms des
+procédures. Ces tâches sont divisées en étapes individuelles, les étapes allant
+main dans la main avec les différents éléments de la procédure.</p>
+<p>Les tâches de cette leçon sont :</p>
+<ul>
+<li>Tâche 1 : Vérifier l'atterrissage de l'avion pendant un vol de croisière.</li>
+<li>Tâche 2 : Préparer l'avion pour l'atterrissage sous le vent sur la piste 07.</li>
+<li>Tâche 3 : Atterrir l'avion sur la piste 07.</li>
+<li>Tâche 4 : Sécuriser l'avion pendant le roulage vers la position de stationnement PRK 25.</li>
+</ul>
+<h3 id="leçon-04---trucs-et-astuces"><a class="header" href="#leçon-04---trucs-et-astuces">Leçon 04 - Trucs et astuces</a></h3>
+<p>Voici quelques conseils spéciaux pour la leçon 04 :</p>
+<ul>
+<li>Trim du jet : Il est préférable d'effectuer le trim du tangage en plusieurs impulsions
+rapides plutôt qu'en une pression longue, pour éviter un trim excessif.</li>
+<li>Pilote automatique : utilisez les modes de pilote automatique « attitude hold » et « altitude hold
+»
+chaque fois que vous pensez avoir besoin d'avoir les mains libres. Le système est un excellent
+assistant,
+alors utilise-le !</li>
+<li>Distances DME : les informations sur la distance DME sont affichées dans le coin inférieur gauche
+de
+le HSI.</li>
+</ul>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson04_hsi_dme.jpg" alt="leçon04_dme_distance"><span class="img-wrapper"><img src="../img/lesson04_hsi_dme.jpg" alt="leçon04_dme_distance"></span></label></p>
+<ul>
+<li>Paramètres du cours HSI : Le paramètre du cours peut être modifié avec le COURSE SET
+KNOB dans le coin inférieur droit du HSI :</li>
+</ul>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson04_hsi_hdg.jpg" alt="leçon04_hsi_course"><span class="img-wrapper"><img src="../img/lesson04_hsi_hdg.jpg" alt="leçon04_hsi_course"></span></label></p>
+<ul>
+<li>Tâche 1 &gt; Étape 4 : Si vous ne parvenez pas à atteindre le commutateur de sélection d'antenne
+COMM, reculez les manettes des gaz un instant.</li>
+</ul>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../img/lesson04_comm_antenna_switch.jpg" alt="leçon04_comm_antenna"><span class="img-wrapper"><img src="../img/lesson04_comm_antenna_switch.jpg" alt="leçon04_comm_antenna"></span></label></p>
+<ul>
+<li>Tâche 1 &gt; Étape 8 : L'altitude de transition dans cette région particulière est de 4 000 m
+(13 120 pieds), et le niveau de transition est le niveau de vol 140 (FL140, qui est
+14 000 pieds). Lorsque vous descendez à 14 000 pieds, vous devez régler votre
+altimètre à la valeur du QNH local (qui est aujourd'hui de 29,84 in/HG). Ce n'est pas grave
+si vous oubliez cela, cela n'a aucune importance pour le résultat de la
+leçon.</li>
+<li>PÉNÉTRATION / DESCENTE : Suivez au mieux les instructions. Vous pouvez engager le pilote
+automatique de maintien d'attitude pendant la descente et vous concentrer sur la vitesse et la
+gestion de l'énergie. N'oubliez pas de régler le QNH une fois le niveau de transition dépassé
+(dans ce cas 14 000 pieds).</li>
+<li>PÉNÉTRATION / VIRAGE : Effectuez un virage peu profond à gauche. Si vous avez déjà atteint 2 500
+pieds d'altitude, bien. Si vous êtes encore plus haut, continuez à descendre pendant la
+tourner à gauche jusqu'à atteindre 2500 pieds. Gardez un œil sur votre taux de chute. Voler
+en douceur et ne travaillez pas dur sur le manche. Intercepter le radial 064 aussi bien que
+vous pouvez afin de vous aligner sur le cap de la piste. Traitez-la comme une dame, et
+pensez à l'avance ! Utilisez la carte F-10 si vous vous perdez dans l'espace. Ne vous précipitez
+pas à Batoumi
+espace aérien. L'autorisation d'atterrissage est déjà donnée. Vous êtes le dernier vol à
+vous approcher de l'aérodrome pour les deux prochaines heures.</li>
+<li>Tâche 2 : Retenir par cœur ces cinq éléments : ENGRENAGES / VOLETS / PRESSION HYDRAULIQUE
+/ FEUX D'AVERTISSEMENT / ANTIDÉRAPANT</li>
+<li>Tâche 3 : Si vous volez à des vitesses correctes, toutes les instructions peuvent être entendues
+jusqu'à la fin. Si vous vous précipitez, la chronologie se comprime et la séquence des événements
+alors cela peut devenir écrasant. Pendant l'approche, vérifiez continuellement
+Pas / Puissance / Trim. Faites attention à la piste, ajustez votre cap avec de légères
+manœuvres de roulis si nécessaire. Relevez le siège au cas où vous auriez du mal à voir
+la piste à des angles d'attaque plus élevés. Volez doucement, suivez les instructions,
+et anticipez !</li>
+<li>Remise des gaz : Au cas où vous auriez le moindre doute sur votre capacité à gérer un
+atterrissage en toute sécurité : FAITES LE TOUR. Effectuez la procédure d'approche interrompue
+en entrant dans un circuit court à main gauche à 1 500 pieds et 250 nœuds. Prenez votre temps,
+soyez patient avec vous-même, ne vous précipitez pas et gardez un œil sur la vitesse et
+l'altitude !</li>
+<li>Atterrissage/arrondi : L'avion était certifié pour les atterrissages sur porte-avions. Si tu ne le
+fais pas
+arrondir avant l'atterrissage sur une trajectoire d'approche de 2° à 3°, vous ALLEZ claquer
+l'avion
+dans la piste. Cela entraîne une usure des roues et des jambes du train d'atterrissage, mais
+rien de plus. Vous pouvez décider vous-même si vous souhaitez arrondir simplement un peu pour
+diminuer légèrement le taux de chute. Taux de chute supérieurs à 3 à 4 m/s (600 à 700
+ft/min) en fonction de la masse, pourrait cependant endommager le train d'atterrissage.</li>
+<li>Atterrissage / toucher des roues : assurez-vous de rester aligné avec la ligne médiane en
+utilisant uniquement le gouvernail. Préparez-vous à déployer le parachute de freinage, qui
+stabilise l'avion pendant la course à l'atterrissage. Roulez jusqu'au bout de la piste, puis
+quittez-la par la droite !</li>
+<li>Taxi : Suivez le signaleur (marshaller) après avoir quitté la piste. Si vous avez du mal
+à effectuer la « procédure après atterrissage » pendant le roulage, vous pouvez arrêter
+l'avion sur la voie de circulation pour cela. Mais la voiture ne s’arrêtera pas. Une fois terminé
+avec la procédure, continuez à rouler jusqu'à votre position de stationnement initiale, nez
+pointé vers l'abri "25", et s'y arrête.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                            <a rel="prev" href="../dcs/mission_editor.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                                <span class="nav-chapters-text">Prev</span>
+                            </a>
+
+                            <a rel="next prefetch" href="../dcs/screen_export.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class="nav-chapters-text">Next</span>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../dcs/mission_editor.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                        <span class="nav-chapters-text">Prev</span>
+                    </a>
+                    <a rel="prev" href="../dcs/mission_editor.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../dcs/screen_export.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class="nav-chapters-text">Next</span>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+                    <a rel="next prefetch" href="../dcs/screen_export.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../js/jquery-3.7.1.min.js"></script>
+        <script src="../js/extra.js"></script>
+        <script src="../js/i18n/switcher.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

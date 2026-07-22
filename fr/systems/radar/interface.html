@@ -1,0 +1,688 @@
+<!DOCTYPE HTML>
+<html lang="fr" class="hb_light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Interface - Heatblur F-4E Phantom II</title>
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Manual of the F-4E Phantom by Heatblur Simulations.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../theme/visual.css">
+        <link rel="stylesheet" href="../../theme/hb_light.css">
+        <link rel="stylesheet" href="../../theme/hb_dark.css">
+        <link rel="stylesheet" href="../../theme/pdf.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "hb_light";
+            const default_dark_theme = "hb_dark";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>&larr;</kbd> or <kbd>&rarr;</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('hb_light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-hb_light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-hb_dark">Dark</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-pdf">(PDF)</button></li>
+                        </ul>
+                        <button id="mdbook-language-toggle" class="icon-button" type="button" title="Change language" aria-label="Change language" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-language-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 128C0 92.7 28.7 64 64 64H256h48 16H576c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H320 304 256 64c-35.3 0-64-28.7-64-64V128zm320 0V384H576V128H320zM178.3 175.9c-3.2-7.2-10.4-11.9-18.3-11.9s-15.1 4.7-18.3 11.9l-64 144c-4.5 10.1 .1 21.9 10.2 26.4s21.9-.1 26.4-10.2l8.9-20.1h73.6l8.9 20.1c4.5 10.1 16.3 14.6 26.4 10.2s14.6-16.3 10.2-26.4l-64-144zM160 233.2L179 276H141l19-42.8zM448 164c11 0 20 9 20 20v4h44 16c11 0 20 9 20 20s-9 20-20 20h-2l-1.6 4.5c-8.9 24.4-22.4 46.6-39.6 65.4c.9 .6 1.8 1.1 2.7 1.6l18.9 11.3c9.5 5.7 12.5 18 6.9 27.4s-18 12.5-27.4 6.9l-18.9-11.3c-4.5-2.7-8.8-5.5-13.1-8.5c-10.6 7.5-21.9 14-34 19.4l-3.6 1.6c-10.1 4.5-21.9-.1-26.4-10.2s.1-21.9 10.2-26.4l3.6-1.6c6.4-2.9 12.6-6.1 18.5-9.8l-12.2-12.2c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l14.6 14.6 .5 .5c12.4-13.1 22.5-28.3 29.8-45H448 376c-11 0-20-9-20-20s9-20 20-20h52v-4c0-11 9-20 20-20z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-language-list" class="theme-popup" aria-label="Languages" role="menu">
+                            <li role="none"><a role="menuitem" class="theme" data-lang="en">English</a></li>
+                            <li role="none"><a role="menuitem" class="theme" data-lang="fr">Français</a></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Heatblur F-4E Phantom II</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this manual" aria-label="Print this manual">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual/releases" title="PDF version" aria-label="PDF version">
+                            <span class=fa-svg id="pdf-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM64 224H88c30.9 0 56 25.1 56 56s-25.1 56-56 56H80v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V320 240c0-8.8 7.2-16 16-16zm24 80c13.3 0 24-10.7 24-24s-10.7-24-24-24H80v48h8zm72-64c0-8.8 7.2-16 16-16h24c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H176c-8.8 0-16-7.2-16-16V240zm32 112h8c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16h-8v96zm96-128h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H304v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H304v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V304 240c0-8.8 7.2-16 16-16z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual/edit/master/src/fr/systems/radar/interface.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <span class=fa-svg id="git-edit-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M421.7 220.3l-11.3 11.3-22.6 22.6-205 205c-6.6 6.6-14.8 11.5-23.8 14.1L30.8 511c-8.4 2.5-17.5 .2-23.7-6.1S-1.5 489.7 1 481.2L38.7 353.1c2.6-9 7.5-17.2 14.1-23.8l205-205 22.6-22.6 11.3-11.3 33.9 33.9 62.1 62.1 33.9 33.9zM96 353.9l-9.3 9.3c-.9 .9-1.6 2.1-2 3.4l-25.3 86 86-25.3c1.3-.4 2.5-1.1 3.4-2l9.3-9.3H112c-8.8 0-16-7.2-16-16V353.9zM453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-14.5 14.5-22.6 22.6-11.3 11.3-33.9-33.9-62.1-62.1L314.3 67.7l11.3-11.3 22.6-22.6 14.5-14.5c25-25 65.5-25 90.5 0z"/></svg></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this manual ..." aria-controls="mdbook-searchresults-outer" aria-describedby="mdbook-searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="interface-radar"><a class="header" href="#interface-radar">Interface radar</a></h1>
+<p>Le système radar peut être configuré par le WSO avec deux panneaux sur la console gauche,
+le panneau de commande du radar et le panneau du moniteur de commande.</p>
+<p>Les retours radar sont affichés sur l'écran DSCG, tandis que le manche de commande manuelle
+de l'antenne sur la console droite du cockpit WSO peut être utilisé pour faire fonctionner le radar.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/S_bIbU4Yoto?si=5SARcw1-VCX2tnGH" title="DCS F-4E Air-Air I : premiers pas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<h2 id="panneau-de-commande-du-radar"><a class="header" href="#panneau-de-commande-du-radar">Panneau de commande du radar</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_radar_panel.jpg" alt="wso_radar_control_panel"><span class="img-wrapper"><img src="../../img/wso_radar_panel.jpg" alt="wso_radar_control_panel"></span></label></p>
+<p><em>Pour une description détaillée du panneau
+voir <a href="../../cockpit/wso/left_console/center_section.html#radar-set-control-panel">WSO section centrale de la console
+gauche</a></em></p>
+<h3 id="alimentation"><a class="header" href="#alimentation">Alimentation</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_radar_power_switch.jpg" alt="Bouton d&#39;alimentation"><span class="img-wrapper"><img src="../../img/wso_radar_power_switch.jpg" alt="Bouton d&#39;alimentation"></span></label></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Nom</th><th>Descriptif</th></tr>
+</thead>
+<tbody>
+<tr><td>OFF</td><td>Éteint le radar.</td></tr>
+<tr><td>TEST</td><td>Applique une tension pour contrôler l'alimentation du moniteur et fournit les fonctions <a href="../../procedures/bit_tests/overview.html">BIT-test</a> 1 à 6.</td></tr>
+<tr><td>STBY</td><td>L'alimentation appliquée au radar reste dans un état de veille sans transmission.</td></tr>
+<tr><td>OPR</td><td>Le système est pleinement opérationnel.</td></tr>
+<tr><td>EMER</td><td>Annule les restrictions de temporisation, de pression et de température pour permettre le fonctionnement du radar.</td></tr>
+</tbody>
+</table>
+</div>
+<p>La mise sous tension initiale de l'APQ-120 commence en plaçant le bouton d'alimentation du
+radar sur TEST ou STBY (veille). Le cycle de préchauffage nécessite 3 minutes à partir de
+la sélection de l'un ou l'autre réglage, et la confirmation de ce processus est affichée via
+le Control Monitor Meter sur le panneau du moniteur ; après 30 secondes de mise sous tension,
+la jauge affichera une valeur d'environ 250 Vdc ; à partir du moment où l'aiguille indique
+cette valeur nominale, la procédure de préchauffage durera encore 2,5 minutes.</p>
+<p>Après 3 minutes, le radar peut être placé en toute sécurité en OPR (Operate) pour
+utilisation du radar, les tests BIT peuvent être effectués en mode TEST, ou le radar
+peut être laissé en STBY pour la sécurité de l'équipage et des autres personnes au sol.</p>
+<p>En cas de situation d'urgence nécessitant une mise en service immédiate du
+radar, EMER peut être sélectionné ; voir la section
+<a href="general_operation.html#magnetron-and-klystron">Magnétron et Klystron</a> pour
+les implications de cela.</p>
+<h3 id="portée"><a class="header" href="#portée">Portée</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_radar_range_switch.jpg" alt="Bouton de plage"><span class="img-wrapper"><img src="../../img/wso_radar_range_switch.jpg" alt="Bouton de plage"></span></label></p>
+<p>Le bouton de contrôle de portée définit la portée du radar. Notez qu'il existe certains modes
+dans lesquels les réglages de portée disponibles sont restreints ou forcés à un réglage
+spécifique.</p>
+<p>La portée actuelle du radar allumera le
+<a href="../../cockpit/pilot/dscg_controls.html#range-lights">voyant de portée</a> correspondant, ainsi
+qu'affichera la valeur numérique sur l'écran DSCG en haut à gauche.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/pilot_dscg_range_lights.jpg" alt="pilot_dscg_range_lights"><span class="img-wrapper"><img src="../../img/pilot_dscg_range_lights.jpg" alt="pilot_dscg_range_lights"></span></label></p>
+<p>Les valeurs jusqu'à 50 nmi sont indiquées comme <strong>Air-Intercept (AI)</strong> et sont disponibles pour
+le <a href="air_to_air.html#track">Suivi automatique</a>. Les valeurs 100 nmi et 200 nmi sont
+disponibles pour le mode <a href="air_to_air.html#spotlight">Spotlight</a> à la place.</p>
+<h3 id="contrôle-de-polarisation"><a class="header" href="#contrôle-de-polarisation">Contrôle de polarisation</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_radar_polar_switch.jpg" alt="Commutateur de polarisation"><span class="img-wrapper"><img src="../../img/wso_radar_polar_switch.jpg" alt="Commutateur de polarisation"></span></label></p>
+<p>La polarisation de l'énergie radiofréquence peut être modifiée à l'aide du
+contrôle de polarisation. En fonctionnement normal, le réglage LIN est utilisé, ce qui produit
+une énergie RF (radiofréquence) polarisée linéairement dans la direction verticale par
+rapport à l'antenne. Cela minimise les retours au sol, car de nombreux types de fouillis au
+sol sont moins réfléchissants à l'énergie RF polarisée verticalement. Cependant, comme
+l'antenne n'est pas stabilisée en roulis, une intensité de retour accrue peut être observée
+lors du roulis de l'avion.</p>
+<p>CIR 1 et CIR 2 sont des positions à polarisation circulaire. Les précipitations sont moins
+réfléchissantes aux RF polarisées circulairement, de sorte que CIR 1 et CIR 2 peuvent aider
+à minimiser le fouillis en cas de pluie ou de brouillard.</p>
+<p>La polarisation est réglée à l'aide de la lame quart d'onde dans le cornet d'alimentation,
+qui fait en sorte que les <a href="general_operation.html#klystron">émissions d'ondes continues</a> soient
+polarisées comme décrit ci-dessus. Cela rend uniquement le CIR 1 compatible avec le lancement
+des <a href="../../stores/air_to_air/aim_7.html">AIM-7 Sparrows</a>, car l'antenne arrière du Sparrow ne
+peut pas recevoir de RF polarisées dans le sens inverse des aiguilles d'une montre.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Sélection</th><th>Polarisation de l'énergie RF</th><th>Guide AIM-7</th></tr>
+</thead>
+<tbody>
+<tr><td>LIN</td><td>Polarisée linéairement dans une orientation verticale</td><td>✅</td></tr>
+<tr><td>CIR 1</td><td>Polarisée circulairement dans le sens des aiguilles d'une montre</td><td>✅</td></tr>
+<tr><td>CIR 2</td><td>Circulairement dans le sens inverse des aiguilles d'une montre</td><td>❌</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>💡 Seuls les modes LIN et CIR 1 sont utilisables avec le Sparrow, un Sparrow lancé
+en utilisant CIR 2 ne guidera pas.</p>
+</blockquote>
+<h3 id="commutateur-de-manœuvre"><a class="header" href="#commutateur-de-manœuvre">Commutateur de manœuvre</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_radar_maneuver_switch.jpg" alt="Commutateur de manœuvre"><span class="img-wrapper"><img src="../../img/wso_radar_maneuver_switch.jpg" alt="Commutateur de manœuvre"></span></label></p>
+<p>Le commutateur de manœuvre est utilisé pour spécifier la réponse du suivi aux
+accélérations de la cible.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Sélection</th><th>Descriptif</th></tr>
+</thead>
+<tbody>
+<tr><td>LOW G</td><td>Position par défaut. Limite les accélérations de suivi pour réduire la réponse aux contre-mesures et au fouillis.</td></tr>
+<tr><td>HI G</td><td>Permet à la boucle de poursuite de répondre à n'importe quelle accélération.</td></tr>
+</tbody>
+</table>
+</div>
+<p>HI G est forcé lorsque
+<a href="air_to_air.html#computer-automatic-acquisition-mode-caa">l'Acquisition automatique par ordinateur</a>
+est utilisée.</p>
+<h3 id="commutateur-de-balayage"><a class="header" href="#commutateur-de-balayage">Commutateur de balayage</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_radar_bar_scan_switch.jpg" alt="Commutateur de balayage des barres"><span class="img-wrapper"><img src="../../img/wso_radar_bar_scan_switch.jpg" alt="Commutateur de balayage des barres"></span></label></p>
+<p>Le commutateur de balayage spécifie le nombre de barres d'élévation utilisées en recherche.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Sélection</th><th>Descriptif</th><th>Couverture verticale totale (degrés)</th></tr>
+</thead>
+<tbody>
+<tr><td>1 barre</td><td>Balaie le long du plan radar.</td><td>6,7 (3,7 sans nutation)</td></tr>
+<tr><td>2 barres</td><td>Le balayage alterne entre 1,875 degrés au-dessus et en dessous du plan radar.</td><td>10,45</td></tr>
+</tbody>
+</table>
+</div>
+<p>Le balayage à 1 barre est automatiquement commandé lorsque MAP est sélectionné sur le
+<a href="#radar-modes-mode">Bouton de mode radar</a>. Pour les conditions BST, AIR-GND et CAGE, la
+position du commutateur de balayage n'est pas pertinente.</p>
+<h3 id="aspect"><a class="header" href="#aspect">Aspect</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_radar_aspect_knob.jpg" alt="Bouton d&#39;aspect"><span class="img-wrapper"><img src="../../img/wso_radar_aspect_knob.jpg" alt="Bouton d&#39;aspect"></span></label></p>
+<p>Le bouton Aspect est utilisé pour fournir aux missiles
+<a href="../../stores/air_to_air/aim_7.html">Sparrow</a> un signal Doppler simulé lorsque
+<strong>aucun verrouillage</strong> n'est réalisé, afin de faciliter un verrouillage sur speed-gate du
+Sparrow lorsqu'il doit être tiré en ligne de mire (boresight). Lorsque le radar est en
+poursuite, la vitesse de rapprochement calculée (ou réglée manuellement) est utilisée pour
+régler un speed-gate étroit (±150 nœuds) autour de cette vitesse de rapprochement, pour que
+le Sparrow effectue sa recherche une fois lancé.</p>
+<p>Le bouton contrôle également le mode d'affichage de la sortie numérique DSCG pendant
+que le radar est en poursuite.</p>
+<p>Voir ci-dessous les réglages de l'affichage et des speed-gates pour les différentes positions
+du bouton Aspect, avec Vc indiquant la vitesse de rapprochement sélectionnée pour le
+speed-gate, où TAS est la vitesse vraie de l'avion.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Sélection</th><th>Affichage DSCG</th><th>Réglage du speed-gate Sparrow (Vc)</th></tr>
+</thead>
+<tbody>
+<tr><td>WIDE</td><td>Vitesse de rapprochement</td><td>Spectre entier</td></tr>
+<tr><td>NOSE</td><td>Altitude</td><td>TAS + 450 ±150 nœuds</td></tr>
+<tr><td>FWD</td><td>Aspect</td><td>TAS + 240 ±150 nœuds</td></tr>
+<tr><td>AFT</td><td>Vitesse de rapprochement</td><td>TAS - 240 ±150 nœuds</td></tr>
+<tr><td>TAIL</td><td>Cap</td><td>0 ±150 nœuds</td></tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Vitesse de rapprochement : affichée en nœuds, les valeurs positives indiquant un
+rapprochement et les valeurs négatives un éloignement.</li>
+<li>Altitude : affichée en centaines de pieds (le dernier chiffre étant toujours zéro), par
+exemple 20 000 MSL serait affiché sous la forme 200.</li>
+<li>Aspect : angle de la queue de l'avion cible par rapport au tireur (soi-même) ; cela signifie
+que si la cible s'éloigne directement, l'aspect est de 0 degré, et s'il se dirige
+directement vers vous, de 180 degrés. La gauche est représentée par des valeurs négatives
+et la droite par des valeurs positives.</li>
+<li>Cap : le cap est affiché en degrés de 000 à 360, le dernier chiffre étant toujours zéro.</li>
+</ul>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zQ5IFHlr1tk?si=mvz_wU5nxxapIETS" title="Angle d&#39;aspect - Combat aérien de petite taille" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<h3 id="gain-du-récepteur-rcvr-gain"><a class="header" href="#gain-du-récepteur-rcvr-gain">Gain du récepteur (RCVR GAIN)</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_radar_receiver_gain.jpg" alt="Bouton de gain du récepteur"><span class="img-wrapper"><img src="../../img/wso_radar_receiver_gain.jpg" alt="Bouton de gain du récepteur"></span></label></p>
+<p>Les potentiomètres RCVR GAIN empilés - FINE en haut et COARSE en bas -
+offrent la possibilité d'ajuster le gain du récepteur.</p>
+<p>FINE est utilisé pour les petits
+ajustements et COARSE pour des ajustements plus importants. Pour plus d'informations, voir la
+section <a href="general_operation.html#gain-control">Contrôle du gain</a>.</p>
+<h3 id="commutateur-de-poursuite"><a class="header" href="#commutateur-de-poursuite">Commutateur de poursuite</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_radar_track_switch.jpg" alt="Interrupteur de voie"><span class="img-wrapper"><img src="../../img/wso_radar_track_switch.jpg" alt="Interrupteur de voie"></span></label></p>
+<p>Le commutateur de poursuite modifie les réglages de
+<a href="air_to_air.html#range-track">suivi de portée</a>. La position par défaut est AUTO, qui effectue
+un suivi de portée normal avec <a href="air_to_air.html#home-on-jam">Home on Jam</a> si un brouillage est
+détecté.</p>
+<p>Dans le cas où un brouillage est détecté par erreur,
+Home on Jam peut être désactivé en réglant le commutateur sur
+AOJ OUT.</p>
+<p>Si nécessaire, le suivi manuel de la portée peut être utilisé en réglant sur MANUAL,
+auquel cas la position du bouton <a href="interface.html#manual-vc-man-vc">MAN Vc</a> sera
+utilisée pour définir la vitesse de rapprochement de la porte de poursuite.</p>
+<h3 id="bouton-daffichage"><a class="header" href="#bouton-daffichage">Bouton d'affichage</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_radar_display_knob.jpg" alt="Bouton d&#39;affichage"><span class="img-wrapper"><img src="../../img/wso_radar_display_knob.jpg" alt="Bouton d&#39;affichage"></span></label></p>
+<p>Le DSCG peut afficher les retours en B-Scope ou en Plan Position Indicator (PPI) sur
+l'écran.</p>
+<p>Dans B-Scope, l'axe horizontal de l'écran indique l'azimut et
+l'axe vertical représente la portée oblique.</p>
+<p>En PPI, l'axe horizontal correspond à la distance à gauche et à droite de l'avion,
+l'axe vertical représentant la distance le long de la trajectoire de l'avion.</p>
+<p>Il existe également deux réglages de balayage NAR et WIDE ; NAR est un balayage étroit de
+45 degrés et WIDE est un balayage complet de 120 degrés. Voir
+<a href="air_to_air.html#automatic-search">Recherche automatique</a> pour plus de détails.</p>
+<p>Le réglage VI ordonne à l'écran de fournir un guidage de cap pour un profil d'interception
+<strong>Vis Ident (VI)</strong> contre une cible verrouillée.</p>
+<h3 id="manuel-vc-man-vc"><a class="header" href="#manuel-vc-man-vc">Manuel Vc (MAN Vc)</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_radar_man_vc.jpg" alt="Bouton Vc manuel"><span class="img-wrapper"><img src="../../img/wso_radar_man_vc.jpg" alt="Bouton Vc manuel"></span></label></p>
+<p>Ce bouton à 12 positions est utilisé pour définir une vitesse de rapprochement pour le
+<a href="air_to_air.html#range-track">suivi manuel de la portée</a>. Les deux positions dans le sens
+inverse des aiguilles d'une montre (1, 2) définissent une <strong>vitesse d'éloignement</strong> de 100 et
+200 nœuds respectivement. Les positions dans le sens des aiguilles d'une montre, de 0 à 9,
+définissent une <strong>vitesse de rapprochement</strong> de 0 à 900 nœuds.</p>
+<p>La fermeture (closing) fait référence à une cible dont la portée diminue, tandis que
+l'ouverture (opening) concerne des cibles dont la portée augmente.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kgLdXx9Ysjk?si=L1nsRS3YbTLJr1uK" title="Taux de fermeture (Vc) - Combat aérien de petite taille" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<h3 id="commutateur-dimpulsion"><a class="header" href="#commutateur-dimpulsion">Commutateur d'impulsion</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_radar_pulse_switch.jpg" alt="Commutateur à impulsions"><span class="img-wrapper"><img src="../../img/wso_radar_pulse_switch.jpg" alt="Commutateur à impulsions"></span></label></p>
+<p>Le commutateur d'impulsion définit l'impulsion et la fréquence de répétition des impulsions
+pour le radar. Voir la section <a href="general_operation.html#pulse-setting">Réglage d'impulsion</a> pour
+plus d'informations.</p>
+<p>En mode <a href="#air-grd-air-to-ground-position">AIR-GRD</a> et en
+<a href="air_to_air.html#computer-automatic-acquisition-mode-caa">Acquisition automatique par ordinateur</a>,
+le commutateur se désactive automatiquement et une impulsion SHORT est commandée quel que
+soit son réglage.</p>
+<h2 id="modes-radar-mode"><a class="header" href="#modes-radar-mode">Modes radar (MODE)</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_radar_mode_knob.jpg" alt="Bouton de mode"><span class="img-wrapper"><img src="../../img/wso_radar_mode_knob.jpg" alt="Bouton de mode"></span></label></p>
+<p>Les modes de fonctionnement spécifiques du radar dépendent du bouton de mode radar, mais aussi
+de plusieurs autres conditions et commutateurs. Pour une description complète du
+fonctionnement du radar, voir
+<a href="general_operation.html">Fonctionnement du radar (général)</a>,
+<a href="air_to_air.html">Fonctionnement du radar (air-air)</a>,
+<a href="air_to_ground.html">Fonctionnement du radar (air-sol)</a>.</p>
+<p>Cette section couvrira brièvement chacune des positions du bouton de mode radar et
+renverra vers les sections pertinentes ci-dessous.</p>
+<h3 id="position-bst-boresight"><a class="header" href="#position-bst-boresight">Position BST (Boresight)</a></h3>
+<p>BST force le radar à entrer dans l'état
+<a href="air_to_air.html#boresight-and-cage-condition">boresight</a>.</p>
+<p>Ceci est utilisé lorsque
+la cible est repérée visuellement ou qu'un <a href="../../stores/air_to_air/aim_7.html">Sparrow</a>
+doit être tiré sans suivi radar.</p>
+<h3 id="position-rdr-radar"><a class="header" href="#position-rdr-radar">Position RDR (Radar)</a></h3>
+<p>La position RDR met le radar en <a href="air_to_air.html#automatic-search">Recherche automatique</a>.</p>
+<h3 id="position-map"><a class="header" href="#position-map">Position MAP</a></h3>
+<p>La position MAP est identique à la position RDR et met le radar en
+<a href="air_to_air.html#automatic-search">Recherche automatique</a>, à ceci près que la nutation est
+désactivée et que le motif de recherche à 2 barres n'est pas disponible.</p>
+<h3 id="position-air-grd-air-sol"><a class="header" href="#position-air-grd-air-sol">Position AIR GRD (Air-sol)</a></h3>
+<p>La position AIR-GRD est similaire à la position boresight, avec les exceptions
+suivantes :</p>
+<ul>
+<li>Angle Track est désactivé lors du suivi d'une cible.</li>
+<li>L'antenne est toujours fixée au boresight avec stabilisation de dérive.</li>
+</ul>
+<h3 id="position-beacon"><a class="header" href="#position-beacon">Position BEACON</a></h3>
+<p>BEACON peut être utilisé avec n'importe quelle position du bouton d'affichage autre que VI,
+selon les besoins.</p>
+<p>Il n'affiche pas les échos radar et écoute à la place les réponses de transpondeur d'un
+équipement de balise spécifique.</p>
+<h3 id="position-tv"><a class="header" href="#position-tv">Position TV</a></h3>
+<p>Le réglage Mode Radar TV n'est pas utilisé sur les avions équipés du DSCG ; il est remplacé
+par l'option d'affichage TV sur le panneau DSCG lui-même, et par l'option d'affichage TV dans
+le poste de pilotage.</p>
+<blockquote>
+<p>💡 Les missiles <a href="../../stores/air_to_air/aim_7.html">AIM-7</a> se désaccordent et ne peuvent pas
+être réaccordés avec le bouton de mode radar en position TV.</p>
+</blockquote>
+<h3 id="voyant-skin-track-skin-trk"><a class="header" href="#voyant-skin-track-skin-trk">Voyant Skin Track (SKIN TRK)</a></h3>
+<p>Le voyant Skin Track s'allume lorsqu'un verrouillage obtenu automatiquement est
+établi et maintenu par le radar. Cela coïncide avec l'allumage du symbole T sur
+le panneau DSCG.</p>
+<p>Si la cible est suivie manuellement, ou si une condition de suivi AOJ ou HOJ est effective,
+le voyant ne s'allumera pas.</p>
+<h2 id="panneau-du-moniteur-de-commande-fcs"><a class="header" href="#panneau-du-moniteur-de-commande-fcs">Panneau du moniteur de commande FCS</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_control_monitor_panel.jpg" alt="Panneau de contrôle FCS"><span class="img-wrapper"><img src="../../img/wso_control_monitor_panel.jpg" alt="Panneau de contrôle FCS"></span></label></p>
+<p>L'objectif principal du panneau du moniteur de commande est de donner accès aux
+diagnostics intégrés de l'APQ-120.</p>
+<p>De plus, le panneau accueille des commandes auxiliaires
+pour le système - le commutateur Vc, le commutateur Stab, et le voyant de surveillance de
+température.</p>
+<h3 id="voyant-coords"><a class="header" href="#voyant-coords">Voyant Coords</a></h3>
+<p>Ce voyant n'est pas utilisé sur l'APQ-120.</p>
+<h3 id="voyant-temp"><a class="header" href="#voyant-temp">Voyant Temp</a></h3>
+<p>Le voyant TEMP (<num>7</num>) fournit une indication visuelle d'une situation de surchauffe
+dans les baies avioniques de l'APQ-120. Si le voyant s'allume, le radar doit être éteint
+immédiatement pour éviter d'endommager l'équipement.</p>
+<p>Si les circonstances exigent que le radar soit utilisé pendant un avertissement de
+température, le voyant doit être surveillé pour détecter un allumage continu, et le radar
+doit être éteint dès que possible.</p>
+<h3 id="bouton-sélecteur-de-compteur"><a class="header" href="#bouton-sélecteur-de-compteur">Bouton sélecteur de compteur</a></h3>
+<p>Un bouton rotatif à 16 positions (<num>1</num>) utilisé conjointement avec
+l'interrupteur du compteur (<num>4</num>) pour tester
+diverses tensions, courants et signaux générés par les circuits internes du radar,
+indépendamment ou en conjonction avec le système Built-In-Test (<num>3</num>).</p>
+<p>Chaque position a un double usage, associée à deux ensembles de valeurs ; lorsque
+l'interrupteur du compteur est en position VOLT, l'anneau intérieur du bouton est actif et
+délivre la tension spécifiée pour la position sélectionnée. En position SIGNALS,
+c'est la valeur de courant ou de signal de l'anneau extérieur qui est testée.</p>
+<h3 id="compteur-de-contrôle"><a class="header" href="#compteur-de-contrôle">Compteur de contrôle</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_control_monitor_meter.jpg" alt="Compteur de surveillance"><span class="img-wrapper"><img src="../../img/wso_control_monitor_meter.jpg" alt="Compteur de surveillance"></span></label></p>
+<p>Le compteur de contrôle (<num>2</num>) affiche les tensions, courants et signaux relatifs aux
+réglages actuels du bouton sélecteur de compteur (<num>1</num>), en conjonction avec
+l'interrupteur du compteur (<num>4</num>), ou selon le réglage actuel du Built-In Test
+(<num>3</num>).</p>
+<p>Les tensions sont confirmées en commençant par la position -250 du bouton sélecteur avec
+l'interrupteur du compteur en VOLT, et l'aiguille indiquera la région « 1 » de la jauge
+environ trente secondes après la mise sous tension du radar, signifiant que la tension est
+correctement délivrée. Après cette mise sous tension, le compteur de contrôle indiquera la
+région « 1 » pour un fonctionnement nominal si les tensions délivrées sont correctes. La
+position +35 fait exception à cette règle, la valeur de fonctionnement correct étant de 2,0
+ou plus.</p>
+<p>En mode SIGNALS, le courant cristallin RX1-RX4 fonctionne correctement avec un
+retour dans la région XTAL.</p>
+<p>Les EX1 et EX2 testent les cristaux de contrôle de fréquence, et sont également nominaux
+lorsque XTAL est indiqué.</p>
+<p>Pour le magnétron, testé en MAG, le fonctionnement en impulsion longue est confirmé par un
+retour de 1,4 à 1,8, et le fonctionnement en impulsion courte est correct avec une valeur de
+0,9 à 1,15.</p>
+<p>KLY, qui teste l'émetteur CW, devrait indiquer une valeur de 0,25 à 1,25 en cas de
+rayonnement correct.</p>
+<p>TP 1 teste les verrouillages de température et de pression, et le compteur de contrôle
+indique 1 lorsque les verrouillages sont fermés et fonctionnels.</p>
+<p>TP 2 confirme la pression du guide d'ondes, et une valeur de 1 est correcte.</p>
+<p>En LOB, l'aiguille du compteur se déplacera approximativement entre 1,5 et 2,8 en fonction de
+la nutation de l'antenne.</p>
+<p>Enfin, les sélecteurs LIN et CIR confirment le bon fonctionnement en polarisation linéaire et
+circulaire ; ils n'enregistrent une valeur de 1 que pour une transmission d'énergie de
+polarité verticale ou tournant dans le sens des aiguilles d'une montre. Autrement dit, ils ne
+renvoient pas de valeur en mode impulsion CIR (sens inverse des aiguilles d'une montre).</p>
+<h3 id="bouton-de-test-intégré-apq-120"><a class="header" href="#bouton-de-test-intégré-apq-120">Bouton de test intégré APQ-120</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_control_monitor_test_switch.jpg" alt="Bouton de test"><span class="img-wrapper"><img src="../../img/wso_control_monitor_test_switch.jpg" alt="Bouton de test"></span></label></p>
+<p>La confirmation du bon fonctionnement du système s'effectue à l'aide des différentes options
+du panneau du moniteur de contrôle ; les modes de test spécifiques sont définis à l'aide du
+bouton Test (<num>3</num>).</p>
+<h3 id="interrupteur-du-compteur"><a class="header" href="#interrupteur-du-compteur">Interrupteur du compteur</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_control_meter_signals_switch.jpg" alt="Interrupteur du compteur"><span class="img-wrapper"><img src="../../img/wso_control_meter_signals_switch.jpg" alt="Interrupteur du compteur"></span></label></p>
+<p>Lié au bouton sélecteur de compteur, l'interrupteur à deux positions (<num>4</num>)
+définit quelle valeur du bouton sélecteur de compteur est testée - VOLT pour les valeurs de
+tension de l'anneau intérieur, SIGNALS pour les valeurs de courant et de signal de l'anneau
+extérieur.</p>
+<h3 id="commutateur-vc"><a class="header" href="#commutateur-vc">Commutateur Vc</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_control_meter_vc_switch.jpg" alt="Interrupteur Vc"><span class="img-wrapper"><img src="../../img/wso_control_meter_vc_switch.jpg" alt="Interrupteur Vc"></span></label></p>
+<p>Avec les sélections 900 et 2700, le commutateur (<num>5</num>) est utilisé pour mettre à
+l'échelle l'écart Vc tel qu'affiché sur les F-4E équipés du DVST.</p>
+<blockquote>
+<p>💡 Avec le nouveau DSCG installé, le commutateur doit rester en position 2700 en
+permanence pour garantir une lecture correcte sur l'écran.</p>
+</blockquote>
+<h3 id="commutateur-stab"><a class="header" href="#commutateur-stab">Commutateur Stab</a></h3>
+<p>Le commutateur STAB (<num>6</num>) contrôle les modes de stabilisation en tangage et en
+roulis de l'antenne. La position par défaut NOR (normale) maintient la stabilisation sur les
+deux canaux, et la compensation de dérive du système INS est en outre appliquée dans des
+modes spécifiques (AIR-GND).</p>
+<p>En STAB OUT, la stabilisation en tangage, en roulis et de dérive INS est supprimée de
+l'antenne radar.</p>
+<p>DRIFT OUT maintient la stabilisation en tangage et en roulis, tout en supprimant
+la compensation de dérive INS dans les modes qui l'utilisent.</p>
+<h2 id="digital-scan-converter-group"><a class="header" href="#digital-scan-converter-group">Digital Scan Converter Group</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_dscg_controls.jpg" alt="Digital Scan Converter Group"><span class="img-wrapper"><img src="../../img/wso_dscg_controls.jpg" alt="Digital Scan Converter Group"></span></label></p>
+<p>Le Digital Scan Converter Group (DSCG) fournit un système d'affichage intégré pour
+le radar et les systèmes électro-optiques du F-4E. Le système est composé des
+écrans des sièges avant et arrière, et est piloté par l'Indicator Control Unit (ICU),
+qui effectue la conversion des signaux radar et vidéo, ainsi que l'application
+des informations et de la symbologie de conduite de tir.</p>
+<h3 id="bouton-de-grille"><a class="header" href="#bouton-de-grille">Bouton de grille</a></h3>
+<p>Dans le coin supérieur gauche de l'écran se trouve un bouton qui
+contrôle la luminosité de la grille du champ d'affichage.</p>
+<h3 id="voyant-hoj-h"><a class="header" href="#voyant-hoj-h">Voyant HOJ (H)</a></h3>
+<p>Le voyant HOJ dans le coin supérieur gauche de l'écran s'allume pour indiquer
+que le radar est passé en fonctionnement HOJ de suivi d'angle, utilisant uniquement les
+informations de portée et de taux de portée mémorisées si une condition de brouillage est
+détectée.</p>
+<h3 id="échelle"><a class="header" href="#échelle">Échelle</a></h3>
+<p>Dans le coin supérieur droit de l'écran se trouve un bouton qui contrôle la luminosité
+des échelles d'angle et d'élévation entourant le champ d'affichage DSCG.</p>
+<h3 id="voyant-track-t"><a class="header" href="#voyant-track-t">Voyant Track (T)</a></h3>
+<p>Le voyant Track dans le coin supérieur droit de l'écran s'allume
+pour confirmer un verrouillage basé sur l'angle et la portée sur
+une cible. Identique au voyant SKIN TRK. Voir <a href="air_to_air.html#track">Track</a> pour plus
+d'informations.</p>
+<h3 id="contraste-contr"><a class="header" href="#contraste-contr">Contraste (CONTR)</a></h3>
+<p>Le bouton de contraste (<num>1</num>) contrôle le contraste relatif de l'affichage DSCG.</p>
+<h3 id="portée-rng"><a class="header" href="#portée-rng">Portée (RNG)</a></h3>
+<p>Le bouton de portée (<num>2</num>) contrôle la luminosité du curseur de portée dans les modes PPI.</p>
+<h3 id="luminosité-brt"><a class="header" href="#luminosité-brt">Luminosité (BRT)</a></h3>
+<p>Le bouton de luminosité (<num>3</num>) contrôle la luminosité globale de l'affichage DSCG.</p>
+<h3 id="décalage-ofs"><a class="header" href="#décalage-ofs">Décalage (OFS)</a></h3>
+<p>Le bouton de décalage (<num>4</num>) contrôle la luminosité de la ligne du curseur de décalage
+dans les modes PPI.</p>
+<h3 id="bouton-de-mode-dscg"><a class="header" href="#bouton-de-mode-dscg">Bouton de mode DSCG</a></h3>
+<p>Le bouton de mode DSCG (<num>5</num>) est utilisé pour sélectionner le mode actuel de l'affichage.</p>
+<ul>
+<li>OFF coupe toute alimentation de l'écran, cessant toute fonctionnalité DSCG.</li>
+<li>STBY (Standby) place le DSCG en mode préchauffage ; aucun affichage ne se produit pendant
+ce processus.</li>
+<li>DSCG TEST affiche un champ de test pour confirmer le bon fonctionnement de l'affichage. Le
+champ d'affichage DSCG montre un affichage de recherche avec huit nuances de gris pour
+confirmer le bon fonctionnement et le contraste. Avant d'entrer dans ce mode pour les
+tests, Range 10 doit être sélectionné pour un dimensionnement correct des champs ombrés.</li>
+<li>RDR BIT est un mode de test intégré qui fonctionne conjointement avec le radar
+pour l'étalonnage des signaux fournis par le radar avec l'ICU du DSCG.</li>
+<li>RDR est le mode opérationnel à utiliser avec l'APQ-120.</li>
+<li>TV est le mode d'affichage utilisé pour les armes EO (Maverick, Pave Spike) et le TISEO.</li>
+</ul>
+<h2 id="contrôleur-manuel-dantenne"><a class="header" href="#contrôleur-manuel-dantenne">Contrôleur manuel d'antenne</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_antenna_hand_control_overview.jpg" alt="Contrôleur manuel d&#39;antenne"><span class="img-wrapper"><img src="../../img/wso_antenna_hand_control_overview.jpg" alt="Contrôleur manuel d&#39;antenne"></span></label></p>
+<p>Le contrôleur manuel d'antenne est un joystick que l'on trouve uniquement dans le cockpit WSO
+sur la console droite ; le manche s'intègre au radar pour effectuer le contrôle de position
+en portée (avant et arrière) et en azimut (gauche et droite) du symbole d'acquisition sur
+l'écran radar dans les modes air-air, ainsi que le contrôle de direction de l'autodirecteur
+et du capteur EO avec Maverick et Pave Spike.</p>
+<p>De plus, le joystick comprend la molette de contrôle d'élévation de l'antenne (<num>2</num>),
+qui contrôle l'angle d'élévation de l'antenne, affiché via le stroboscope EL sur l'écran
+DSCG ; ce balayage en élévation est limité, en mouvement haut comme bas, à 60 degrés.</p>
+<p>À l'emplacement de l'index sur le contrôleur manuel d'antenne se trouve le commutateur
+d'action (<num>3</num>) ; un interrupteur à gâchette à deux positions, désigné demi-action
+au premier cran, et pleine action lors d'un engagement complet. En modes air-air, la
+demi-action déclenche la visibilité du curseur de portée, permettant un alignement correct
+de la portée avec un retour de cible pour le verrouillage automatique, ou la sélection des
+vitesses MAN Vc requises pour un verrouillage manuel. Avec un encadrement approprié et un
+réglage correct du curseur de portée, la pleine action tente le verrouillage automatique, ou
+initie le suivi manuel en angle de la cible visée.</p>
+<p>Le bouton Challenge (<num>1</num>) est utilisé pour lancer une interrogation
+<a href="../identification_systems.html#interrogator-systems">IFF</a>.</p>
+<p>Voir la section <a href="../../stores/air_to_ground/missiles/maverick.html">AGM-65 Maverick</a> pour
+des détails sur la façon dont le manche est utilisé pour contrôler l'arme, et le chapitre
+<a href="../weapon_systems/pave_spike/overview.html">Pave Spike</a> pour son interaction respective.</p>
+<h2 id="indicateur-de-portée-visident"><a class="header" href="#indicateur-de-portée-visident">Indicateur de portée VISIDENT</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_range_indicator.jpg" alt="Plage Indicateur VISIDENT"><span class="img-wrapper"><img src="../../img/wso_range_indicator.jpg" alt="Plage Indicateur VISIDENT"></span></label></p>
+<p>L'indicateur de portée radar est utilisé pour les profils d'interception VID à courte
+portée, fournissant une information de portée jusqu'à deux miles et une information de taux
+de portée en deçà de 9000'. L'information est confirmée comme étant précise au radar une
+fois que l'indicateur de portée passe à 9.</p>
+<p>La jauge fonctionne dans les modes d'affichage VI, B NAR et B WIDE ; l'indicateur ne
+fonctionne pas en modes air-sol.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aWU3PS4AcgQ?si=py1V-jdKNHoqK6OG" title="DCS F-4E Air-Air III : VISIDENT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<h2 id="bouton-air-air"><a class="header" href="#bouton-air-air">Bouton air-air</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/wso_air_to_air_light.jpg" alt="Bouton air-air"><span class="img-wrapper"><img src="../../img/wso_air_to_air_light.jpg" alt="Bouton air-air"></span></label></p>
+<p>Le bouton Air-Air est un bouton et un voyant ayant pour fonction principale de
+confirmer l'entrée en mode CAGE.</p>
+<p>Lorsque l'équipage souhaite désengager le mode CAGE,
+le WSO peut appuyer sur le voyant pour quitter le mode CAGE et revenir aux
+réglages actuellement sélectionnés sur le Radar Control Set.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                            <a rel="prev" href="../../systems/radar/overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                                <span class="nav-chapters-text">Prev</span>
+                            </a>
+
+                            <a rel="next prefetch" href="../../systems/radar/general_operation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class="nav-chapters-text">Next</span>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../systems/radar/overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                        <span class="nav-chapters-text">Prev</span>
+                    </a>
+                    <a rel="prev" href="../../systems/radar/overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../../systems/radar/general_operation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class="nav-chapters-text">Next</span>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+                    <a rel="next prefetch" href="../../systems/radar/general_operation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../js/jquery-3.7.1.min.js"></script>
+        <script src="../../js/extra.js"></script>
+        <script src="../../js/i18n/switcher.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

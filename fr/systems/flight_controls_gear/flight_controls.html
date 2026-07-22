@@ -1,0 +1,792 @@
+<!DOCTYPE HTML>
+<html lang="fr" class="hb_light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Commandes de vol et AFCS - Heatblur F-4E Phantom II</title>
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Manual of the F-4E Phantom by Heatblur Simulations.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../theme/visual.css">
+        <link rel="stylesheet" href="../../theme/hb_light.css">
+        <link rel="stylesheet" href="../../theme/hb_dark.css">
+        <link rel="stylesheet" href="../../theme/pdf.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "hb_light";
+            const default_dark_theme = "hb_dark";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>&larr;</kbd> or <kbd>&rarr;</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('hb_light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-hb_light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-hb_dark">Dark</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-pdf">(PDF)</button></li>
+                        </ul>
+                        <button id="mdbook-language-toggle" class="icon-button" type="button" title="Change language" aria-label="Change language" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-language-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 128C0 92.7 28.7 64 64 64H256h48 16H576c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H320 304 256 64c-35.3 0-64-28.7-64-64V128zm320 0V384H576V128H320zM178.3 175.9c-3.2-7.2-10.4-11.9-18.3-11.9s-15.1 4.7-18.3 11.9l-64 144c-4.5 10.1 .1 21.9 10.2 26.4s21.9-.1 26.4-10.2l8.9-20.1h73.6l8.9 20.1c4.5 10.1 16.3 14.6 26.4 10.2s14.6-16.3 10.2-26.4l-64-144zM160 233.2L179 276H141l19-42.8zM448 164c11 0 20 9 20 20v4h44 16c11 0 20 9 20 20s-9 20-20 20h-2l-1.6 4.5c-8.9 24.4-22.4 46.6-39.6 65.4c.9 .6 1.8 1.1 2.7 1.6l18.9 11.3c9.5 5.7 12.5 18 6.9 27.4s-18 12.5-27.4 6.9l-18.9-11.3c-4.5-2.7-8.8-5.5-13.1-8.5c-10.6 7.5-21.9 14-34 19.4l-3.6 1.6c-10.1 4.5-21.9-.1-26.4-10.2s.1-21.9 10.2-26.4l3.6-1.6c6.4-2.9 12.6-6.1 18.5-9.8l-12.2-12.2c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l14.6 14.6 .5 .5c12.4-13.1 22.5-28.3 29.8-45H448 376c-11 0-20-9-20-20s9-20 20-20h52v-4c0-11 9-20 20-20z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-language-list" class="theme-popup" aria-label="Languages" role="menu">
+                            <li role="none"><a role="menuitem" class="theme" data-lang="en">English</a></li>
+                            <li role="none"><a role="menuitem" class="theme" data-lang="fr">Français</a></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Heatblur F-4E Phantom II</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this manual" aria-label="Print this manual">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual/releases" title="PDF version" aria-label="PDF version">
+                            <span class=fa-svg id="pdf-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM64 224H88c30.9 0 56 25.1 56 56s-25.1 56-56 56H80v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V320 240c0-8.8 7.2-16 16-16zm24 80c13.3 0 24-10.7 24-24s-10.7-24-24-24H80v48h8zm72-64c0-8.8 7.2-16 16-16h24c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H176c-8.8 0-16-7.2-16-16V240zm32 112h8c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16h-8v96zm96-128h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H304v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H304v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V304 240c0-8.8 7.2-16 16-16z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Heatblur-Simulations/f-4e-manual/edit/master/src/fr/systems/flight_controls_gear/flight_controls.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <span class=fa-svg id="git-edit-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M421.7 220.3l-11.3 11.3-22.6 22.6-205 205c-6.6 6.6-14.8 11.5-23.8 14.1L30.8 511c-8.4 2.5-17.5 .2-23.7-6.1S-1.5 489.7 1 481.2L38.7 353.1c2.6-9 7.5-17.2 14.1-23.8l205-205 22.6-22.6 11.3-11.3 33.9 33.9 62.1 62.1 33.9 33.9zM96 353.9l-9.3 9.3c-.9 .9-1.6 2.1-2 3.4l-25.3 86 86-25.3c1.3-.4 2.5-1.1 3.4-2l9.3-9.3H112c-8.8 0-16-7.2-16-16V353.9zM453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-14.5 14.5-22.6 22.6-11.3 11.3-33.9-33.9-62.1-62.1L314.3 67.7l11.3-11.3 22.6-22.6 14.5-14.5c25-25 65.5-25 90.5 0z"/></svg></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this manual ..." aria-controls="mdbook-searchresults-outer" aria-describedby="mdbook-searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="système-de-contrôle-de-vol"><a class="header" href="#système-de-contrôle-de-vol">Système de contrôle de vol</a></h1>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/ext_f4_flight_control_surfaces.jpg" alt="ext_view_flight_controls"><span class="img-wrapper"><img src="../../img/ext_f4_flight_control_surfaces.jpg" alt="ext_view_flight_controls"></span></label></p>
+<p>Les principales commandes de vol de l'avion sont constituées
+du <a href="./flight_controls.html#aileron-spoiler-control-and-stabilator-control-feel-and-trim-systems">stabilisateur</a>,
+<a href="./flight_controls.html#rudder-control-system">gouvernail</a>,
+<a href="./flight_controls.html#aileron-spoiler-control-and-stabilator-control-feel-and-trim-systems">ailerons</a>,
+et
+<a href="./flight_controls.html#aileron-spoiler-control-and-stabilator-control-feel-and-trim-systems">spoilers</a>.
+Les systèmes de sensations artificielles fournissent
+forces aérodynamiques simulées sur le manche de commande et
+pédales de gouvernail. Les contrôles secondaires sont
+<a href="./flight_controls.html#slats-flap-system">rabats/lattes de bord d'attaque</a>,
+<a href="./flight_controls.html#slats-flap-system">volets de bord de fuite</a>,
+et des freins rapides <a href="./flight_controls.html#speed-brakes">montés sur l'aile</a>.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EXsTlmokAlQ?si=QZfuCaOXcLmS9g1Z" title="Systèmes de commandes de vol F-0005 pour le F-4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<h2 id="bobweights-vs-soufflets"><a class="header" href="#bobweights-vs-soufflets">Bobweights vs soufflets</a></h2>
+<p>Liens entre le manche, les gouvernes et les interactions avec le système de trim,
+ainsi que les AFCS sont une combinaison complexe de forces qui s'équilibrent les unes les autres.
+autre.</p>
+<p>Les poids bobinés connectés au manche augmentent la force nécessaire pour le déplacer
+en fonction de la force G actuelle en poussant le manche vers l'avant. Par exemple, quand
+en tirant le bâton et en générant des G positifs, les poids bobinés deviennent plus lourds,
+ce qui rend plus difficile de tirer davantage et conduit naturellement le bâton à vouloir bouger
+retour au neutre.</p>
+<p>Les bobweights sont contrés dans la direction opposée par le soufflet
+système actionné par la pression d'air dynamique détectée à l'entrée du soufflet sur la verticale
+ailette.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/ext_f4_anti_col_light.jpg" alt="Entrée du soufflet"><span class="img-wrapper"><img src="../../img/ext_f4_anti_col_light.jpg" alt="Entrée du soufflet"></span></label></p>
+<p>Le soufflet tire le manche vers l'arrière en fonction de la vitesse relative.
+Par exemple, lorsque vous lâchez le manche et que l'avion décolle involontairement
+piqué, la vitesse augmente et le système de soufflet tire le manche vers l'arrière, naturellement
+provoquant le cabrage de l'avion et sa stabilisation en vol en palier.</p>
+<p>Le réglage de l'avion entraîne une modification de la longueur du bras de levier reliant
+le système de soufflet avec le bâton, modifiant la force effective qu'ils peuvent appliquer.</p>
+<blockquote>
+<p>🟡 Le blocage ou le gel de l'entrée du soufflet entraîne un dysfonctionnement du système.
+Dans ce cas, le trim peut être rendu inefficace et un cabrage soudain vers le haut ou vers le bas
+des mouvements peuvent se produire, en fonction de la façon dont les forces du soufflet et du poids du bob s'équilibrent
+dehors. Pour éviter un autre changement soudain de hauteur une fois le blocage résolu,
+la garniture doit rester neutre.</p>
+</blockquote>
+<p>Les deux forces opposées sont soigneusement équilibrées pour maintenir le bâton dans un
+position neutre pendant un vol en palier à des vitesses normales. Cependant, en raison du
+nature dynamique du système, l'avion doit constamment être regarni après
+même le plus petit changement des conditions de vol. Surtout sous les G ou lors du changement
+vitesse, la sensation du comportement du manche change radicalement.</p>
+<h2 id="bâtons-de-contrôle"><a class="header" href="#bâtons-de-contrôle">Bâtons de contrôle</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/pilot_stick.jpg" alt="FlightStick"><span class="img-wrapper"><img src="../../img/pilot_stick.jpg" alt="FlightStick"></span></label></p>
+<p>Un manche de commande est fourni dans les deux cockpits, avec une commutation presque uniforme
+entre les deux. Un contrôle de trim (<num>1</num>) se trouve sur les deux manches pour fournir de la
+force
+réduction et correction mineure de la trajectoire de vol dans l’axe du tangage et du roulis. Armes
+sont livrables via un déclencheur (<num>3</num>)
+(pour les <a href="../../stores/air_to_air/overview.html">missiles air-air</a> et le <a href="../../stores/guns.html">canon</a>)
+et un interrupteur de largage de bombe (<num>2</num>). Les deux bâtons portent
+a <a href="gear_ground_handling.html#nose-gear-steering">Bouton de direction de la roue avant (<num>5</num>)</a>
+qui
+sert également de contrôle d'acquisition automatique pour le <a href="../radar/overview.html">radar</a> en mode
+visuel de combat à distance, et de contrôle de la mise au point du capteur pour les
+<a href="../../stores/air_to_ground/overview.html">armes air-sol</a> dirigées par vidéo. Un
+<a href="gear_ground_handling.html#emergency-anti-skid-quick-release-lever">Levier de dégagement rapide d'urgence (<num>6</num>)</a>
+sur chaque bâton est disponible pour désactiver immédiatement le système anti-patinage, le système
+automatique
+système de commandes de vol, augmentation de la stabilité et aileron-gouvernail de direction
+interconnecter. Ce qui est unique au manche de commande du cockpit avant est le
+<a href="../engines_and_fuel_systems/fuel_system.html#air-refueling-release-button">Bouton de déverrouillage du ravitaillement en vol
+(<num>4</num>)</a>,
+une commande à double rôle qui remplit la fonction de déconnexion de la perche que son nom
+l'indique, ainsi que
+un certain nombre de fonctions de sélection d'armes.</p>
+<p>De plus, un capteur de force unique au manche avant du cockpit est un transducteur de force, pour
+permettre au pilote
+contrôle de réglage fin du AFCS avec la fonctionnalité de pilote automatique activée. Dans le cas où
+la force
+appliqué au manche dépasse la limite de rupture AFCS, le pilote automatique sera temporairement
+désactivé.</p>
+<h2 id="systèmes-de-contrôle-des-ailerons-et-des-spoilers-et-des-stabilisateurs-systèmes-de-sensation-et-de-compensation"><a class="header" href="#systèmes-de-contrôle-des-ailerons-et-des-spoilers-et-des-stabilisateurs-systèmes-de-sensation-et-de-compensation">Systèmes de contrôle des ailerons et des spoilers et des stabilisateurs, systèmes de sensation et de compensation</a></h2>
+<p>Le système de contrôle des ailerons et du spoiler et le système de contrôle des stabilisateurs
+offrent tous deux
+garniture suivante ; le premier via un vérin à vis, le second utilisant un
+servo dirigé par le AFCS.
+Ces fonctions amènent le manche à se positionner par rapport
+à la position actuelle du trim et du pilote automatique lorsque le membre d'équipage aux commandes
+passe
+"Ne touchez pas". Il est donc conseillé de manœuvrer le manche dans le même sens
+position, ou pour déplacer doucement le manche vers la « force d'arrachement » avant de le
+désengager
+le système de pilote automatique pour réduire le risque de retour brusque au contrôle du pilote.</p>
+<p>Pour confirmer l'état actuel du trim du stabilisateur, une position du trim du stabilisateur
+L'indicateur est fourni sur
+le <a href="../../cockpit/pilot/left_sub_panel.html#stabilator-trim-indicator">panneau vertical gauche du cockpit
+avant</a>
+.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/pilot_stabilator_trim_indicator.jpg" alt="StabTrimInd"><span class="img-wrapper"><img src="../../img/pilot_stabilator_trim_indicator.jpg" alt="StabTrimInd"></span></label></p>
+<h2 id="système-de-contrôle-du-gouvernail"><a class="header" href="#système-de-contrôle-du-gouvernail">Système de contrôle du gouvernail</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/ext_f4_rudder.jpg" alt="ext_rudder"><span class="img-wrapper"><img src="../../img/ext_f4_rudder.jpg" alt="ext_rudder"></span></label></p>
+<p>Le contrôle de l’axe de lacet est dirigé par les palonniers présents dans les deux cockpits. À
+compenser tout dérapage relatif dû à l'effet du vent, au déséquilibre des magasins ou à des
+<a href="../engines_and_fuel_systems/engines.html">moteur</a> écart de sortie,
+un <a href="../../cockpit/pilot/left_console/front_section.html#rudder-trim-switch">interrupteur de trim de
+gouvernail</a> est
+trouvé sur
+le <a href="../../cockpit/pilot/left_console/front_section.html#inboard-engine-control-panel">panneau de commande du moteur</a>
+dans le cockpit avant. Au sol, les pédales elles-mêmes peuvent être enfoncées
+indépendamment pour le freinage différentiel, et l'axe du gouvernail lui-même fonctionne comme
+la commande directionnelle de direction du train avant lorsque
+le <a href="gear_ground_handling.html#nose-gear-steering">Bouton de direction de la roue avant</a>
+sur l'un ou l'autre des leviers de commande est enfoncé.</p>
+<h2 id="interconnexion-aileron-gouvernail-ari"><a class="header" href="#interconnexion-aileron-gouvernail-ari">Interconnexion aileron-gouvernail (ARI)</a></h2>
+<p>Le système d'interconnexion aileron-gouvernail provoque le gouvernail
+déplacement proportionnel au déplacement des ailerons
+effectuer des virages coordonnés à basse vitesse. Il s'enclenche automatiquement avec le
+<a href="../../cockpit/pilot/left_console/wall.html#slatsflaps-control-panel">Interrupteur des volets à lattes</a>
+dans le HORS ET LE BAS
+position, et la vitesse anémométrique inférieure à la vitesse de gonflement des volets (230
+noeuds).</p>
+<p>Les limites de
+le système a 15° de déplacement du gouvernail lorsque le
+le système de contrôle de vol automatique est dans la stabilité
+mode augmentation ou pilote automatique et gouvernail à 10°
+déplacement lorsque l'interrupteur d'augmentation de lacet de lacet est désengagé.</p>
+<p>Le disjoncteur de l'ARI est situé à droite du
+Libération des magasins d'urgence.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/pilot_ari.jpg" alt="ARIfuse"><span class="img-wrapper"><img src="../../img/pilot_ari.jpg" alt="ARIfuse"></span></label></p>
+<blockquote>
+<p>💡 Pour désengager définitivement l'ARI, le circuit
+Le disjoncteur sur le sous-panneau gauche doit être tiré
+et le commutateur Yaw STAB AUG doit être désengagé.
+Tirer le disjoncteur avec l'interrupteur
+toujours engagé, il fournira toujours 5° de gouvernail ARI
+autorité. Lorsque le disjoncteur ARI est
+tiré, le système antidérapant est également désactivé.</p>
+</blockquote>
+<blockquote>
+<p>💡 Un saut de gouvernail se produira lorsque le système ARI sera coupé
+entrée ou sortie avec une entrée latérale du manche de commande. Ce
+se produit normalement lorsque les volets sont relevés ou
+abaissé lors d'un virage.</p>
+</blockquote>
+<h3 id="déconnexion-durgence"><a class="header" href="#déconnexion-durgence">Déconnexion d'urgence</a></h3>
+<p>Dans le cas où l'un des sièges aux commandes nécessite la désactivation de l'ARI, le système peut
+être déconnecté en
+tirant
+le <a href="gear_ground_handling.html#emergency-anti-skid-quick-release-lever">levier de dégagement rapide
+d'urgence</a>
+sur leur manche de commande respectif. Quand le
+switch est relâché, l'ARI (10°) et le Yaw STAB AUG (5°)
+l'autorité du gouvernail est retrouvée. Fonction de l'ARI
+peut toujours être annulé via les pédales de direction.</p>
+<h2 id="système-de-contrôle-de-vol-automatique-afcs---anasa-32"><a class="header" href="#système-de-contrôle-de-vol-automatique-afcs---anasa-32">Système de contrôle de vol automatique (AFCS) - AN/ASA-32</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/pilot_afcs_control_panel.jpg" alt="pilot_afcs_switches"><span class="img-wrapper"><img src="../../img/pilot_afcs_control_panel.jpg" alt="pilot_afcs_switches"></span></label></p>
+<p>Le système de commandes de vol automatique (AFCS) est un
+système électro-hydraulique conçu pour fournir une stabilité,
+manœuvres de vol précises et coordonnées sans
+interférer avec le contrôle manuel. Le vol automatique
+Le système de contrôle est capable d'exécuter deux modes de
+opération, <strong>augmentation de stabilité</strong> et <strong>AFCS</strong>.</p>
+<blockquote>
+<p>💡 Le terme « AFCS » est le nom de l'ensemble du système mais aussi
+son sous-mode dans lequel l'attitude et/ou le cap de l'avion
+est maintenu et le maintien d'altitude peut être activé.</p>
+</blockquote>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4ubA7UuQ5vw?si=Ga5Ym_cnLGLzJiy2" title="DCS : Tutoriel sur le système de commandes de vol automatique du F-4E (AFCS)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<p><strong>L'augmentation de la stabilité</strong> améliore la stabilité de l'avion en tangage, roulis,
+et lacet. Il s'oppose à tout changement d'attitude mais ne
+ramener l'avion à une assiette ou une trajectoire au sol donnée.
+Ce mode de fonctionnement peut être utilisé lorsque l'avion est
+sous contrôle manuel. L'augmentation de la stabilité peut être
+engagé individuellement ou dans n'importe quelle combinaison pour le tangage, le roulis,
+ou axe de lacet.</p>
+<p>Le mode de fonctionnement <strong>AFCS</strong> maintient tout
+cap et/ou attitude de l'avion sélectionnés dans le AFCS
+limite et corrige tout écart par rapport à la valeur sélectionnée
+le cap ou l'attitude de l'avion dans les limites AFCS.
+Le commutateur AFCS (<num>2</num>) peut être engagé uniquement avec
+le commutateur Pitch STAB AUG enclenché ; cependant, pour fournir pleinement
+Fonctionnement AFCS, les trois commutateurs STAB AUG doivent être
+engagé.</p>
+<p>Le système AFCS peut être enclenché et maintenir les manœuvres et
+attitudes dans une plage de ±70° en inclinaison, 70° en inclinaison et 360°
+en azimut, à condition que les limites G ne soient pas dépassées.
+Mouvements rapides du stabilisateur, qu'ils soient induits par le pilote ou
+non, cela entraînera le désengagement du commutateur AFCS.</p>
+<p>Si le commutateur AFCS
+est engagé lorsque l'avion est à moins de ± 5° du niveau des ailes,
+alors l'avion maintiendra une <strong>assiette des ailes à l'horizontale</strong>,
+et tiendra le <strong>cap</strong> engagé.
+Lorsque le bouton de direction du train avant
+(sur la poignée du bâton) est enfoncé, maintien du cap
+abandonne et le maintien <strong>attitude</strong> est disponible. Maintien du cap
+peut être rétabli en appuyant à nouveau sur le
+bouton de direction du train avant. Si l'assiette de l'avion est supérieure
+à ± 5° du niveau des ailes lorsque l'interrupteur AFCS est
+engagé, alors l'avion maintiendra l'assiette inclinée à
+le moment de l'engagement.</p>
+<p>Le <strong>mode de maintien d'altitude</strong> (<num>3</num>) maintient
+toute altitude sélectionnée en mode <strong>AFCS</strong>.</p>
+<blockquote>
+<p>💡 Fluctuations de l'altimètre lors de l'accélération
+à travers la plage transsonique (0,9 à 1,0 Mach) produira
+fluctuations passagères qui, bien que non violentes, peuvent
+faire glisser l’altitude de référence. Engager l'altitude
+mode maintien dans les montées supérieures à 1 000 pieds par minute
+peut donner lieu à une altitude de référence autre que celle d'engagement.
+altitude.</p>
+</blockquote>
+<h3 id="transducteur-de-force"><a class="header" href="#transducteur-de-force">Transducteur de force</a></h3>
+<p>Le transducteur de force détecte la force physique appliquée à
+le manche de commande. Cette unité comprend le visible
+partie du manche de commande avec la poignée du manche montée sur
+en haut.</p>
+<p>Le transducteur de force contient des capteurs sensibles à la pression
+interrupteurs qui réagissent au manche longitudinal et latéral
+forces. Une force de bâton latérale d'environ 1,5 livre
+ferme un interrupteur de force. Lorsqu'un interrupteur de force de roulis ferme le
+signal gyroscopique du taux de roulis dans STAB AUG et le taux de roulis et
+les signaux gyroscopiques d'attitude en mode AFCS sont coupés afin que
+les manœuvres initiées par le pilote ne font pas l'objet d'opposition
+Mode AFCS. Le pilote manœuvre l'avion en
+liaisons mécaniques jusqu'à ce que la force de manche latérale soit réduite
+à moins d’environ 1,5 livre. A ce moment le rouleau
+Le canal revient au fonctionnement normal AFCS.</p>
+<p>Un avant
+force de bâton de 3,75 ± 0,25 livres ou une force de bâton arrière de 2,55
+±0,25 livres ferme les interrupteurs pour faire fonctionner certains AFCS
+composants et amener un dispositif de détection de force à envoyer un
+signal, proportionnel à la force de manche appliquée, au servo
+La position de l'amplificateur et du stabilisateur est contrôlée via le
+AFCS.</p>
+<p>Il n'y a pas de capteur de force de manche dans le cockpit arrière. Le
+AFCS et roll stab aug s'opposeront au manche arrière du cockpit
+entrées. Ne pilotez pas l'avion depuis le cockpit arrière avec
+AFCS engagé. Faire preuve de prudence lors du transfert du contrôle
+entre les cockpits tout en roulant avec le roll stab aug engagé.</p>
+<h3 id="accéléromètre-de-limite-g"><a class="header" href="#accéléromètre-de-limite-g">Accéléromètre de limite G</a></h3>
+<p>La fonction de verrouillage du facteur de charge normal (désengagement G) de
+le AFCS est conçu pour empêcher le système de
+commandant des facteurs de charge excessifs dans l’avion. Le
+le système revient automatiquement quel que soit le mode
+engagé sur l'augmentation de stabilité dans le cas où +4 ou
+-1 G est détecté par le G-désengagement
+interrupteur accéléromètre.</p>
+<p>Cet interrupteur est monté à l'avant sur
+la cloison radar de sorte que si l'avion tourne
+rapidement dans une manœuvre, le désengagement se produit à un niveau inférieur
+valeurs du facteur de charge normal dues à l'anticipation
+résultant de la localisation vers l'avant détectant un composant
+d'accélération du tangage.</p>
+<p>La fonction G-désengagement est
+inopérant en dehors des limites ±70° du pilote automatique.</p>
+<blockquote>
+<p>🔴 ATTENTION : Le switch G ne désengage pas le pilote automatique
+dans des conditions de faible vitesse ou de forte charge brute
+poids avant que l'avion ne décroche. Si le pilote automatique
+reste engagé lors d'un décrochage, le pilote automatique
+fournit des commandes pro-spin.</p>
+</blockquote>
+<h3 id="levier-de-dégagement-rapide-durgence"><a class="header" href="#levier-de-dégagement-rapide-durgence">Levier de dégagement rapide d'urgence</a></h3>
+<p>Un levier de dégagement rapide d'urgence à ressort se trouve sur chaque
+manette de commande. Ce levier fonctionne de la même manière à partir de
+les cockpits avant et arrière.</p>
+<p>En appuyant sur le levier
+fait revenir le AFCS et le commutateur de maintien d'altitude à
+DÉSACTIVÉ. Le mode d'augmentation de la stabilité, ARI et
+antidérapants, sont désengagés tant que le levier est maintenu
+déprimé. Lorsque le levier est relâché, la stabilité
+l'augmentation, l'antipatinage et l'ARI sont à nouveau opérationnels,
+mais le AFCS n'est plus engagé.</p>
+<p>Pour définitivement
+désengager le mode d'augmentation de la stabilité, le tangage, le roulis,
+et les interrupteurs de lacet STAB AUG doivent être désactivés. À
+débrayer définitivement l'ARI et l'antidérapage, le lacet
+L'interrupteur STAB AUG doit être éteint et le disjoncteur ARI,
+sur le sous-panneau gauche du cockpit avant, doit être tiré.</p>
+<h3 id="témoin-de-désengagement-du-pilote-automatique"><a class="header" href="#témoin-de-désengagement-du-pilote-automatique">Témoin de désengagement du pilote automatique</a></h3>
+<p>Un voyant AUTOPILOT DISENGAGE est allumé sur le
+panneau télélumineux. Après l'engagement initial du AFCS
+mode, le voyant AUTOPILOT DISENGAGE et
+le voyant MASTER CAUTION s'allume lorsque le AFCS
+est désengagé.</p>
+<p>Les deux feux s'éteignent en appuyant sur l'interrupteur de réinitialisation du
+Master Caution. Les lumières restent
+éteintes jusqu'à ce que le AFCS soit à nouveau engagé et
+désengagé.</p>
+<h3 id="témoin-lumineux-darrêt-daugmentation-du-pas"><a class="header" href="#témoin-lumineux-darrêt-daugmentation-du-pas">Témoin lumineux d'arrêt d'augmentation du pas</a></h3>
+<p>Le voyant PITCH AUG OFF du panneau télélumineux s'allume avec le voyant MASTER CAUTION
+lorsque le commutateur Pitch STAB AUG n'est pas engagé
+et que l'avion est sous tension.</p>
+<p>Appuyer sur le bouton de réinitialisation du Master Caution éteint le voyant
+MASTER CAUTION. Cependant, le voyant PITCH AUG OFF
+reste allumé jusqu'à ce que le commutateur Pitch STAB AUG soit engagé.</p>
+<h3 id="trim-automatique-du-pas"><a class="header" href="#trim-automatique-du-pas">Trim automatique du pas</a></h3>
+<p>Une fonction de trim automatique est incluse dans le AFCS
+qui tente de maintenir l'avion longitudinalement
+ajusté aux conditions de vol rencontrées en
+Mode AFCS.</p>
+<p>Ainsi, une condition hors garniture (qui
+ne pas être détecté en mode pilote automatique) est empêché,
+assurer contre un transitoire de pas excessif lorsque
+débrayer le pilote automatique.</p>
+<p>Le trim automatique
+fonctionne à environ 40 % de la vitesse normale
+système de trim, ce qui entraîne un léger retard après le changement
+conditions de vol avant que l'avion de base ne soit correctement
+taillé. Pendant les manœuvres de direction du manche à balai, le
+le trim automatique est inopérant. L’opération de trim automatique peut être
+observé sur l'indicateur de trim de tangage après un changement de vol
+conditions en mode AFCS.</p>
+<h3 id="voyant-de-compensation-de-pas-du-pilote-automatique"><a class="header" href="#voyant-de-compensation-de-pas-du-pilote-automatique">Voyant de compensation de pas du pilote automatique</a></h3>
+<p>Le voyant AUTOPILOT PITCH TRIM sur le
+Le panneau télélumineux s'allume pendant AFCS
+fonctionnement si le suivi automatique du trim de tangage est
+inopérant ou suffisamment en retard sur l'avion
+manœuvre pour provoquer une condition de hors-trimité dans le
+avion de base.</p>
+<h3 id="fonctionnement-normal"><a class="header" href="#fonctionnement-normal">Fonctionnement normal</a></h3>
+<ol>
+<li>Pour activer le mode d'augmentation de la stabilité, placez les commandes de tangage, de roulis
+et de lacet
+STAB AUG passe à ENGAGE.</li>
+<li>Trim de l'avion en mode d'augmentation de la stabilité avant d'engager le mode AFCS.</li>
+<li>Pour activer le mode AFCS, établissez une assiette de l'avion dans les limites AFCS. Lieu
+le commutateur AFCS sur ENGAGE.</li>
+<li>Lorsque le mode de maintien d'altitude est souhaité, placez le commutateur Altitude Hold sur
+ENGAGE.</li>
+</ol>
+<blockquote>
+<p>🔴 AVERTISSEMENT : N'essayez pas de modifier l'assiette en tangage du
+avion depuis le cockpit arrière en mode AFCS.
+Puisqu'il n'y a pas de capteur de force dans le cockpit arrière
+manette de commande, l'application d'une force entraînera une compensation de tangage
+monter et descendre en fonction de la pression
+appliqué. Si le pilote tente de prendre les commandes à
+à ce stade, des transitoires violents peuvent être
+rencontrés.</p>
+</blockquote>
+<blockquote>
+<p>🔴 ATTENTION : Lors de la sélection du mode AFCS, avoir la main sur
+manche de commande pour contrecarrer tout contrôle brusque
+mouvements en cas de dysfonctionnement AFCS.</p>
+</blockquote>
+<blockquote>
+<p>💡 Le AFCS est désengagé lorsque le message d'urgence
+Le levier de dégagement rapide sur le manche de commande est
+déprimé. L'augmentation de la stabilité et l'ARI
+sont débrayés tant que le levier est maintenu
+enfoncé mais revient en fonctionnement lorsque le levier
+est libéré.</p>
+</blockquote>
+<h3 id="précautions-opérationnelles"><a class="header" href="#précautions-opérationnelles">Précautions opérationnelles</a></h3>
+<h4 id="inversion-du-rouleau"><a class="header" href="#inversion-du-rouleau">Inversion du rouleau</a></h4>
+<p>Il est possible qu'une condition appelée inversion du roulis se produise lorsque
+faire fonctionner le système de commandes de vol automatiques en mode AFCS. Cet état
+se produit rarement et n’est apparent que lors de tentatives de petits changements de banque
+angle. L'inversion du roulis est associée à une petite condition de hors-trimité dans le
+canal latéral, et se manifeste par un lent roulis de l'avion dans le
+direction opposée à la force du bâton. Si, par exemple, l'avion est hors de
+trim latéralement vers la gauche lorsque le mode AFCS est engagé, une inversion de roulis peut se
+produire
+lorsque les forces du joystick droit sont appliquées. Une situation d'inversion du rouleau peut être
+causée par
+actionner le bouton de trim latéral manuel en mode AFCS, suivi de
+de petites forces de bâton sont appliquées à l'opposé de la direction de la garniture. Il y a
+une possibilité d'inversion du roulis même si l'avion a été compensé
+avant d'engager le mode AFCS et que le bouton de trim manuel n'a pas été touché.
+Cette condition est causée par des changements de compensation de l'avion accompagnant un changement
+de vol.
+conditions. Compte tenu de ce qui précède, les instructions suivantes doivent être respectées :</p>
+<ol>
+<li>Trim de l'avion en mode d'augmentation de la stabilité avant d'engager le mode AFCS.</li>
+<li>N'utilisez pas le trim latéral manuel lorsque le mode AFCS est engagé. Si rouler
+une inversion se produit en raison d'un changement dans les conditions de vol ; débrayer le
+rouleau,
+recoupez, puis réengagez.</li>
+</ol>
+<h4 id="oscillations-de-hauteur"><a class="header" href="#oscillations-de-hauteur">Oscillations de hauteur</a></h4>
+<p>Lors de l'utilisation du mode de maintien d'altitude, l'avion peut subir des oscillations de tangage
+dans les régions transsoniques en raison des fluctuations de la vitesse de l'ordinateur de données
+aérodynamiques
+système. La nature de ces oscillations varie du pompage du bâton au pas divergent
+oscillations. Il est recommandé que si des oscillations de pas se produisent à des vitesses
+transsoniques,
+les mesures correctives suivantes doivent être tentées :</p>
+<ol>
+<li>Interrupteur AFCS – DÉSENGAGEMENT</li>
+<li>Pressostat du compensateur de pression statique – OFF</li>
+<li>Commutateur AFCS – ENGAGER</li>
+<li>Activer le mode de maintien d'altitude</li>
+</ol>
+<p>Si les oscillations persistent après l'action ci-dessus, ou si elles se produisent à des vitesses
+supersoniques :</p>
+<ol>
+<li>Désactivez le mode de maintien d’altitude.</li>
+</ol>
+<blockquote>
+<p>🔴 AVERTISSEMENT : des oscillations de hauteur divergentes ne doivent pas se développer.
+Si une activité de pitch divergente est constatée, des mesures correctives doivent être prises
+immédiatement.</p>
+</blockquote>
+<h2 id="système-de-volets-à-lattes"><a class="header" href="#système-de-volets-à-lattes">Système de volets à lattes</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/ext_slats_and_flaps.jpg" alt="ext_slats_and_flaps"><span class="img-wrapper"><img src="../../img/ext_slats_and_flaps.jpg" alt="ext_slats_and_flaps"></span></label></p>
+<p>Le système Slats Flap est sélectionné manuellement pour le décollage et l'atterrissage, puis
+automatiquement contrôlé par rapport à l'AoA pour de meilleures performances de manipulation dans
+tous les domaines
+d'autres régimes de vol. Le contrôle est terminé
+un <a href="../../cockpit/pilot/left_console/wall.html#slatsflaps-control-panel">interrupteur à trois positions</a>
+trouvé à l'extérieur de la poignée de la <a href="../../cockpit/pilot/left_console/front_section.html#throttles">manette des gaz</a>
+gauche dans le cockpit avant et entraînée par le système hydraulique de l'avion.
+Les <a href="../../cockpit/pilot/left_console/wall.html#slatsflaps-control-panel">trois positions du commutateur</a>
+sont Norm, Out, Out et Down, et la commande résultante peut être modérée selon que le
+le train d'atterrissage est en cours de déploiement.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/slatsrelative.jpg" alt="LattesRelative"><span class="img-wrapper"><img src="../../img/slatsrelative.jpg" alt="LattesRelative"></span></label></p>
+<p>La norme est la position standard en vol, verrouillant les volets et automatiquement
+programmation du déploiement de Slat en fonction de l'AoA.</p>
+<p>Out déploie les lattes dans leur position entièrement déployée. Le train d'atterrissage devrait-il
+être déployé, les lattes et les volets se déploieront.</p>
+<p>Out and Down déploie entièrement les lattes et les rabats. Le train d'atterrissage devrait-il
+ne soit pas sorti, le voyant Wheels s'allumera et clignotera sur le
+<a href="../../cockpit/pilot/right_sub_panel.html#telelight-annunciator-panel">panneau télélight</a>.</p>
+<p>Les deux cockpits ont
+un <a href="../../cockpit/pilot/left_sub_panel.html#slatsflaps-indicators">indicateur de rabat de lattes</a>,
+qui indique In et Out, avec un
+lecture de poteau de barbier lorsque les surfaces sont en transition.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/pilot_slats_flaps_indicator.jpg" alt="SltFlpInd"><span class="img-wrapper"><img src="../../img/pilot_slats_flaps_indicator.jpg" alt="SltFlpInd"></span></label></p>
+<p>En position Norm, le déploiement des lattes de manœuvre est une fonction de l'AoA ; au-dessus de
+11,5 unités, ils s'étendront, puis se rétracteront lorsque l'avion sera réduit en dessous
+10,5 unités. Le fonctionnement des lattes de manœuvre comprend un retour de flamme induit par la
+vitesse ; lattes
+se rétractera en raison d'une pression atmosphérique comprise entre 568 et 602 nœuds.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/pilot_slats_override_switch.jpg" alt="Remplacement des lattes"><span class="img-wrapper"><img src="../../img/pilot_slats_override_switch.jpg" alt="Remplacement des lattes"></span></label></p>
+<p>À l'arrière du panneau de commande de carburant dans le cockpit avant se trouve l'interrupteur de
+neutralisation des lamelles. Gardé,
+cet interrupteur a deux positions : NORM et IN. Par défaut sur NORM sous la garde, passage à IN
+force la rétraction des lattes, quel que soit l'AoA actuel de l'avion ou l'état du Slats Flap
+le <a href="../../cockpit/pilot/right_sub_panel.html#telelight-annunciator-panel">panneau télélight</a> et
+allumera le <a href="../../cockpit/pilot/right_main_panel.html#master-caution-light">Master Caution</a>.
+allumez le <a href="../../cockpit/pilot/right_main_panel.html#master-caution-light">Master Attention</a>.</p>
+<p>Le système Slats Flaps dispose également d'un système d'urgence ; les poignées se trouvent sur le
+<a href="../../cockpit/pilot/left_console/wall.html#slatsflaps-control-panel">Lattes Panneau de commande des
+volets</a> in
+le cockpit avant, et à côté du cockpit arrière
+<a href="../../cockpit/wso/left_console/center_section.html#throttles">manette des gaz</a> paire. Le système
+d'urgence
+utilise la pression pneumatique et ne
+nécessitent une alimentation électrique pour forcer le déploiement. Le système d'urgence ne peut
+fonctionne une fois et peut être actionné à n’importe quelle vitesse ; cependant, au-dessus de 230
+nœuds,
+les volets se rétracteront en fonction de la pression de l'air et de la rétraction normale des
+lamelles
+les vitesses s’appliquent également.</p>
+<h2 id="freins-rapides"><a class="header" href="#freins-rapides">Freins rapides</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/ext_f4_speed_brakes.jpg" alt="ext_speed_brakes_out"><span class="img-wrapper"><img src="../../img/ext_f4_speed_brakes.jpg" alt="ext_speed_brakes_out"></span></label></p>
+<p>Sous l'avion et à proximité des niches arrière <a href="../../stores/air_to_air/aim_7.html">AIM-7 Sparrow</a>
+sont les <a href="../..">vitesse
+freins</a>, installés sur les ailes. Les aérofreins sont entraînés par le moteur de l'avion.
+système hydraulique et actionné par
+un <a href="../../cockpit/pilot/left_console/front_section.html#throttles">interrupteur à trois positions</a>
+trouvé sur la manette des gaz intérieure dans les deux cockpits.
+L’un ou l’autre interrupteur actionnera les freins. Les postes
+sont Sortie, Arrêt et Entrée ; la position Out est momentanée et revient à Stop lorsqu'elle est
+relâchée.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/pilot_speed_brake.jpg" alt="pilot_speed_brake"><span class="img-wrapper"><img src="../../img/pilot_speed_brake.jpg" alt="pilot_speed_brake"></span></label></p>
+<p>L'actionnement des freins allume le voyant indicateur de freinage rapide situé sur le
+<a href="../../cockpit/pilot/right_sub_panel.html#telelight-annunciator-panel">Panneau télélumineux</a>. Frein
+le déploiement et l’éclairage de l’indicateur ne
+déclencher le <a href="../../cockpit/pilot/right_main_panel.html#master-caution-light">Master Caution</a>.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/pilot_speedbrake_out.jpg" alt="SpeedBrakeLight"><span class="img-wrapper"><img src="../../img/pilot_speedbrake_out.jpg" alt="SpeedBrakeLight"></span></label></p>
+<h2 id="système-dangle-dattaque"><a class="header" href="#système-dangle-dattaque">Système d'angle d'attaque</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/ext_aoa_f4.jpg" alt="ext_aoa_diagram"><span class="img-wrapper"><img src="../../img/ext_aoa_f4.jpg" alt="ext_aoa_diagram"></span></label></p>
+<p>Pour surveiller et contrôler avec précision les performances de vol des avions, l'angle de
+Le système d'attaque (AoA) fournit une confirmation visuelle et audio du courant
+paramètres. Le système comprend les indicateurs d'angle d'attaque trouvés dans
+les deux cockpits, les indexeurs d'angle d'attaque éclairés, ainsi que l'AoA
+Système de tonalité auditive.</p>
+<p>L'angle d'attaque est généralement mesuré en degrés (°). Il représente l'écart par rapport à
+alignement de la ligne de corde de l'avion avec l'air venant en sens inverse ou le vent relatif.</p>
+<h3 id="indicateurs"><a class="header" href="#indicateurs">Indicateurs</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/pilot_angle_of_attack_indicator.jpg" alt="AoAInd"><span class="img-wrapper"><img src="../../img/pilot_angle_of_attack_indicator.jpg" alt="AoAInd"></span></label></p>
+<p>Les cadrans de l'indicateur d'angle d'attaque enregistrent les valeurs AoA de 0 à 30 unités, avec
+indications pour la croisière à l'altitude optimale relative au poids (7,9 unités), l'approche
+(19,2 unités) et un stand (30 unités).</p>
+<blockquote>
+<p>💡 Les indexeurs AoA ne sont allumés que lorsque le train droit est sorti.</p>
+</blockquote>
+<p>Les unités AoA ne se traduisent pas directement en degrés, une unité d'AoA est
+la même chose qu'environ 0,95 degrés et l'AoA mesurée est également décalée
+d'environ 4 degrés. De cette façon, l'indicateur affiche une image plus naturelle et plus utile.
+valeur pour l'équipage.</p>
+<blockquote>
+<p>💡 L'extension du train d'atterrissage, et donc de la porte du train avant, modifie le flux d'air
+autour de la sonde, ce qui la fait indiquer des angles plus élevés de 1 unité. Les vitesses
+d'approche en tiennent compte. Par conséquent, effectuer
+une approche avec le train rentré fera apparaître les indicateurs
+environ 1 unité en dessous, et l'avion aura une vitesse d'environ 5 nœuds pendant une
+approche en vitesse.</p>
+</blockquote>
+<h3 id="indexeurs"><a class="header" href="#indexeurs">Indexeurs</a></h3>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/pilot_overhead_aoa_indexer.jpg" alt="AoA"><span class="img-wrapper"><img src="../../img/pilot_overhead_aoa_indexer.jpg" alt="AoA"></span></label></p>
+<p>Les indexeurs AoA, trouvés sur le cadre du pare-brise du cockpit avant, et au-dessus
+le tableau de bord à l'arrière, affiche un code couleur et une symbologie directionnelle
+pour la valeur d'approche en vitesse de 19,2 unités une fois les trains d'atterrissage
+abaissé.</p>
+<h2 id="système-de-tonalité-auditive"><a class="header" href="#système-de-tonalité-auditive">Système de tonalité auditive</a></h2>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/aoa_aural_tone_chart_slats_in_or_gear_down.jpg" alt="manual_aural_tone_chart_slats_in"><span class="img-wrapper"><img src="../../img/aoa_aural_tone_chart_slats_in_or_gear_down.jpg" alt="manual_aural_tone_chart_slats_in"></span></label>
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="../../img/aoa_aural_tone_chart_slats_out_and_landing_gear_up.jpg" alt="manual_aural_tone_chart_slats_out"><span class="img-wrapper"><img src="../../img/aoa_aural_tone_chart_slats_out_and_landing_gear_up.jpg" alt="manual_aural_tone_chart_slats_out"></span></label></p>
+<p>Le système de tonalité sonore fournit un retour audible en vol de manœuvre et pendant
+configuration d'atterrissage. Commençant au-dessus de 15 unités AoA avec vitesse sortie, et 21
+unités
+AoA avec l'équipement relevé et les lattes en place, une impulsion sera entendue par les deux
+membres de l'équipage.</p>
+<p>La fréquence du pouls peut varier de 1,5 à 20 impulsions par seconde, avec une augmentation
+fréquence basée sur des valeurs AoA plus élevées.</p>
+<p>Le volume de cette tonalité peut être réduit en dessous de 20,3 unités AoA en vitesse réduite/25
+unités en vitesse
+avec des commandes dans chaque cockpit ; le dépassement de ces valeurs entraînera le système
+pour outrepasser les limites de volume et délivrer les impulsions d'avertissement au minimum
+volume pour garantir qu’ils sont audibles quel que soit le réglage du volume.</p>
+<blockquote>
+<p>💡 Les boutons respectifs sont étiquetés STALL WARNING et se trouvent sur la droite
+côté dans chaque cockpit. Ils ne doivent pas être confondus avec l'AURAL TONE CONTROL
+boutons, qui contrôlent les tonalités liées aux armes.</p>
+</blockquote>
+<p>En raison de la visibilité vers l'avant limitée, les tonalités sont d'une aide cruciale lors de
+l'atterrissage.
+Si une tonalité grave émise par impulsion se fait entendre, l'avion est trop rapide.
+Si une tonalité aiguë émise par impulsion se fait entendre, l'avion est trop lent.
+Pour une configuration correcte de la vitesse, une tonalité constante à hauteur moyenne est émise.</p>
+<h2 id="vibreur-davertissement-de-décrochage"><a class="header" href="#vibreur-davertissement-de-décrochage">Vibreur d'avertissement de décrochage</a></h2>
+<p>La pédale avant gauche du cockpit comprend un vibrateur d'avertissement de décrochage, qui est
+activé sur 22,3 unités d'angle d'attaque. Ce physique (et en DCS audible)
+une indication est donnée pour sensibiliser le pilote à la possibilité d'un incident imminent.
+décrochage et prévoir suffisamment de temps pour réduire l'AoA et éviter la perte de contrôle de
+l'avion. Réduire l’AoA en dessous du seuil désactivera l’avertissement.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                            <a rel="prev" href="../../systems/flight_controls_gear/primary_flight_instruments.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                                <span class="nav-chapters-text">Prev</span>
+                            </a>
+
+                            <a rel="next prefetch" href="../../systems/flight_controls_gear/gear_ground_handling.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class="nav-chapters-text">Next</span>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../systems/flight_controls_gear/primary_flight_instruments.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                        <span class="nav-chapters-text">Prev</span>
+                    </a>
+                    <a rel="prev" href="../../systems/flight_controls_gear/primary_flight_instruments.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../../systems/flight_controls_gear/gear_ground_handling.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class="nav-chapters-text">Next</span>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+                    <a rel="next prefetch" href="../../systems/flight_controls_gear/gear_ground_handling.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../js/jquery-3.7.1.min.js"></script>
+        <script src="../../js/extra.js"></script>
+        <script src="../../js/i18n/switcher.js"></script>
+
+
+
+    </div>
+    </body>
+</html>
